@@ -84,9 +84,9 @@
   # XDG portal
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    hardware = {
-      opengl.enable = true;
-      nvidia.modesetting.enable = true;
+  hardware = {
+    opengl.enable = true;
+    nvidia.modesetting.enable = true;
   };
 
   # Configure keymap in X11
@@ -145,10 +145,9 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    pkgs.waybar
-        (pkgs.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-        }))
+    (pkgs.waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    }))
     pkgs.dunst
     libnotify
     swww
@@ -168,6 +167,7 @@
     floorp
     git
     keepassxc
+    pavucontrol
     home-manager
   ];
   services.udev.packages = with pkgs; [
