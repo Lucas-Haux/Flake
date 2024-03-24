@@ -145,10 +145,11 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    (pkgs.waybar.overrideAttrs (oldAttrs: {
+    waybar
+    (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     }))
-    pkgs.dunst
+    dunst
     libnotify
     swww
     kitty
@@ -177,7 +178,6 @@
   nixpkgs.config.permittedInsecurePackages = [
     "python-2.7.18.7"
     ];
-
   services = {
 
     syncthing = {
