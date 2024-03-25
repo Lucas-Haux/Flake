@@ -171,6 +171,7 @@
     pavucontrol
     home-manager
     gparted
+    gimp
   ];
   services.udev.packages = with pkgs; [
     via
