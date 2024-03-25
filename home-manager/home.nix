@@ -1,7 +1,6 @@
 {
   inputs,
   outputs,
-  lib,
   config,
   pkgs,
   ...
@@ -18,7 +17,6 @@
     # ./nvim.nix
 #    ./firefox.nix
 #   ./hypr.nix
-    ./hyprland/default.nix
   ];
 
   nixpkgs = {
