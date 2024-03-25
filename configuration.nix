@@ -170,6 +170,7 @@
     keepassxc
     pavucontrol
     home-manager
+    gparted
   ];
   services.udev.packages = with pkgs; [
     via
