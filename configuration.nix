@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -172,6 +171,8 @@
     home-manager
     gparted
     gimp
+    cargo
+    libreoffice
   ];
   services.udev.packages = with pkgs; [
     via
