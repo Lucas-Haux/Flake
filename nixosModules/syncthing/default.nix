@@ -32,13 +32,11 @@ with lib; {
              id = "ccal1-e2j6y";
              devices = [ "Home_Server" "Pixel_8" ]; 
              path = "/home/luke";
-             label = "Obsidian";
           };
           "Keepass" = {
              id = "whsrv-jg3cb";
              devices = [ "Home_Server" "Pixel_8" ];
              path = "/home/luke";
-             label = "Keepass";
           };
         };
       };

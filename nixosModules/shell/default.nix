@@ -7,6 +7,7 @@
 with lib; {
   environment.systemPackages = with pkgs; [
     vim
+    neovim
     zsh
     oh-my-zsh
   ];

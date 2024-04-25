@@ -4,7 +4,10 @@
   lib,
   ...
 }:
-with lib; {
+let
+  # Your existing definitions
+  # obsidian = pkgs.callPackage ./../../packages/obsidian.nix {};
+in {
   environment.systemPackages = with pkgs; [
     wget
     dolphin
@@ -18,6 +21,7 @@ with lib; {
     libreoffice
     kitty
     alacritty
+    obsidian
   ];
   services.udev.packages = with pkgs; [
     via
