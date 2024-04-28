@@ -17,22 +17,25 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
   
-  outputs = { nixpkgs, home-manager, ...}@inputs:
-  let
-       system = "x86_64-linux";
-  in {
-    nixosConfigurations = (
-      import ./hosts/desktop {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager;   # Inherit inputs
-      }
-    );
+  outputs = { self, nixpkgs, home-manager, ... }: {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
-    homeConfigurations = (
-      import ./homeManagerModules/home.nix {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager;
-        }
-    );
+    nixosConfigurations = {
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          ./hosts/desktop/default.nix
+        ];
+      };
+    };
+    homeConfigurations = {
+      "luke@dekstop" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        modules = [
+          ./homeManagerModules/home.nix
+        ];
+      };
+    };
  };
 }
