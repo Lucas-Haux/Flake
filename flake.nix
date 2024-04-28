@@ -1,14 +1,9 @@
 {
-  # ================================================================ #
-  # =                           WELCOME!                           = #
-  # ================================================================ #
-
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -21,23 +16,23 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
   };
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+  
+  outputs = { nixpkgs, home-manager, ...}@inputs:
+  let
+       system = "x86_64-linux";
+  in {
+    nixosConfigurations = (
+      import ./hosts/desktop {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs home-manager;   # Inherit inputs
+      }
+    );
 
-      # Set all inputs parameters as special arguments for all submodules,
-      # so you can directly use all dependencies in inputs in submodules
-      modules = [
-        ./hosts/desktop/configuration.nix
-	./nixosModules
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-
-          home-manager.users.luke = import ./homeManagerModules/home.nix;
+    homeConfigurations = (
+      import ./homeManagerModules/home.nix {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs home-manager;
         }
-      ];
-    };
-  };
+    );
+ };
 }
