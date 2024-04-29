@@ -75,6 +75,14 @@
   };
 
   # home manager
+  home-manager.users.luke = { pkgs, ... }: {
+    home.packages = [ pkgs.atool pkgs.httpie ];
+    programs.bash.enable = true;
+
+    # The state version is required and should stay at the version you
+    # originally installed.
+    home.stateVersion = "23.11";
+  };
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;

@@ -7,6 +7,7 @@
   ...
 }: {
   imports = [
+    ./hypr
   ];
 
   nixpkgs = {
