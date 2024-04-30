@@ -25,15 +25,15 @@
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager
-          ./hosts/desktop/default.nix
+          ./nixosConfig/desktop
         ];
       };
     };
     homeConfigurations = {
-      "luke@dekstop" = home-manager.lib.homeManagerConfiguration {
+      "luke@desktop" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         modules = [
-          ./homeManagerModules/home.nix
+          ./homeManager/desktop
         ];
       };
     };

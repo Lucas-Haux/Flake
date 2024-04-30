@@ -7,7 +7,7 @@
   ...
 }: {
   imports = [
-    ./hypr
+    ./../modules/hypr
   ];
 
   nixpkgs = {

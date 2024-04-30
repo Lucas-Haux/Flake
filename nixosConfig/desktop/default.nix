@@ -3,10 +3,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./../../nixosModules/syncthing
-      ./../../nixosModules/hyprland
-      ./../../nixosModules/shell
-      ./../../nixosModules/desktopPrograms
+      ./../modules/syncthing
+      ./../modules/hyprland
+      ./../modules/shell
+      ./../modules/desktopPrograms
     ];
 
   # Bootloader.
