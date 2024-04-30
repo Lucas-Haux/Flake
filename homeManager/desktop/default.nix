@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./../modules/hypr
+    ./../modules/waybar
   ];
 
   nixpkgs = {

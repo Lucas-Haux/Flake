@@ -1,8 +1,112 @@
-{ pkgs, ... }:
-{
-
+{config, ...}:{
   wayland.windowManager.hyprland.enable = true;
-  wayland.windowManager.hyprland.extraConfig =
+  wayland.windowManager.hyprland.settings = {
+    "$mod" = "SUPER";
+    env = [
+      "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+    ];
+
+    exec-once = [
+      # set cursor for HL itself
+      "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
+      "systemctl --user start clight"
+      "hyprlock"
+    ];
+
+    general = {
+      gaps_in = 5;
+      gaps_out = 5;
+      border_size = 1;
+      "col.active_border" = "rgba(88888888)";
+      "col.inactive_border" = "rgba(00000088)";
+
+      allow_tearing = true;
+      resize_on_border = true;
+    };
+
+    decoration = {
+      rounding = 16;
+      blur = {
+        enabled = true;
+        brightness = 1.0;
+        contrast = 1.0;
+        noise = 0.02;
+
+        passes = 3;
+        size = 10;
+      };
+
+      drop_shadow = true;
+      shadow_ignore_window = true;
+      shadow_offset = "0 2";
+      shadow_range = 20;
+      shadow_render_power = 3;
+      "col.shadow" = "rgba(00000055)";
+    };
+
+    animations = {
+      enabled = true;
+      animation = [
+        "border, 1, 2, default"
+        "fade, 1, 4, default"
+        "windows, 1, 3, default, popin 80%"
+        "workspaces, 1, 2, default, slide"
+      ];
+    };
+
+    group = {
+      groupbar = {
+        font_size = 16;
+        gradients = false;
+      };
+
+      "col.border_active" = "rgba(${c.color_accent_primary}88);";
+      "col.border_inactive" = "rgba(${c.color_accent_primary_variant}88)";
+    };
+
+    input = {
+      kb_layout = "us";
+
+      # focus change on cursor move
+      follow_mouse = 1;
+      accel_profile = "flat";
+      touchpad.scroll_factor = 0.1;
+    };
+
+    dwindle = {
+      # keep floating dimentions while tiling
+      pseudotile = true;
+      preserve_split = true;
+    };
+
+    misc = {
+      # disable auto polling for config file changes
+      disable_autoreload = true;
+
+      force_default_wallpaper = 0;
+
+      # disable dragging animation
+      animate_mouse_windowdragging = false;
+
+      # enable variable refresh rate (effective depending on hardware)
+      vrr = 1;
+
+      # we do, in fact, want direct scanout
+      no_direct_scanout = false;
+    };
+
+    # touchpad gestures
+    gestures = {
+      workspace_swipe = true;
+      workspace_swipe_forever = true;
+    };
+
+    xwayland.force_zero_scaling = true;
+
+    debug.disable_logs = false;
+  };
+
+wayland.windowManager.hyprland.extraConfig =
   ''
 monitor=HDMI-A-1, 1920x1080@60, 0x0, 1, transform,1
 monitor=DP-1, 1920x1080@60, 1080x490, 1
@@ -113,9 +217,6 @@ misc {
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 
 
-# See https://wiki.hyprland.org/Configuring/Keywords/ for more
-$mainMod = SUPER
-
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 bind = $mainMod, Q, exec, kitty
 bind = $mainMod, C, killactive, 
@@ -170,9 +271,4 @@ bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 '';
 
-  wayland.windowManager.hyprland.settings = {
-    exec = [
-      "waybar"
-    ];
-  };
 }
