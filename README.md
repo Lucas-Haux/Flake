@@ -1,1 +1,2 @@
 # nixos-config
+test
