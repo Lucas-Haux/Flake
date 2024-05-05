@@ -32,6 +32,17 @@
         ];
       };
     };
+
+    nixosConfigurations = {
+      server = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          ./nixosConfig/server
+        ];
+      };
+    };
+
     homeConfigurations = {
       "luke@desktop" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
