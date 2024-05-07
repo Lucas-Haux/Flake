@@ -22,7 +22,7 @@
     nixarr.url = "github:rasmus-kirk/nixarr";
   };
   
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, nixarr, ... }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
     nixosConfigurations = {
@@ -39,9 +39,10 @@
       server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          home-manager.nixosModules.home-manager
           ./nixosConfig/server
+	  nixarr.nixosModules.default
         ];
+	specialArgs = { inherit inputs; };
       };
     };
 
