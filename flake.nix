@@ -18,6 +18,8 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixarr.url = "github:rasmus-kirk/nixarr";
   };
   
   outputs = { self, nixpkgs, home-manager, ... }: {
