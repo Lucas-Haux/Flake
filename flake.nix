@@ -42,7 +42,6 @@
           ./nixosConfig/server
 	  nixarr.nixosModules.default
         ];
-	specialArgs = { inherit inputs; };
       };
     };
 
