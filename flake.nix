@@ -20,9 +20,11 @@
     };
 
     nixarr.url = "github:rasmus-kirk/nixarr";
+
+    nixneovim.url = "github:nix-community/nixvim";
   };
   
-  outputs = { self, nixpkgs, home-manager, nixarr, ... }: {
+  outputs = { self, nixpkgs, home-manager, nixarr, nixneovim, ... }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
     nixosConfigurations = {
@@ -49,6 +51,7 @@
       "luke@desktop" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         modules = [
+	  nixneovim.homeManagerModules.nixvim
           ./homeManager/desktop
         ];
       };
