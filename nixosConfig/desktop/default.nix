@@ -7,6 +7,7 @@
       ./../modules/hyprland
       ./../modules/shell
       ./../modules/desktopPrograms
+      ./../modules/rust
     ];
 
   # Bootloader.

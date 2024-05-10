@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 { 
-  envriomental.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     rustc
     gcc
     rustup
