@@ -23,6 +23,7 @@ in {
     alacritty
     obsidian
     qbittorrent-qt5
+    wgnord
   ];
   services.udev.packages = with pkgs; [
     via
