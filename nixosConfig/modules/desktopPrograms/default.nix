@@ -22,6 +22,7 @@ in {
     kitty
     alacritty
     obsidian
+    qbittorrent-qt5
   ];
   services.udev.packages = with pkgs; [
     via
