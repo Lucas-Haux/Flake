@@ -5,6 +5,10 @@
     fsType = "ext4";
   };
 
+ environment.systemPackages = [
+    pkgs.jellyfin-ffmpeg
+  ];
+
   nixarr = {
     enable = true;
     jellyfin = {

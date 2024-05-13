@@ -3,11 +3,12 @@
   environment.systemPackages = with pkgs; [
     cloudflared
   ];
-  services.cloudflared = {
-    enable = true;
-    tunnels."97ce86af-b183-46ae-9825-89946d43b9d1" = {
-      credentialsFile = "./cert.pem";
-      default = "http_status:404";
-    };
+  systemd.user.services.cloudflaredtunnel = {
+    description = "...";
+    serviceConfig.PassEnvironment = "DISPLAY";
+    script = ''
+      ${pkgs.cloudflared}/bin/cloudflared tunnel run first 
+    '';
+    wantedBy = [ "basic.target" ]; # starts after login
   };
 }
