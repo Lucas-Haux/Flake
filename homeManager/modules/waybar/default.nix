@@ -34,7 +34,7 @@
   * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font";    
+    font-family: "FiraCode";    
     margin: 1px;
     padding: 0;
     color: #66ACED;

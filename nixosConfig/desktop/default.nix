@@ -13,6 +13,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  security.polkit.enable = true;
   
   # Experimental 
   nixpkgs.config.experimental.features = true;
