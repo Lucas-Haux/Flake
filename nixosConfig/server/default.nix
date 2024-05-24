@@ -9,8 +9,10 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../modules/mediaServer
+      ../modules/serverNetwork
+      ../modules/tools
     ];
-
+  nixpkgs.config.allowUnfree = true;
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
