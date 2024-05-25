@@ -10,8 +10,9 @@
     ./../modules/hypr
     ./../modules/waybar
     # ./../modules/nixvim
+    inputs.nix-colors.homeManagerModules.default
   ];
-
+  colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-storm;
   nixpkgs = {
     config = {
       allowUnfree = true;
