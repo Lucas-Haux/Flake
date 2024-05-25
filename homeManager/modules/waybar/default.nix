@@ -13,7 +13,7 @@
     height = 30;
    
     modules-left = [
-        "hyprland/workspaces" 
+	"hyprland/workspaces"
         "custom/media" 
         "hyprland/window" 
     ];
@@ -25,16 +25,49 @@
       "memory"
       "cpu" 
       "pulseaudio" 
-      "pulseaudio#microphone" 
-      "network" 
     ];
+    cpu = {
+        format = "{usage}%  ";
+        tooltip = false;
+   };
+   clock= {
+    format = "{:%H:%M}  " ;
+    format-alt = "{:%A, %B %d, %Y (%R)}  " ;
+    tooltip-format = "<tt><small>{calendar}</small></tt>";
+    calendar = {
+        mode = "year";
+        mode-mon-col = 3;
+        weeks-pos = "right";
+        on-scroll = 1;
+        format = {
+            months = "<span color='#ffead3'><b>{}</b></span>";
+            days = "<span color='#ecc6d9'><b>{}</b></span>";
+            weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+            weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+            today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+        };
+    };
+    actions =  {
+        on-click-right = "mode";
+        on-click-forward = "tz_up";
+        on-click-backward = "tz_down";
+	on-scroll-up = "shift_up";
+        on-scroll-down = "shift_down";
+    };
+  };
+  memory = {
+    format = "{}%  ";
+  };
+  pulseaudio = {
+    format = "{volume}% ";
+    on-click = "pavucontrol";
+  };
   };
   };
   programs.waybar.style = ''
   * {
     border: none;
     border-radius: 0;
-    font-family: "FiraCode";    
     margin: 1px;
     padding: 0;
     color: #66ACED;

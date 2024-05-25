@@ -9,7 +9,7 @@
   imports = [
     ./../modules/hypr
     ./../modules/waybar
-    ./../modules/nixvim
+    # ./../modules/nixvim
   ];
 
   nixpkgs = {
