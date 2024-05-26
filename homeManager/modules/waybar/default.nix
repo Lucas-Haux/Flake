@@ -31,8 +31,8 @@
         tooltip = false;
    };
    clock= {
-    format = "{:%H:%M}  " ;
-    format-alt = "{:%A, %B %d, %Y (%R)}  " ;
+    format = "{:%H:%M} " ;
+    format-alt = "{:%A, %B %d, %I:%M %p} " ;
     tooltip-format = "<tt><small>{calendar}</small></tt>";
     calendar = {
         mode = "year";
