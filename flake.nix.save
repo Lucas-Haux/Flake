@@ -24,7 +24,8 @@
     nixvim.url = "github:nix-community/nixvim";
   };
 
-  outputs = inputs @ {
+  outputs = inpu@{
+    self,
     nixpkgs,
     home-manager,
     nixarr,
@@ -36,10 +37,10 @@
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = inputs;
         modules = [
+          nixvim.nixosModules.nixvim
+          ./nixvim.nix
           home-manager.nixosModules.home-manager
-	  nixvim.nixosModules.nixvim
           ./nixosConfig/desktop
         ];
       };
@@ -48,7 +49,6 @@
     nixosConfigurations = {
       server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = inputs;
         modules = [
           ./nixosConfig/server
           nixarr.nixosModules.default
@@ -61,7 +61,10 @@
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {inherit inputs;};
         modules = [
+          nixvim.nixosModules.nixvim
+          ./nixvim.nix
           ./homeManager/desktop
+          nixvim.homeManagerModules.nixvim
         ];
       };
     };

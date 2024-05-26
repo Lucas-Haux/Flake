@@ -9,7 +9,6 @@
   imports = [
     ./../modules/hypr
     ./../modules/waybar
-    # ./../modules/nixvim
     inputs.nix-colors.homeManagerModules.default
   ];
   colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-storm;
@@ -24,8 +23,7 @@
     homeDirectory = "/home/luke";
   };
 
-  programs.neovim.enable = true;
-  home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [steam];
 
   programs.home-manager.enable = true;
   programs.git.enable = true;

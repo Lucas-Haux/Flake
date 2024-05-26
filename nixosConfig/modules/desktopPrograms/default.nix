@@ -1,10 +1,9 @@
 {
   config,
-  pkgs, 
+  pkgs,
   lib,
   ...
-}:
-let
+}: let
   # Your existing definitions
   # obsidian = pkgs.callPackage ./../../packages/obsidian.nix {};
 in {
@@ -27,5 +26,5 @@ in {
   ];
   services.udev.packages = with pkgs; [
     via
-  ]; 
+  ];
 }
