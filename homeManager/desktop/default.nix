@@ -9,6 +9,7 @@
   imports = [
     ./../modules/hypr
     ./../modules/waybar
+    ./../modules/wezterm
     inputs.nix-colors.homeManagerModules.default
   ];
   colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-storm;

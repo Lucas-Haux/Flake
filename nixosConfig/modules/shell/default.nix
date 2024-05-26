@@ -17,7 +17,7 @@ with lib; {
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
 
-    oh-my-zsh = {
+    ohMyZsh = {
       enable = true;
       plugins = [ "git" "thefuck" ];
       theme = "agnoster";
