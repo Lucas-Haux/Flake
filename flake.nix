@@ -65,5 +65,6 @@
         ];
       };
     };
+    overlays = import ./overlays {inherit inputs;};
   };
 }
