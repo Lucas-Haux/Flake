@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, config, ...}:
 { 
     programs.starship = {
     enable = true;
@@ -10,12 +10,12 @@
 
     hostname = {
       ssh_only = true;
-      format = "[](fg:#252525 bg:none)[█](fg:#E8E3E3 bg:#252525)[$ssh_symbol$hostname](bold bg:#E8E3E3)[](fg:#E8E3E3 bg:none) ";
+      format = "[](fg:#${config.colorScheme.colors.base05} bg:none)[█](fg:#E8E3E3 bg:#none)[$ssh_symbol$hostname](bold bg:#E8E3E3)[](fg:#E8E3E3 bg:none) ";
       disabled = false;
     };
     git_branch = {
-      format = "[](fg:#252526 bg:none)[$branch]($style)[](fg:#252525 bg:#252525)[](fg:#81C19B bg:#252525)[](fg:#252525 bg:#81C19B)[](fg:#81C19B bg:none) ";
-      style = "fg:#E8E3E3 bg:#252525";
+      format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$branch]($style)[](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0B} bg:#${config.colorScheme.colors.base03})[ ](fg:#252525 bg:#${config.colorScheme.colors.base0B})[](fg:#${config.colorScheme.colors.base0B} bg:none) ";
+      style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03}";
       symbol = " ";
     };
     git_commit = {
@@ -34,8 +34,8 @@ style =	"yellow";
 format = "\([$state( $progress_current/$progress_total)]($style)\) ";
     };
     git_status = {
-      format="[](fg:#252525 bg:none)[$all_status$ahead_behind]($style)[](fg:#252525 bg:#252525)[](fg:#6791C9 bg:#252525)[ ](fg:#252525 bg:#6791C9)[](fg:#6791C9 bg:none) ";
-      style = "fg:#E8E3E3 bg:#252525";
+      format="[](fg:#${config.colorScheme.colors.base03} bg:none)[$all_status$ahead_behind]($style)[](fg:#${config.colorScheme.colors.base03} bg:${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:none)[ ](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none) ";
+      style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03}";
       conflicted = "=";
       ahead =	"⇡\${count}";
       behind = "⇣\${count}";
@@ -49,8 +49,8 @@ staged = "+\${count}";
       deleted = " \${count}";
     };
     directory = {
-      format = "[](fg:#252525 bg:none)[$path]($style)[█](fg:#232526 bg:#232526)[](fg:#6791C9 bg:#252525)[ ](fg:#252525 bg:#6791C9)[](fg:#6791C9 bg:none)";
-      style = "fg:#E8E3E3 bg:#252525 bold";
+      format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$path]($style)[█](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:#${config.colorScheme.colors.base03})[ ](fg:#252525 bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none)";
+      style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03} bold";
       truncation_length = 3;
       truncate_to_repo=false;
       read_only = " ";
@@ -67,7 +67,7 @@ staged = "+\${count}";
       style = "bold green";
     };
     character = {
-      success_symbol = "[ ](#6791C9 bold)";
+      success_symbol = "[ ](#${config.colorScheme.colors.base0C} bold)";
       error_symbol = "[ ](#B66467 bold)";
     };
           };

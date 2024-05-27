@@ -14,7 +14,7 @@
     ./../modules/zsh
     inputs.nix-colors.homeManagerModules.default
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-storm;
+  colorScheme = inputs.nix-colors.colorSchemes.nord;
   nixpkgs = {
     config = {
       allowUnfree = true;
