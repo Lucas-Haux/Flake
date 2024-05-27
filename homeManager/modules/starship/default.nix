@@ -34,7 +34,7 @@ style =	"yellow";
 format = "\([$state( $progress_current/$progress_total)]($style)\) ";
     };
     git_status = {
-      format="[](fg:#${config.colorScheme.colors.base03} bg:none)[$all_status$ahead_behind]($style)[](fg:#${config.colorScheme.colors.base03} bg:${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:none)[ ](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none) ";
+      format="[](fg:#${config.colorScheme.colors.base03} bg:none)[$all_status$ahead_behind]($style)[](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:#${config.colorScheme.colors.base03})[ ](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none) ";
       style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03}";
       conflicted = "=";
       ahead =	"⇡\${count}";
