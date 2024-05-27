@@ -10,7 +10,6 @@
     ./hardware-configuration.nix
     ./../modules/syncthing
     ./../modules/hyprland
-    ./../modules/shell
     ./../modules/desktopPrograms
     ./../modules/rust
     ./../modules/nixvim
@@ -81,11 +80,12 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
   users.users.luke = {
     isNormalUser = true;
     description = "luke";
     extraGroups = ["networkmanager" "wheel"];
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
   };
 
   # Enable automatic login for the user.

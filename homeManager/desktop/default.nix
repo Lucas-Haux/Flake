@@ -10,6 +10,8 @@
     ./../modules/hypr
     ./../modules/waybar
     ./../modules/wezterm
+    ./../modules/starship
+    ./../modules/zsh
     inputs.nix-colors.homeManagerModules.default
   ];
   colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-storm;
