@@ -12,11 +12,10 @@ with lib; {
   environment.systemPackages = with pkgs; [
     waybar
     (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     }))
     dunst
     libnotify
-    swww
     rofi-wayland
     wofi
     wl-clipboard

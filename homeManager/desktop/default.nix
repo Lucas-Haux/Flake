@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./../modules/hypr
+    ./../modules/hyprpaper
     ./../modules/waybar
     ./../modules/wezterm
     ./../modules/starship

@@ -9,6 +9,7 @@
 in {
   environment.systemPackages = with pkgs; [
     vscode
+    imagemagick_light
     wget
     dolphin
     via
