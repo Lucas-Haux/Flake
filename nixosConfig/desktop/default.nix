@@ -12,7 +12,7 @@
     ./../modules/hyprland
     ./../modules/desktopPrograms
     ./../modules/rust
-    ./../modules/nixvim
+    # ./../modules/nixvim
   ];
 
   # Bootloader.
@@ -30,9 +30,9 @@
       lib.optionalString (config.nix.package == pkgs.nixFlakes)
       "experimental-features = nix-command flakes";
   };
-  nixpkgs.overlays = [
-    nixvim.overlays.default
-  ];
+  # nixpkgs.overlays = [
+  #  nixvim.overlays.default
+  #];
 
   # Networking
   networking.hostName = "nixos"; # Define your hostname.
