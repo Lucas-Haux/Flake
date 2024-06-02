@@ -9,6 +9,8 @@
 in {
   environment.systemPackages = with pkgs; [
     vscode
+    jellyfin-media-player
+    zed-editor
     imagemagick_light
     wget
     dolphin
