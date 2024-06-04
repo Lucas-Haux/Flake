@@ -9,6 +9,7 @@
 in {
   environment.systemPackages = with pkgs; [
     vscode
+    neovim
     jellyfin-media-player
     zed-editor
     imagemagick_light

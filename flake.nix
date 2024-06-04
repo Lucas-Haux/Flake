@@ -20,16 +20,12 @@
     };
 
     nixarr.url = "github:rasmus-kirk/nixarr";
-
-    nixvim.url = "github:elythh/nixvim";
-    # nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     nixarr,
-    # nixvim,
     ...
   }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
@@ -40,7 +36,6 @@
         specialArgs = inputs;
         modules = [
           home-manager.nixosModules.home-manager
-          # nixvim.nixosModules.nixvim
           ./nixosConfig/desktop
         ];
       };
