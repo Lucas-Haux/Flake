@@ -94,5 +94,4 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  system.stateVersion = "23.11"; # Did you read the comment?
 }
