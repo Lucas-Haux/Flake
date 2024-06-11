@@ -13,6 +13,7 @@
     ./../modules/wezterm
     ./../modules/starship
     ./../modules/zsh
+    ./../modules/nvim
     inputs.nix-colors.homeManagerModules.default
   ];
   colorScheme = inputs.nix-colors.colorSchemes.nord;
