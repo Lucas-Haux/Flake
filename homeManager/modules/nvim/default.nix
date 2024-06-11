@@ -1,7 +1,7 @@
 { pkgs, config, ... }: 
 {
 home.file.".config/nvim" = {
-  source = ./starter;
+  source = ./lua;
   recursive = true;
   force = true;
 };
