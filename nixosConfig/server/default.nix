@@ -12,6 +12,7 @@
       ../modules/serverNetwork
       ../modules/tools
       ../modules/jellyfin
+      ../modules/homepage
     ];
   nixpkgs.config.allowUnfree = true;
   # Bootloader.
