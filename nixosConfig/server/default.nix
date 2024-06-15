@@ -8,9 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../modules/mediaServer
+      # ../modules/mediaServer
       ../modules/serverNetwork
       ../modules/tools
+      ../modules/jellyfin
     ];
   nixpkgs.config.allowUnfree = true;
   # Bootloader.
