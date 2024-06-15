@@ -1,5 +1,9 @@
-{ pkgs, ...}:
+{ pkgs, lib, ...}:
 {
+  fileSystems."/data/media" = {
+    device = "/dev/media/lvol0";
+    fsType = "ext4";
+  };
   environment.systemPackages = [
     pkgs.jellyfin
     pkgs.jellyfin-web

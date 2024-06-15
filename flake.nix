@@ -47,7 +47,6 @@
         specialArgs = inputs;
         modules = [
           ./nixosConfig/server
-          nixarr.nixosModules.default
         ];
       };
     };
