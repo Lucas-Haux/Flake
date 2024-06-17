@@ -24,8 +24,6 @@
     homeDirectory = "/home/luke";
   };
 
-  home.packages = with pkgs; [steam];
-
   programs.home-manager.enable = true;
   programs.git.enable = true;
 

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -12,9 +12,18 @@
       ../modules/serverNetwork
       ../modules/tools
       ../modules/jellyfin
-      ../modules/homepage
+      # ../modules/homepage
     ];
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.experimental.features = true;
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nixpkgs.config.allowUnfree = true; # unfree packages
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions =
+      lib.optionalString (config.nix.package == pkgs.nixFlakes)
+      "experimental-features = nix-command flakes";
+  };
+
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
@@ -60,6 +69,8 @@
     description = "luke";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
   };
 
   # Enable automatic login for the user.
@@ -68,6 +79,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    home-manager
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      git
   ];
@@ -97,6 +109,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }
