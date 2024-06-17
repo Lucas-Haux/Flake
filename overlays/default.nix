@@ -1,23 +1,15 @@
 # This file defines overlays
 {inputs, ...}: {
-  # This one brings our custom packages from the 'pkgs' directory
-  additions = final: _prev: import ../pkgs final.pkgs;
-
-  # This one contains whatever you want to overlay
-  # You can change versions, add patches, set compilation flags, anything really.
-  # https://nixos.wiki/wiki/Overlays
-  modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: rec {
-    # ...
-    # });
-  };
-
-  # When applied, the unstable nixpkgs set (declared in the flake inputs) will
-  # be accessible through 'pkgs.unstable'
-  unstable-packages = final: _prev: {
-    unstable = import inputs.nixpkgs-unstable {
-      system = final.system;
-      config.allowUnfree = true;
-    };
-  };
+   nixpkgs.overlays = [ (self: super: {
+        floorp-unwrapped = super.floorp-unwrapped.overrideAttrs (old: {
+            version = "11.13.2";
+            src = super.fetchFromGitHub {
+              owner = "Floorp-Projects";
+              repo = "Floorp";
+              rev = "v11.13.2";
+              #    sha256 = lib.fakeSha256;
+              sha256 = "sha256:4f1c41c3d7cafb29a9d09e4a7a8b462f887f287973c2d7e7f9efaafa1c3d81f1";
+            };
+        });
+   }) ];
 }

@@ -37,6 +37,7 @@
         modules = [
           home-manager.nixosModules.home-manager
           ./nixosConfig/desktop
+          (import ./overlays)
         ];
       };
     };
