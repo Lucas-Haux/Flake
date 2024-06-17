@@ -8,6 +8,7 @@
   # obsidian = pkgs.callPackage ./../../packages/obsidian.nix {};
 in {
   environment.systemPackages = with pkgs; [
+    vesktop
     yazi
     vscode
     neovim
