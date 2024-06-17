@@ -47,6 +47,7 @@
         system = "x86_64-linux";
         specialArgs = inputs;
         modules = [
+          home-manager.nixosModules.home-manager
           ./nixosConfig/server
         ];
       };
@@ -61,6 +62,15 @@
         ];
       };
     };
-    overlays = import ./overlays {inherit inputs;};
+
+    homeConfigurations = {
+      "luke@server" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./homeManager/server
+        ];
+      };
+    };
   };
 }
