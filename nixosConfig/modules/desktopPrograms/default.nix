@@ -17,7 +17,8 @@ in {
     wget
     dolphin
     via
-    floorp
+    # floorp
+    brave
     git
     keepassxc
     pavucontrol
