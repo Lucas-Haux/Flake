@@ -13,18 +13,22 @@
 
       hostname = {
         ssh_only = true;
-        format = "[](fg:#${config.colorScheme.colors.base05} bg:none)[█](fg:#E8E3E3 bg:#none)[$ssh_symbol$hostname](bold bg:#E8E3E3)[](fg:#E8E3E3 bg:none) ";
+        format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$ssh_symbol](bold bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base03} bg:none) ";
         disabled = false;
+        ssh_symbol = "󰒋 ";
       };
+
       git_branch = {
         format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$branch]($style)[](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0B} bg:#${config.colorScheme.colors.base03})[  ](fg:#252525 bg:#${config.colorScheme.colors.base0B})[](fg:#${config.colorScheme.colors.base0B} bg:none) ";
         style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03}";
         symbol = " ";
       };
+
       git_commit = {
         format = "[\\($hash\\)]($style) [\\($tag\\)]($style)";
         style = "green";
       };
+
       git_state = {
         rebase = "REBASING";
         merge = "MERGING";
@@ -36,6 +40,7 @@
         style = "yellow";
         format = "\([$state( $progress_current/$progress_total)]($style)\) ";
       };
+
       git_status = {
         format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$all_status$ahead_behind]($style)[](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:#${config.colorScheme.colors.base03})[  ](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none) ";
         style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03}";
@@ -51,6 +56,7 @@
         renamed = "»\${count}";
         deleted = " \${count}";
       };
+
       directory = {
         format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$path]($style)[█](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:#${config.colorScheme.colors.base03})[  ](fg:#252525 bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none)";
         style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03} bold";
@@ -58,21 +64,26 @@
         truncate_to_repo = false;
         read_only = " 󱧸 ";
       };
+
       cmd_duration = {
         format = "[$duration]($style) ";
         style = "bright-blue";
       };
+
       jobs = {
         style = "bright-green bold";
       };
+
       fill = {
         symbol = " ";
         style = "bold green";
       };
+
       character = {
         success_symbol = "[ ](#${config.colorScheme.colors.base0C} bold)";
         error_symbol = "[ ](#B66467 bold)";
       };
+
     };
   };
 }
