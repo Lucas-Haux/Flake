@@ -12,6 +12,7 @@
     ./../modules/hyprland
     ./../modules/desktopPrograms
     ./../modules/rust
+    ./../modules/godot
     # ./../modules/nixvim
   ];
 
