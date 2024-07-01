@@ -1,6 +1,8 @@
 { pkgs, config, lib, ... }:
 {
-
+  environment.systemPackages = [
+    pkgs.hyprshot
+  ];
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.extraConfig =
   ''
