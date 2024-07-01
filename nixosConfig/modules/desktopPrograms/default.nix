@@ -8,6 +8,8 @@
   # obsidian = pkgs.callPackage ./../../packages/obsidian.nix {};
 in {
   environment.systemPackages = with pkgs; [
+    telegram-desktop
+    discord
     vesktop
     yazi
     vscode
