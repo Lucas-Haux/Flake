@@ -12,6 +12,7 @@
       ../modules/serverNetwork
       ../modules/tools
       ../modules/jellyfin
+      ../modules/servarr
       # ../modules/homepage
     ];
   nixpkgs.config.experimental.features = true;
