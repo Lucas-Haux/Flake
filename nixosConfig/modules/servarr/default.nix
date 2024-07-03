@@ -8,11 +8,13 @@
   services.radarr = {
     enable = true;
     openFirewall = true; # 7878
+    group = "multimedia";
   };
   
   services.sonarr = {
     enable = true;
     openFirewall = true; # 8989
+    group = "multimedia";
   };
   
   services.deluge = {
@@ -22,10 +24,20 @@
       enable = true;
       openFirewall = true;
     };
+    group = "multimedia";
   };
 
   services.jellyseerr = {
     enable = true;
     openFirewall = true; # 5055
   };
+  users.groups.multimedia = {};
+
+  users.users.multimedia = {
+    isSystemUser = true;
+    group = "multimedia";
+    home = "/var/lib/multimedia";
+    createHome = true;
+  };
+  systemd.tmpfiles.rules = ["d /data/media multimedia multimedia"];
 }
