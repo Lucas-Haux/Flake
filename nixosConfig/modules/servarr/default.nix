@@ -39,5 +39,14 @@
     home = "/var/lib/multimedia";
     createHome = true;
   };
-  systemd.tmpfiles.rules = ["d /data/media multimedia multimedia"];
+
+  systemd.tmpfiles.rules = [
+    "d /data/media 755 multimedia multimedia"
+    "d /data/media/library/shows 0755 sonarr multimedia"
+    "d /data/media/library/movies 0775 radarr multimedia"
+  ];
+  services.transmission = {
+    enable = true;
+    openFirewall = true; 
+  };
 }
