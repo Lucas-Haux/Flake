@@ -95,5 +95,16 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
+  # nix storage
+  nix.optimise = { # hardlinks files if they are identical 
+    automatic = true;
+    dates = [ "03:45" ];
+  };
+  nix.gc = { # removes old nix generations
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   system.stateVersion = "24.05";
 }
