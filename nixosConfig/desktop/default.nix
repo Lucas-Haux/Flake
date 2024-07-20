@@ -13,7 +13,7 @@
     ./../modules/desktopPrograms
     ./../modules/rust
     ./../modules/godot
-    # ./../modules/nixvim
+    ./../modules/gaming
   ];
 
   # Bootloader.
@@ -72,7 +72,6 @@
   services.printing.enable = true; # Enable CUPS to print documents.
 
   # Sound
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
