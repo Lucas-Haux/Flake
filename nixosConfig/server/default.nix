@@ -13,6 +13,7 @@
       ../modules/tools
       ../modules/jellyfin
       ../modules/servarr
+      ../modules/gamingServers
       # ../modules/homepage
     ];
   nixpkgs.config.experimental.features = true;

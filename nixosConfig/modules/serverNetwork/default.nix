@@ -31,15 +31,17 @@ environment.systemPackages = [ pkgs.cloudflared ];
           chain PREROUTING {
             type nat hook prerouting priority dstnat; policy accept;
             iifname "eno1" tcp dport 64000 dnat to 10.0.0.178:64000
-            iifname "eno1" udp dport 6400 dnat to 10.0.0.178:64000
+            iifname "eno1" udp dport 64000 dnat to 10.0.0.178:64000
+            iifname "eno1" tcp dport 25565 dnat to 10.0.0.178:25565
+            iifname "eno1" udp dport 25565 dnat to 10.0.0.178:25565
           }
         }
     '';
   };
   firewall = {
     enable = true;
-    allowedTCPPorts = [ 64000 ];
-    allowedUDPPorts = [ 64000 ];
+    allowedTCPPorts = [ 64000 25565];
+    allowedUDPPorts = [ 64000 25565];
   };
   nat = {
     enable = true;
@@ -55,6 +57,16 @@ environment.systemPackages = [ pkgs.cloudflared ];
         sourcePort = 64000;
         proto = "udp";
         destination = "10.0.0.178:64000";
+      }
+      {
+        sourcePort = 25565;
+        proto = "tcp";
+        destination = "10.0.0.178:25565";
+      }
+      {
+        sourcePort = 25565;
+        proto = "udp";
+        destination = "10.0.0.178:25565";
       }
     ];
   };
