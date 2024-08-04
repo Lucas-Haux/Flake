@@ -19,16 +19,21 @@
       modules-left = [
         "hyprland/workspaces"
         "hyprland/window"
+
       ];
       modules-center = [
         "clock"
       ];
       modules-right = [
-        "tray"
         "memory"
         "cpu"
         "pulseaudio"
+        "tray"
       ];
+      
+      hyprland.window = {
+        format = "{initialTitle}";
+      };
 
       clock = {
         format = "{:%H:%M} ";
@@ -57,16 +62,16 @@
       };
 
       memory = {
-        format = "{}%  ";
+        format = "  {}%  ";
       };
 
       cpu = {
-        format = "{usage}%  ";
+        format = "  {usage}%  ";
         tooltip = false;
       };
 
       pulseaudio = {
-        format = "{volume}%  ";
+        format = "  {volume}%  ";
         on-click = "pavucontrol";
       };
     }
