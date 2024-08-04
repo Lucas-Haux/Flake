@@ -1,7 +1,10 @@
 { pkgs, config, lib, ... }:
 {
-  environment.systemPackages = [
-    pkgs.hyprshot
+  home.packages = with pkgs; [
+    grimblast # for screenshots
+    kooha # for video
+    hyprpicker
+    wf-recorder 
   ];
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.extraConfig =
@@ -126,6 +129,8 @@ bind = $mainMod, V, togglefloating,
 bind = $mainMod, R, exec, wofi --show drun
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, J, togglesplit, # dwindle
+bind = $mainMod SHIFT, P, exec, grimblast --notify --cursor --freeze --wait 2 --scale 1 copy area
+
 bind=SUPER,F,fullscreen,1
 
 # Move focus with mainMod + arrow keys
