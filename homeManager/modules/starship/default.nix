@@ -18,6 +18,12 @@
         ssh_symbol = "󰒋 ";
       };
 
+      package = {
+        format = " [](fg:#${config.colorScheme.colors.base03} bg:none)[$version](bg:#${config.colorScheme.colors.base03})[█](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base09} bg:#${config.colorScheme.colors.base03})[  ](fg:#252525 bg:#${config.colorScheme.colors.base09})[](fg:#${config.colorScheme.colors.base09} bg:none)";
+
+        disabled = false;
+      };
+
       git_branch = {
         format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$branch]($style)[](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0B} bg:#${config.colorScheme.colors.base03})[  ](fg:#252525 bg:#${config.colorScheme.colors.base0B})[](fg:#${config.colorScheme.colors.base0B} bg:none) ";
         style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03}";
