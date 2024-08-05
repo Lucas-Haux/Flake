@@ -1,2 +1,2 @@
 # nixos-config
-test
+Desktop and homeserver nixos flake using homemanager 
