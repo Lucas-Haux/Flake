@@ -38,3 +38,7 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.api.nvim_exec([[
+  autocmd VimEnter * hi Normal ctermbg=none guibg=none
+]], false)

@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./../modules/hypr
+    ./../modules/rofi
     ./../modules/wezterm
     ./../modules/starship
     ./../modules/zsh
