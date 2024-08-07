@@ -16,7 +16,7 @@ with lib; {
     }))
     dunst
     libnotify
-    rofi-wayland
+    # rofi-wayland
     wofi
     wl-clipboard
   ];
