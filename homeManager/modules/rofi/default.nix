@@ -19,7 +19,7 @@
     extraConfig = {
       modi = "drun,calc,window,emoji,run";
       sidebar-mode = true;
-      terminal = "kitty";
+      terminal = "wezterm";
       show-icons = true;
       kb-remove-char-back = "BackSpace";
       kb-accept-entry = "Control+m,Return,KP_Enter";
@@ -47,14 +47,14 @@
     in {
       "*" =  {
           font = "Dank Mono";
-          background = mkLiteral "#181825";       # base01
-          border = mkLiteral "#1E1E2E";           # base00
-          background-alt = mkLiteral "#1E1E2E";   # base00
-          foreground = mkLiteral "#D9E0EE";       # base06
-          foreground-alt = mkLiteral "#45475A";   # base02
-          selected = mkLiteral "#B5E8E0";         # base0C
-          active = mkLiteral "#ABE9B3";           # base0B
-          urgent = mkLiteral "#96CDFB";           # base0D
+          background = mkLiteral "#${config.colorScheme.colors.base01}";       # base01
+          border = mkLiteral "#${config.colorScheme.colors.base0D}";           # base00
+          background-alt = mkLiteral "#${config.colorScheme.colors.base00}";   # base00
+          foreground = mkLiteral "#${config.colorScheme.colors.base06}";       # base06
+          foreground-alt = mkLiteral "#${config.colorScheme.colors.base02}";   # base02
+          selected = mkLiteral "#${config.colorScheme.colors.base0C}";         # base0C
+          active = mkLiteral "#${config.colorScheme.colors.base0B}";           # base0B
+          urgent = mkLiteral "#${config.colorScheme.colors.base09}";           # base0D
       };
       "window" = {
         transparency = "real";
@@ -65,7 +65,7 @@
         x-offset = mkLiteral "0px";
         y-offset = mkLiteral "0px";
         enabled = mkLiteral "true";
-        border-radius = mkLiteral "10px";
+        border-radius = mkLiteral "20px";
         border = mkLiteral "2px solid";
         border-color = mkLiteral "@border";
         cursor = "default";
@@ -144,7 +144,7 @@
       "listview" = {
         enabled = true;
         columns = 1;
-        lines = 12;
+        lines = 3;
         cycle = true;
         dynamic = true;
         scrollbar = false;
