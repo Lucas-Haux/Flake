@@ -9,5 +9,6 @@
     github-desktop
     hexchat # IRC client
     jitsi-meet  # Video Conference
+    thunderbird # Email client
   ];
 }
