@@ -3,6 +3,7 @@
   config,
   lib,
   inputs,
+
   ...
 }: {
   fonts.fontconfig.enable = true;
@@ -31,8 +32,9 @@
         "tray"
       ];
       
-      hyprland.window = {
+      "hyprland/window" = {
         format = "{initialTitle}";
+        icon = true;
       };
 
       clock = {
@@ -45,11 +47,11 @@
           weeks-pos = "right";
           on-scroll = 1;
           format = {
-            months = "<span color='#ffead3'><b>{}</b></span>";
-            days = "<span color='#ecc6d9'><b>{}</b></span>";
-            weeks = "<span color='#99ffdd'><b>W{}</b></span>";
-            weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-            today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+            months = "<span color='#${config.colorscheme.colors.base0F}'><b>{}</b></span>";
+            days = "<span color='#${config.colorscheme.colors.base0D}'><b>{}</b></span>";
+            weeks = "<span color='#${config.colorscheme.colors.base0E}'><b>W{}</b></span>";
+            weekdays = "<span color='#${config.colorscheme.colors.base0C}'><b>{}</b></span>";
+            today = "<span color='#66FF00'><b><u>{}</u></b></span>";
           };
         };
         actions = {
