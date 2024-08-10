@@ -29,4 +29,15 @@ with lib; {
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
+
+      # Wayland
+    environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1";
+    };
+      # Enable automatic login for the user.
+    services.displayManager.autoLogin.enable = true;
+    services.displayManager.autoLogin.user = "luke";
+    systemd.services."getty@tty1".enable = false;
+    systemd.services."autovt@tty1".enable = false;
 }
