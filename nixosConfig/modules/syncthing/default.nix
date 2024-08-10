@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
-with lib; {
+{ config, pkgs, lib, ... }: with lib; {
   services.syncthing = {
     enable = true;
     systemService = true;
@@ -13,8 +7,4 @@ with lib; {
     user = "luke";
     options.urAccepted = -1;
   };
-  environment.systemPackages = with pkgs; [
-    obsidian
-    keepassxc
-  ];
 }

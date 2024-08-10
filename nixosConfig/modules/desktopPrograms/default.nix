@@ -1,29 +1,19 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
-  # Your existing definitions
-  # obsidian = pkgs.callPackage ./../../packages/obsidian.nix {};
-in {
+{ config, pkgs, lib, ... }: {
+  imports = [
+  ./social.nix # social apps like email client and discord
+  ];
+
   environment.systemPackages = with pkgs; [
-    telegram-desktop
-    discord
-    vesktop
     jellyfin-media-player
-    dolphin
-    via
+    spacedrive # file manager 
+    obsidian # notes 
+    keepassxc # password manager
     # floorp
     brave
-    pavucontrol
-    gparted
-    gimp
+    pavucontrol # control audio
+    gparted # manage drive partions
+    gimp  # image editor
     libreoffice
     qbittorrent-qt5
   ];
-  services.udev.packages = with pkgs; [
-    via
-  ];
-  services.syncthing.enable = true;
 }

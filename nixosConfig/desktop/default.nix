@@ -7,7 +7,7 @@
     ./../modules/rust
     ./../modules/godot
     ./../modules/gaming
-    ./../modules/cliTools/
+    ./../modules/cliTools
   ];
 
   # Bootloader.
