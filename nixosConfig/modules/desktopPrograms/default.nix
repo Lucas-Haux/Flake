@@ -8,7 +8,6 @@
   # obsidian = pkgs.callPackage ./../../packages/obsidian.nix {};
 in {
   environment.systemPackages = with pkgs; [
-    syncthing
     telegram-desktop
     discord
     vesktop
@@ -24,14 +23,12 @@ in {
     # floorp
     brave
     git
-    keepassxc
     pavucontrol
     gparted
     gimp
     libreoffice
     kitty
     alacritty
-    obsidian
     qbittorrent-qt5
     wgnord
   ];

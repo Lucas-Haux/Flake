@@ -1,7 +1,7 @@
 { config, pkgs, lib, nixvim, ... }: {
   imports = [
     ./hardware-configuration.nix
-    # ./../modules/syncthing
+    ./../modules/syncthing
     ./../modules/hyprland
     ./../modules/desktopPrograms
     ./../modules/rust

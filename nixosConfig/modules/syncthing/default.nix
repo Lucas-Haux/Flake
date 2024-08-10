@@ -12,6 +12,9 @@ with lib; {
     configDir = "/home/luke/.config/syncthing";
     user = "luke";
     options.urAccepted = -1;
-
   };
+  environment.systemPackages = with pkgs; [
+    obsidian
+    keepassxc
+  ];
 }
