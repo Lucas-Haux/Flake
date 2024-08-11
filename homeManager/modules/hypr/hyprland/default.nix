@@ -4,9 +4,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      # exec = [
-      #   "waybar"
-      # ];
+      exec = [
+        "waybar"
+      ];
     };
     extraConfig = ''
       # Monitor settings
@@ -17,7 +17,6 @@
       env = XCURSOR_SIZE,24
       env = GTK_THEME,Nord
 
-# For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
           kb_layout = us
           kb_variant = ,qwerty
@@ -100,7 +99,7 @@
 
       bind = $mainMod, C, killactive, 
       bind = $mainMod, J, togglesplit, # dwindle
-      # bind = $mainMod, M, exit, 
+      bind = $mainMod, M, exit, 
       bind = $mainMod, V, togglefloating, 
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, F, fullscreen, 1
@@ -108,10 +107,10 @@
       # Exec Binds
       bind = $mainMod, R, exec, rofi -show drun # application starter
       bind = $mainMod SHIFT, P, exec, grimblast --notify --cursor --freeze --wait 2 --scale 1 copy area
-      bind = $mainMod SHIFT, K, exec, keepassxc # password manager
+      # bind = $mainMod SHIFT, K, exec, keepassxc # password manager
       bind = $mainMod SHIFT, F, exec, floorp # browser
       bind = $mainMod, Q, exec, wezterm # terminal
-      bind = $mainMod SHIFT, O, exec, hyprctl dispatch focuswindow "class:obsidian"
+      # bind = $mainMod SHIFT, O, exec, hyprctl dispatch focuswindow "class:obsidian"
       # bind = $MainMod SHIFT, O, exec, obsidian || hyprctl dispatch focuswindow "class:obsidian"
 
 
@@ -133,7 +132,7 @@
       bind = $mainMod, 9, workspace, 9
       bind = $mainMod, 0, workspace, 10
 
-# Move active window to a workspace with mainMod + SHIFT + [0-9]
+      # Move active window to a workspace with mainMod + SHIFT + [0-9]
       bind = $mainMod SHIFT, 1, movetoworkspace, 1
       bind = $mainMod SHIFT, 2, movetoworkspace, 2
       bind = $mainMod SHIFT, 3, movetoworkspace, 3
@@ -145,13 +144,22 @@
       bind = $mainMod SHIFT, 9, movetoworkspace, 9
       bind = $mainMod SHIFT, 0, movetoworkspace, 10
 
-# Example special workspace
+      # Special workspace
       bind = $mainMod, S, togglespecialworkspace, magic
       bind = $mainMod SHIFT, S, movetoworkspace, special:magic
 
-# Move/resize windows with mainMod + LMB/RMB and dragging
-      bindm = $mainMod, mouse:272, movewindow
-      bindm = $mainMod, mouse:273, resizewindow
+      windowrulev2 = tile,class:(keepassxc)
+      windowrulev2 = workspace special:keepassxc,class:(keepassxc)
+      bind = SUPER, K, exec, pgrep keepassxc && hyprctl dispatch togglespecialworkspace keepassxc || keepassxc & 
+
+      windowrulev2 = tile,class:(vesktop)
+      windowrulev2 = workspace special:vesktop,class:(vesktop)
+      bind = SUPER, D, exec, pgrep electron && hyprctl dispatch togglespecialworkspace vesktop || electron &
+       
+      windowrulev2 = tile,class:(obsidian)
+      windowrulev2 = workspace special:obsidian,class:(obsidian)
+      bind = SUPER, O, exec, hyprctl dispatch togglespecialworkspace obsidian
+
     '';
   };
 }
