@@ -6,6 +6,7 @@
       ../modules/mediaServer
       ../modules/gamingServers
       ../modules/homepage
+      ../modules/syncthing
     ];
   nixpkgs.config.experimental.features = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
