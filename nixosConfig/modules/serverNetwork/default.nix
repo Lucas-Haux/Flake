@@ -23,7 +23,7 @@ environment.systemPackages = [ pkgs.cloudflared ];
   };
 
   networking = {
- 
+  nameservers = [ "1.1.1.1" ];
   nftables = {
     enable = true;
     ruleset = ''

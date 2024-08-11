@@ -9,12 +9,14 @@
     enable = true;
     openFirewall = true; # 7878
     group = "multimedia";
+    user = "multimedia"; 
   };
   
   services.sonarr = {
     enable = true;
     openFirewall = true; # 8989
     group = "multimedia";
+    user = "multimedia";
   };
   
   services.deluge = {

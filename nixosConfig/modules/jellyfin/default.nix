@@ -12,6 +12,7 @@
   services.jellyfin = {
     enable = true;
     openFirewall = true;
-    user="luke";
+    user = "multimedia";
+    group = "multimedia";
   };
 }
