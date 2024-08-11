@@ -1,8 +1,4 @@
-{ pkgs, ... }: {
-  environment.systemPackages = [
-    pkgs.homepage-dashboard
-    pkgs.nvidia_smi_exporter
-  ];
+{ pkgs, config, ... }: {
   services.homepage-dashboard = {
     enable = true;
     listenPort = 8082;
