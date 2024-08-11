@@ -40,7 +40,7 @@ environment.systemPackages = [ pkgs.cloudflared ];
   };
   firewall = {
     enable = true;
-    allowedTCPPorts = [ 64000 25565];
+    allowedTCPPorts = [ 64000 25565 8080];
     allowedUDPPorts = [ 64000 25565];
   };
   nat = {

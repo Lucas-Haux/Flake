@@ -10,9 +10,10 @@
       ./hardware-configuration.nix
       # ../modules/mediaServer
       ../modules/serverNetwork
-      ../modules/tools
+      ../modules/cliTools
       ../modules/jellyfin
       ../modules/servarr
+      ../modules/usenet
       ../modules/gamingServers
       # ../modules/homepage
     ];
