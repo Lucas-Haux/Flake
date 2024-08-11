@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   environment.systemPackages = [
     pkgs.homepage-dashboard
     pkgs.nvidia_smi_exporter

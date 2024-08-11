@@ -5,7 +5,6 @@
     ./../modules/hyprland
     ./../modules/desktopPrograms
     ./../modules/rust
-    ./../modules/godot
     ./../modules/gaming
     ./../modules/cliTools
   ];

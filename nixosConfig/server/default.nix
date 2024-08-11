@@ -1,21 +1,11 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, ... }:
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
+{ config, pkgs, lib, ... }: { 
+  imports = [ 
       ./hardware-configuration.nix
-      # ../modules/mediaServer
-      ../modules/serverNetwork
+      ./network.nix
       ../modules/cliTools
-      ../modules/jellyfin
-      ../modules/servarr
-      ../modules/usenet
+      ../modules/mediaServer
       ../modules/gamingServers
-      # ../modules/homepage
+      ../modules/homepage
     ];
   nixpkgs.config.experimental.features = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
