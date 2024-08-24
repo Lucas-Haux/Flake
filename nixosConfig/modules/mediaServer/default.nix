@@ -45,6 +45,14 @@
     user = "multimedia";
   };
 
+  services.bazarr = { 
+    enable = true;
+    openFirewall = true; # 7878 
+    group = "multimedia";
+    user = "multimedia";
+  };
+
+
   services.deluge = { # torrent download client
     enable = true;
     group = "multimedia";
