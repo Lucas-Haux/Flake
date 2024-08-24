@@ -4,6 +4,7 @@
     ./../modules/syncthing
     ./../modules/hyprland
     ./../modules/desktopPrograms
+    ./../modules/flatpak
     ./../modules/rust
     ./../modules/gaming
     ./../modules/cliTools
