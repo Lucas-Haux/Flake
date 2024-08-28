@@ -10,8 +10,9 @@
     };
     extraConfig = ''
       # Monitor settings
+      monitor=DP-1, 1920x1080@120, 1080x490, 1
+      monitor=DP-3, 1920x1080@60, 3000x450, 1
       monitor=HDMI-A-1, 1920x1080@60, 0x0, 1, transform,1
-      monitor=DP-1, 1920x1080@60, 1080x490, 1
 
       # Some default env vars.
       env = XCURSOR_SIZE,24

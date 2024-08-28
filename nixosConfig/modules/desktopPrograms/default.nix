@@ -4,6 +4,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    fastfetch
     jellyfin-media-player
     spacedrive # file manager 
     obsidian # notes 
