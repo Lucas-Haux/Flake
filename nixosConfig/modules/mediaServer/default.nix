@@ -47,7 +47,7 @@
 
   services.bazarr = { 
     enable = true;
-    openFirewall = true; # 7878 
+    openFirewall = true; # 6767 
     group = "multimedia";
     user = "multimedia";
   };
