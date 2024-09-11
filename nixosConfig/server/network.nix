@@ -34,13 +34,14 @@ environment.systemPackages = [ pkgs.cloudflared ];
             iifname "eno1" udp dport 64000 dnat to 10.0.0.178:64000
             iifname "eno1" tcp dport 25565 dnat to 10.0.0.178:25565
             iifname "eno1" udp dport 25565 dnat to 10.0.0.178:25565
+            iifname "eno1" tcp dport 32400 dnat to 10.0.0.178:32400
           }
         }
     '';
   };
   firewall = {
     enable = true;
-    allowedTCPPorts = [ 64000 25565 8080];
+    allowedTCPPorts = [ 64000 25565 8080 32400];
     allowedUDPPorts = [ 64000 25565];
   };
   nat = {
@@ -67,6 +68,11 @@ environment.systemPackages = [ pkgs.cloudflared ];
         sourcePort = 25565;
         proto = "udp";
         destination = "10.0.0.178:25565";
+      }
+      {
+        sourcePort = 32400;
+        proto = "tcp";
+        destination = "10.0.0.178:32400";
       }
     ];
   };

@@ -31,6 +31,13 @@
     group = "multimedia";
   };
 
+  services.plex = {
+    enable = true;
+    openFirewall = true; # 32400 
+    user = "multimedia";
+    group = "multimedia";
+  };
+
   services.radarr = {
     enable = true;
     openFirewall = true; # 7878
