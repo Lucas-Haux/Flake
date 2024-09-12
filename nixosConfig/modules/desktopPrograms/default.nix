@@ -4,6 +4,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    android-tools
+    scrcpy
     fastfetch
     jellyfin-media-player
     plex-media-player
