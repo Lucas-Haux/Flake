@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     fastfetch
     jellyfin-media-player
+    plex-media-player
     spacedrive # file manager 
     obsidian # notes 
     keepassxc # password manager
