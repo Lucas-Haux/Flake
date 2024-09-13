@@ -102,5 +102,5 @@
     ignoreShellProgramCheck = true;
   };
 
-  system.stateVersion = "24.06";
+  system.stateVersion = "24.05";
 }
