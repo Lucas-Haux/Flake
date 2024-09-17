@@ -24,7 +24,7 @@
           kb_model =
 
           follow_mouse = 1 # focus window where my mouse is
-          sensitivity = 0 
+          sensitivity = -3 
 
           
       }
