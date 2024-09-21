@@ -97,10 +97,12 @@
   users.users.luke = {
     isNormalUser = true;
     description = "luke";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "adbusers"];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
+
   };
+  programs.adb.enable = true;
 
   system.stateVersion = "24.05";
 }
