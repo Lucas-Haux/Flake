@@ -1,9 +1,9 @@
 { config, pkgs, lib, nixvim, ... }: {
   imports = [
     ./hardware-configuration.nix
+    ./programs
     ./../modules/syncthing
     ./../modules/hyprland
-    ./../modules/desktopPrograms
     ./../modules/flatpak
     ./../modules/rust
     ./../modules/gaming
