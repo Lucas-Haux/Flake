@@ -4,11 +4,20 @@
   lib,
   ...
 }: {
+  imports = [
+    ./rules.nix
+    ./binds.nix
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       exec = [
         "waybar"
+        "vesktop"
+        "telegram-desktop"
+        "obsidian"
+        "keepassxc"
       ];
     };
     extraConfig = ''
@@ -17,7 +26,7 @@
       monitor=HDMI-A-1, 1920x1080@60, 3000x450, 1
       monitor=DP-3, 1920x1080@60, 0x0, 1, transform,3
 
-      # Some default env vars.
+      # Some dPseudoefault env vars.
       env = XCURSOR_SIZE,24
       env = GTK_THEME,Nord
 
@@ -28,6 +37,8 @@
 
           follow_mouse = 1 # focus window where my mouse is
           sensitivity = -3
+
+        special_fallthrough = true
       }
 
       general {
@@ -45,31 +56,65 @@
       }
 
       decoration {
-          rounding = 10
+          rounding = 20
 
           blur {
-              enabled = true
-              size = 3
-              passes = 1
+            enabled = true
+            xray = true
+            special = false
+            new_optimizations = true
+            size = 3
+            passes = 1
+            brightness = 1
+            noise = 0.01
+            contrast = 1
+            popups = true
+            popups_ignorealpha = 0.6
           }
 
+          # Shadow
           drop_shadow = yes
-          shadow_range = 12
-          shadow_render_power = 6
-          col.shadow = rgba(1a1a1aee)
+          shadow_ignore_window = true
+          shadow_range = 20
+          shadow_offset = 0 2
+          shadow_render_power = 4
+          col.shadow = rgba(0000002A)
       }
 
       animations { # todo
-          enabled = yes
+        enabled = true
+        # Animation curves
 
-          bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-
-          animation = windows, 1, 7, myBezier
-          animation = windowsOut, 1, 7, default, popin 80%
-          animation = border, 1, 10, default
-          animation = borderangle, 1, 8, default
-          animation = fade, 1, 7, default
-          animation = workspaces, 1, 6, default
+        bezier = linear, 0, 0, 1, 1
+        bezier = md3_standard, 0.2, 0, 0, 1
+        bezier = md3_decel, 0.05, 0.7, 0.1, 1
+        bezier = md3_accel, 0.3, 0, 0.8, 0.15
+        bezier = overshot, 0.05, 0.9, 0.1, 1.1
+        bezier = crazyshot, 0.1, 1.5, 0.76, 0.92
+        bezier = hyprnostretch, 0.05, 0.9, 0.1, 1.0
+        bezier = menu_decel, 0.1, 1, 0, 1
+        bezier = menu_accel, 0.38, 0.04, 1, 0.07
+        bezier = easeInOutCirc, 0.85, 0, 0.15, 1
+        bezier = easeOutCirc, 0, 0.55, 0.45, 1
+        bezier = easeOutExpo, 0.16, 1, 0.3, 1
+        bezier = softAcDecel, 0.26, 0.26, 0.15, 1
+        bezier = md2, 0.4, 0, 0.2, 1 # use with .2s duration
+        # Animation configs
+        animation = windows, 1, 3, md3_decel, popin 60%
+        animation = windowsIn, 1, 3, md3_decel, popin 60%
+        animation = windowsOut, 1, 3, md3_accel, popin 60%
+        animation = border, 1, 10, default
+        animation = fade, 1, 3, md3_decel
+        # animation = layers, 1, 2, md3_decel, slide
+        animation = layersIn, 1, 3, menu_decel, slide
+        animation = layersOut, 1, 1.6, menu_accel
+        animation = fadeLayersIn, 1, 2, menu_decel
+        animation = fadeLayersOut, 1, 4.5, menu_accel
+        animation = workspaces, 1, 7, menu_decel, slide
+        # animation = workspaces, 1, 2.5, softAcDecel, slide
+        # animation = workspaces, 1, 7, menu_decel, slidefade 15%
+        # animation = specialWorkspace, 1, 3, md3_decel, slidefadevert 15%
+        animation = specialWorkspace, 1, 3, md3_decel, slidevert
       }
 
       dwindle { # todo
@@ -89,79 +134,10 @@
       }
 
       misc {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-          force_default_wallpaper = 0 # Set to 0 to disable the anime mascot wallpapers
+        vfr = 1
+        vrr = 1
+        enable_swallow = true
       }
-
-      # Window rules
-      # windowrulev2 = float,class:(wezterm),title:(Wezterm)
-
-      # Binds
-      $mainMod = SUPER
-
-      bind = $mainMod, C, killactive,
-      bind = $mainMod, J, togglesplit, # dwindle
-      bind = $mainMod, M, exit,
-      bind = $mainMod, V, togglefloating,
-      bind = $mainMod, P, pseudo, # dwindle
-      bind = $mainMod, F, fullscreen, 1
-
-      # Exec Binds
-      bind = $mainMod, R, exec, rofi -show drun # application starter
-      bind = $mainMod SHIFT, P, exec, grimblast --notify --cursor --freeze --wait 2 --scale 1 copy area
-      # bind = $mainMod SHIFT, K, exec, keepassxc # password manager
-      bind = $mainMod SHIFT, F, exec, floorp # browser
-      bind = $mainMod, Q, exec, wezterm # terminal
-      # bind = $mainMod SHIFT, O, exec, hyprctl dispatch focuswindow "class:obsidian"
-      # bind = $MainMod SHIFT, O, exec, obsidian || hyprctl dispatch focuswindow "class:obsidian"
-
-
-      # Move focus with mainMod + arrow keys
-      bind = $mainMod, left, movefocus, l
-      bind = $mainMod, right, movefocus, r
-      bind = $mainMod, up, movefocus, u
-      bind = $mainMod, down, movefocus, d
-
-      # Switch workspaces with mainMod + [0-9]
-      bind = $mainMod, 1, workspace, 1
-      bind = $mainMod, 2, workspace, 2
-      bind = $mainMod, 3, workspace, 3
-      bind = $mainMod, 4, workspace, 4
-      bind = $mainMod, 5, workspace, 5
-      bind = $mainMod, 6, workspace, 6
-      bind = $mainMod, 7, workspace, 7
-      bind = $mainMod, 8, workspace, 8
-      bind = $mainMod, 9, workspace, 9
-      bind = $mainMod, 0, workspace, 10
-
-      # Move active window to a workspace with mainMod + SHIFT + [0-9]
-      bind = $mainMod SHIFT, 1, movetoworkspace, 1
-      bind = $mainMod SHIFT, 2, movetoworkspace, 2
-      bind = $mainMod SHIFT, 3, movetoworkspace, 3
-      bind = $mainMod SHIFT, 4, movetoworkspace, 4
-      bind = $mainMod SHIFT, 5, movetoworkspace, 5
-      bind = $mainMod SHIFT, 6, movetoworkspace, 6
-      bind = $mainMod SHIFT, 7, movetoworkspace, 7
-      bind = $mainMod SHIFT, 8, movetoworkspace, 8
-      bind = $mainMod SHIFT, 9, movetoworkspace, 9
-      bind = $mainMod SHIFT, 0, movetoworkspace, 10
-
-      # Special workspace
-      bind = $mainMod, S, togglespecialworkspace, magic
-      bind = $mainMod SHIFT, S, movetoworkspace, special:magic
-
-      windowrulev2 = tile,class:(keepassxc)
-      windowrulev2 = workspace special:keepassxc,class:(keepassxc)
-      bind = SUPER, K, exec, pgrep keepassxc && hyprctl dispatch togglespecialworkspace keepassxc || keepassxc &
-
-      windowrulev2 = tile,class:(vesktop)
-      windowrulev2 = workspace special:vesktop,class:(vesktop)
-      bind = SUPER, D, exec, pgrep electron && hyprctl dispatch togglespecialworkspace vesktop || electron &
-
-      windowrulev2 = tile,class:(obsidian)
-      windowrulev2 = workspace special:obsidian,class:(obsidian)
-      bind = SUPER, O, exec, hyprctl dispatch togglespecialworkspace obsidian
-
     '';
   };
 }
