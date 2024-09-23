@@ -1,6 +1,9 @@
-{ pkgs, config, lib, ... }:
 {
-
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -10,9 +13,9 @@
     };
     extraConfig = ''
       # Monitor settings
-      monitor=DP-1, 1920x1080@120, 1080x490, 1
-      monitor=DP-3, 1920x1080@60, 3000x450, 1
-      monitor=HDMI-A-1, 1920x1080@60, 0x0, 1, transform,1
+      monitor=DP-2, 1920x1080@120, 1080x490, 1
+      monitor=HDMI-A-1, 1920x1080@60, 3000x450, 1
+      monitor=DP-3, 1920x1080@60, 0x0, 1, transform,3
 
       # Some default env vars.
       env = XCURSOR_SIZE,24
@@ -24,18 +27,16 @@
           kb_model =
 
           follow_mouse = 1 # focus window where my mouse is
-          sensitivity = -3 
-
-          
+          sensitivity = -3
       }
 
       general {
         layout = dwindle
         gaps_in = 4
         gaps_out = 20
-        
+
         # border
-        border_size = 3 
+        border_size = 3
         resize_on_border = true
         col.active_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base0B}ee) # rgba(${lib.removePrefix "#" config.colorscheme.colors.base0B}ee) 45deg
         col.inactive_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base00}ee)
@@ -74,7 +75,7 @@
       dwindle { # todo
           # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
           pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-          preserve_split = yes 
+          preserve_split = yes
       }
 
       master {
@@ -98,10 +99,10 @@
       # Binds
       $mainMod = SUPER
 
-      bind = $mainMod, C, killactive, 
+      bind = $mainMod, C, killactive,
       bind = $mainMod, J, togglesplit, # dwindle
-      bind = $mainMod, M, exit, 
-      bind = $mainMod, V, togglefloating, 
+      bind = $mainMod, M, exit,
+      bind = $mainMod, V, togglefloating,
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, F, fullscreen, 1
 
@@ -151,12 +152,12 @@
 
       windowrulev2 = tile,class:(keepassxc)
       windowrulev2 = workspace special:keepassxc,class:(keepassxc)
-      bind = SUPER, K, exec, pgrep keepassxc && hyprctl dispatch togglespecialworkspace keepassxc || keepassxc & 
+      bind = SUPER, K, exec, pgrep keepassxc && hyprctl dispatch togglespecialworkspace keepassxc || keepassxc &
 
       windowrulev2 = tile,class:(vesktop)
       windowrulev2 = workspace special:vesktop,class:(vesktop)
       bind = SUPER, D, exec, pgrep electron && hyprctl dispatch togglespecialworkspace vesktop || electron &
-       
+
       windowrulev2 = tile,class:(obsidian)
       windowrulev2 = workspace special:obsidian,class:(obsidian)
       bind = SUPER, O, exec, hyprctl dispatch togglespecialworkspace obsidian
