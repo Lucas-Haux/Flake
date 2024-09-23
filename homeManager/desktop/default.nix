@@ -4,6 +4,7 @@
   lib,
   config,
   pkgs,
+  home-manager,
   ...
 }: {
   imports = [
@@ -12,7 +13,7 @@
     ./../modules/wezterm
     ./../modules/starship
     ./../modules/zsh
-    ./../modules/nvim
+    # ./../modules/nvim
     inputs.nix-colors.homeManagerModules.default
   ];
   colorScheme = inputs.nix-colors.colorSchemes.nord;
@@ -27,7 +28,11 @@
     homeDirectory = "/home/luke";
   };
 
-  home.packages = with pkgs; [steam];
+  home.packages = [
+    # pkgs.steam
+    inputs.nixvim.packages.x86_64-linux.default
+  ];
+
 
   programs.home-manager.enable = true;
   programs.git.enable = true;

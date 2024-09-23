@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -16,6 +16,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:Lucas-Haux/nixvim";
+    };
   };
 
   outputs = inputs @ {
@@ -52,7 +55,7 @@
       };
     };
 
-    # desktop computer Home Manager 
+    # desktop computer Home Manager
     homeConfigurations = {
       "luke@desktop" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
