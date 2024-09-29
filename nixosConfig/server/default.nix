@@ -7,6 +7,8 @@
       ../modules/gamingServers
       ../modules/homepage
       ../modules/syncthing
+      ../modules/nextcloud
+      ../modules/docker
     ];
   nixpkgs.config.experimental.features = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -23,7 +25,7 @@
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "server"; # Define your hostname.
+  networking.hostName = "nodeserver"; # Define your hostname. 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
