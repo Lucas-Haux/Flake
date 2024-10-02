@@ -36,7 +36,7 @@
           kb_model =
 
           follow_mouse = 1 # focus window where my mouse is
-          sensitivity = -3
+          sensitivity = -1
 
         special_fallthrough = true
       }
