@@ -30,11 +30,12 @@
           ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
           buildInputs = [
             # flutterPackages-source.stable
-            # flutterPackages-source.v3_22
+            # flutterPackages-source.v3_24
             flutter
-            #androidSdk # The customized SDK that we've made above
+            androidSdk # The customized SDK that we've made above
             jdk17
             android-studio
+            xcode-install
           ];
         };
     });
