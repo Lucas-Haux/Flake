@@ -26,16 +26,20 @@
       androidSdk = androidComposition.androidsdk;
     in {
       devShell = with pkgs;
-        mkShell rec {
+        mkShell {
           ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
           buildInputs = [
             # flutterPackages-source.stable
             # flutterPackages-source.v3_24
             flutter
+            firebase-tools
             androidSdk # The customized SDK that we've made above
             jdk17
             android-studio
             xcode-install
+            nodejs_22
+            nodePackages.eslint
+            nodePackages.firebase-tools
           ];
         };
     });
