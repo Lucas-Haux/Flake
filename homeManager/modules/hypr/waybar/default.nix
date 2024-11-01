@@ -3,7 +3,6 @@
   config,
   lib,
   inputs,
-
   ...
 }: {
   fonts.fontconfig.enable = true;
@@ -15,12 +14,10 @@
     {
       layer = "top";
       position = "top";
-      margin = "5";
 
       modules-left = [
         "hyprland/workspaces"
         "hyprland/window"
-
       ];
       modules-center = [
         "clock"
@@ -31,15 +28,15 @@
         "pulseaudio"
         "tray"
       ];
-      
+
       "hyprland/window" = {
         format = "{initialTitle}";
         icon = true;
       };
 
       clock = {
-        format = "{:%H:%M} ";
-        format-alt = "{:%A, %B %d, %I:%M %p} ";
+        format = "{:%A, %B %d, %I:%M %p} ";
+        format-alt = "{:%H:%M} "; # right click to show military time
         tooltip-format = "<tt><small>{calendar}</small></tt>";
         calendar = {
           mode = "year";
@@ -90,16 +87,17 @@
        }
 
       .modules-right {
-        padding-left: 9px;
+        padding: 10px;
         border-radius: 15px 15px 15px 15px;
-        margin-top: 2px;
+        margin-top: 20px;
+        margin-right: 20px;
         background: ${toRGBA colors.base03 "0.7"};
         border: 2px solid ${toRGBA colors.base0F "1"};
       }
 
       .modules-center {
-        padding: 0 15px;
-        margin-top: 2px;
+        padding: 10px;
+        margin-top: 20px;
         border-radius: 15px 15px 15px 15px;
         background: ${toRGBA colors.base03 "0.7"};
         border: 2px solid ${toRGBA colors.base0E "1"};
@@ -107,7 +105,8 @@
 
       .modules-left {
         border-radius: 15px 15px 15px 15px;
-        margin-top: 2px;
+        margin-top: 20px;
+        margin-left: 20px;
         background: ${toRGBA colors.base03 "0.7"};
         border: 2px solid ${toRGBA colors.base07 "1"};
       }
