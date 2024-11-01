@@ -13,6 +13,7 @@
     ./../modules/wezterm
     ./../modules/starship
     ./../modules/zsh
+    ./../modules/yazi
     # ./../modules/nvim
     inputs.nix-colors.homeManagerModules.default
   ];
@@ -32,7 +33,6 @@
     # pkgs.steam
     inputs.nixvim.packages.x86_64-linux.default
   ];
-
 
   programs.home-manager.enable = true;
   programs.git.enable = true;
