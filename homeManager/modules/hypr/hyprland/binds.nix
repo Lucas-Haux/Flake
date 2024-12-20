@@ -13,7 +13,6 @@
     bind = $mainMod, F, fullscreen, 1
     bind = $mainMod CTRL, F, fullscreen, 0
 
-    bind = $mainMod, M, exit, # exit Hyprland
 
     # Exec Binds
     bind = $mainMod, Q, exec, wezterm # terminal
