@@ -10,7 +10,6 @@
     gcc
     neovim # config in home manager
     wget
-    git
     wgnord # nordvpn client
   ];
 }
