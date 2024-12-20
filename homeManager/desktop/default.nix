@@ -14,6 +14,7 @@
     ./../modules/starship
     ./../modules/zsh
     ./../modules/yazi
+    ./../modules/git
     # ./../modules/nvim
     inputs.nix-colors.homeManagerModules.default
   ];
