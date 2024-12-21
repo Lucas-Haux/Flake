@@ -19,13 +19,26 @@
     keepassxc # password manager
     # floorp
     brave
+    portfolio
     tor-browser
+    qemu
+    quickemu
     pavucontrol # control audio
     pwvucontrol
     gparted # manage drive partions
     gimp # image editor
     libreoffice
-    qbittorrent-qt5
+    # qbittorrent-qt5
+    radeontop # amd gpu utilization
   ];
+  programs.steam.package = pkgs.steam.override {
+    extraLibraries = pkgs:
+      (with config.hardware.opengl;
+        if pkgs.hostPlatform.is64bit
+        then [package] ++ extraPackages
+        else [package32] ++ extraPackages32)
+      ++ [pkgs.libxcrypt];
+  };
   programs.adb.enable = true;
+  programs.steam.enable = true;
 }
