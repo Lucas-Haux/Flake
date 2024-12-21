@@ -41,5 +41,11 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  # Fonts
+  fonts.fontconfig.enable = true;
+  home.packages = [
+    (pkgs.nerdfonts.override {fonts = ["FiraCode" "DroidSansMono" "Hack"];})
+  ];
+
   home.stateVersion = "24.05";
 }

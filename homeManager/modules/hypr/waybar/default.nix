@@ -5,10 +5,6 @@
   inputs,
   ...
 }: {
-  fonts.fontconfig.enable = true;
-  home.packages = [
-    (pkgs.nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
-  ];
   programs.waybar.enable = true;
   programs.waybar.settings = [
     {
