@@ -9,7 +9,13 @@
     enableZshIntegration = true;
     settings = {
       add_newline = false;
-      format = "$hostname$directory$localip$shlvl$singularity$kubernetes$vcsh$hg_branch$docker_context$package$custom$sudo$fill$git_branch$git_status$git_commit$cmd_duration$jobs$shell$line_break$character";
+      format = "$nix_shell$hostname$directory$localip$shlvl$singularity$kubernetes$vcsh$hg_branch$docker_context$package$custom$sudo$fill$git_branch$git_status$git_commit$cmd_duration$jobs$shell$line_break$character";
+
+      nix_shell = {
+        format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$symbol](bold bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base03} bg:none) ";
+        disabled = false;
+        symbol = "󱄅 ";
+      };
 
       hostname = {
         ssh_only = true;
@@ -50,21 +56,21 @@
       git_status = {
         format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$all_status$ahead_behind]($style)[](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:#${config.colorScheme.colors.base03})[  ](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none) ";
         style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03}";
-        conflicted = "=";
-        ahead = "⇡\${count}";
-        behind = "⇣\${count}";
-        diverged = "⇕⇡\${ahead_count}⇣\${behind_count}";
-        up_to_date = " 󰄸 ";
-        untracked = "?\${count}";
-        stashed = "";
-        modified = "!\${count}";
-        staged = "+\${count}";
-        renamed = "»\${count}";
-        deleted = " \${count}";
+        conflicted = "  ";
+        ahead = "  \${count}";
+        behind = "  \${count}";
+        diverged = "   \${ahead_count} \${behind_count}";
+        up_to_date = "  ";
+        untracked = "  \${count}";
+        stashed = "  ";
+        modified = "  \${count}";
+        staged = "  \${count}";
+        renamed = "  \${count}";
+        deleted = "  \${count}";
       };
 
       directory = {
-        format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$path]($style)[█](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:#${config.colorScheme.colors.base03})[  ](fg:#252525 bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none)";
+        format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$path]($style)[█](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:#${config.colorScheme.colors.base03})[](fg:#252525 bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none)";
         style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03} bold";
         truncation_length = 3;
         truncate_to_repo = false;
@@ -89,7 +95,6 @@
         success_symbol = "[ ](#${config.colorScheme.colors.base0C} bold)";
         error_symbol = "[ ](#B66467 bold)";
       };
-
     };
   };
 }
