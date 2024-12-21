@@ -33,6 +33,7 @@
   home.packages = [
     # pkgs.steam
     inputs.nixvim.packages.x86_64-linux.default
+    (pkgs.nerdfonts.override {fonts = ["FiraCode" "DroidSansMono" "Hack"];})
   ];
 
   programs.home-manager.enable = true;
@@ -43,9 +44,6 @@
 
   # Fonts
   fonts.fontconfig.enable = true;
-  home.packages = [
-    (pkgs.nerdfonts.override {fonts = ["FiraCode" "DroidSansMono" "Hack"];})
-  ];
 
   home.stateVersion = "24.05";
 }

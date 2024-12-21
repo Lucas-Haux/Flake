@@ -70,7 +70,7 @@
       };
 
       directory = {
-        format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$path]($style)[█](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:#${config.colorScheme.colors.base03})[](fg:#252525 bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none)";
+        format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$path]($style)[█](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:#${config.colorScheme.colors.base03})[ ](fg:#252525 bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none)";
         style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03} bold";
         truncation_length = 3;
         truncate_to_repo = false;
