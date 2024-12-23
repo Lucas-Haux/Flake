@@ -68,6 +68,7 @@
   services.deluge = {
     # torrent download client
     enable = true;
+    user = "multimedia";
     group = "multimedia";
     openFirewall = true; # 8112
     web = {
