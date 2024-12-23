@@ -45,7 +45,7 @@
       general {
         layout = dwindle
         gaps_in = 4
-        gaps_out = 20
+        gaps_out = 10
 
         # border
         border_size = 3
@@ -57,7 +57,7 @@
       }
 
       decoration {
-          rounding = 20
+          rounding = 15
 
           blur {
             enabled = true

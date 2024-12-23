@@ -86,15 +86,15 @@
         .modules-right {
           padding: 10px;
           border-radius: 15px 15px 15px 15px;
-          margin-top: 20px;
-          margin-right: 20px;
+          margin-top: 10px;
+          margin-right: 10px;
           background: ${toRGBA colors.base03 "0.7"};
           border: 2px solid ${toRGBA colors.base0F "1"};
         }
 
         .modules-center {
           padding: 10px;
-          margin-top: 20px;
+          margin-top: 10px;
           border-radius: 15px 15px 15px 15px;
           background: ${toRGBA colors.base03 "0.7"};
           border: 2px solid ${toRGBA colors.base0E "1"};
@@ -102,8 +102,8 @@
 
         .modules-left {
           border-radius: 15px 15px 15px 15px;
-          margin-top: 20px;
-          margin-left: 20px;
+          margin-top: 10px;
+          margin-left: 10px;
           background: ${toRGBA colors.base03 "0.7"};
           border: 2px solid ${toRGBA colors.base07 "1"};
         }
