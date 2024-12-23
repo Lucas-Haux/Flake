@@ -774,11 +774,11 @@
         "pre-commit-hooks": "pre-commit-hooks_2"
       },
       "locked": {
-        "lastModified": 1734927276,
-        "narHash": "sha256-FoLkazj7uvNoFjywR3bH4JUgVciI4Ggmgk38b66lA3w=",
+        "lastModified": 1734932548,
+        "narHash": "sha256-zh28IN+WEOjRIctxE4LBgdPLwtUOncZqLp5ibJC5VxQ=",
         "owner": "Lucas-Haux",
         "repo": "nixvim",
-        "rev": "4e7ae2527aa35b7230a17cdbd9ae9b83b949bf3f",
+        "rev": "dd33fc1dba036fa2fda277f63ba5ecc52a45ecd9",
         "type": "github"
       },
       "original": {
