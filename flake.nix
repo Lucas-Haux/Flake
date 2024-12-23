@@ -1,24 +1,30 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-24.05";
+    };
+    nixpkgs-unstable = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
-
-    nix-colors.url = "github:misterio77/nix-colors";
-
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+    };
+    nix-colors = {
+      url = "github:misterio77/nix-colors";
+    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nixvim = {
       url = "github:Lucas-Haux/nixvim";
+    };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
     };
   };
 
