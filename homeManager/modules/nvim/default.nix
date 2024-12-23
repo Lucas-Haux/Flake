@@ -1,8 +1,8 @@
-{ pkgs, config, ... }: 
+{ pkgs, config, ... }:
 {
-home.file.".config/nvim" = {
-  source = ./lua;
-  recursive = true;
-  force = true;
-};
+  home.file.".config/nvim" = {
+    source = ./lua;
+    recursive = true;
+    force = true;
+  };
 }

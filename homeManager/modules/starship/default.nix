@@ -1,8 +1,5 @@
+{ pkgs, config, ... }:
 {
-  pkgs,
-  config,
-  ...
-}: {
   programs.starship = {
     enable = true;
     # Configuration written to ~/.config/starship.toml

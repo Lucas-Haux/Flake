@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     ./social.nix # social apps like email client and discord
   ];
@@ -32,12 +33,13 @@
     radeontop # amd gpu utilization
   ];
   programs.steam.package = pkgs.steam.override {
-    extraLibraries = pkgs:
-      (with config.hardware.opengl;
-        if pkgs.hostPlatform.is64bit
-        then [package] ++ extraPackages
-        else [package32] ++ extraPackages32)
-      ++ [pkgs.libxcrypt];
+    extraLibraries =
+      pkgs:
+      (
+        with config.hardware.opengl;
+        if pkgs.hostPlatform.is64bit then [ package ] ++ extraPackages else [ package32 ] ++ extraPackages32
+      )
+      ++ [ pkgs.libxcrypt ];
   };
   programs.adb.enable = true;
   programs.steam.enable = true;

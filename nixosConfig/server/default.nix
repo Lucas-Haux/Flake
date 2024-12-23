@@ -1,23 +1,32 @@
-{ config, pkgs, lib, ... }: { 
-  imports = [ 
-      ./hardware-configuration.nix
-      ./network.nix
-      ../modules/cliTools
-      ../modules/mediaServer
-      ../modules/gamingServers
-      ../modules/homepage
-      ../modules/syncthing
-      ../modules/nextcloud
-      ../modules/docker
-    ];
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
+  imports = [
+    ./hardware-configuration.nix
+    ./network.nix
+    ../modules/cliTools
+    ../modules/mediaServer
+    ../modules/gamingServers
+    ../modules/homepage
+    ../modules/syncthing
+    ../modules/nextcloud
+    ../modules/docker
+  ];
   nixpkgs.config.experimental.features = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true; # unfree packages
   nix = {
     package = pkgs.nixFlakes;
-    extraOptions =
-      lib.optionalString (config.nix.package == pkgs.nixFlakes)
-      "experimental-features = nix-command flakes";
+    extraOptions = lib.optionalString (
+      config.nix.package == pkgs.nixFlakes
+    ) "experimental-features = nix-command flakes";
   };
 
   # Bootloader.
@@ -25,7 +34,7 @@
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "nodeserver"; # Define your hostname. 
+  networking.hostName = "nodeserver"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -63,8 +72,11 @@
   users.users.luke = {
     isNormalUser = true;
     description = "luke";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [ ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
   };
@@ -77,7 +89,7 @@
   environment.systemPackages = with pkgs; [
     home-manager
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     git
+    git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

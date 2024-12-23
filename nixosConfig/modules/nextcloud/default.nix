@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   # environment.etc."nextcloud-admin-pass".text = "PWD";
   services.nextcloud = {
@@ -25,7 +30,14 @@
     extraAppsEnable = true;
     autoUpdateApps.enable = true;
     extraApps = {
-      inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks cookbook memories notes;
+      inherit (config.services.nextcloud.package.packages.apps)
+        contacts
+        calendar
+        tasks
+        cookbook
+        memories
+        notes
+        ;
     };
   };
 
@@ -33,19 +45,25 @@
     enable = true;
     ensureDatabases = [ "nextcloud" ];
     ensureUsers = [
-     { name = "nextcloud";
-       ensurePermissions = { "nextcloud.*" = "ALL PRIVILEGES";};
+      {
+        name = "nextcloud";
+        ensurePermissions = {
+          "nextcloud.*" = "ALL PRIVILEGES";
+        };
 
-     }
+      }
     ];
     package = pkgs.mariadb;
   };
 
   # ensure that the db is running *before* running the setup
   systemd.services."nextcloud-setup" = {
-    requires = ["mysql.service"];
-    after = ["mysql.service"];
+    requires = [ "mysql.service" ];
+    after = [ "mysql.service" ];
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 }

@@ -6,7 +6,8 @@
   pkgs,
   home-manager,
   ...
-}: {
+}:
+{
   imports = [
     ./../modules/hypr
     ./../modules/rofi
@@ -33,7 +34,13 @@
   home.packages = [
     # pkgs.steam
     inputs.nixvim.packages.x86_64-linux.default
-    (pkgs.nerdfonts.override {fonts = ["FiraCode" "DroidSansMono" "Hack"];})
+    (pkgs.nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "DroidSansMono"
+        "Hack"
+      ];
+    })
   ];
 
   programs.home-manager.enable = true;

@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   wayland.windowManager.hyprland.extraConfig = ''
     $mainMod = SUPER
 

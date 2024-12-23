@@ -4,7 +4,8 @@
   lib,
   nixvim,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ./programs
@@ -33,15 +34,18 @@
   # Nix
   nix = {
     package = pkgs.nixFlakes;
-    settings.experimental-features = ["nix-command" "flakes"];
-    extraOptions =
-      lib.optionalString (config.nix.package == pkgs.nixFlakes)
-      "experimental-features = nix-command flakes";
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    extraOptions = lib.optionalString (
+      config.nix.package == pkgs.nixFlakes
+    ) "experimental-features = nix-command flakes";
     # Nix storage
     optimise = {
       # hardlinks files if they are identical
       automatic = true;
-      dates = ["03:45"];
+      dates = [ "03:45" ];
     };
     gc = {
       # removes old nix generations
@@ -87,7 +91,7 @@
 
   # XDG portal
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # printing
   services.printing.enable = true; # Enable CUPS to print documents.
@@ -102,13 +106,17 @@
   };
 
   #fonts
-  fonts.packages = with pkgs; [nerdfonts];
+  fonts.packages = with pkgs; [ nerdfonts ];
 
   # Users
   users.users.luke = {
     isNormalUser = true;
     description = "luke";
-    extraGroups = ["networkmanager" "wheel" "adbusers"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "adbusers"
+    ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
   };

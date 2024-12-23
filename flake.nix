@@ -22,60 +22,62 @@
     };
   };
 
-  outputs = inputs @ {
-    nixpkgs,
-    home-manager,
-    nix-flatpak,
-    ...
-  }: {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+  outputs =
+    inputs@{
+      nixpkgs,
+      home-manager,
+      nix-flatpak,
+      ...
+    }:
+    {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
-    # desktop computer Config
-    nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = inputs;
-        modules = [
-          home-manager.nixosModules.home-manager
-          nix-flatpak.nixosModules.nix-flatpak
-          ./nixosConfig/desktop
-          (import ./overlays)
-        ];
+      # desktop computer Config
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = inputs;
+          modules = [
+            home-manager.nixosModules.home-manager
+            nix-flatpak.nixosModules.nix-flatpak
+            ./nixosConfig/desktop
+            (import ./overlays)
+          ];
+        };
+      };
+
+      # server computer Config
+      nixosConfigurations = {
+        server = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = inputs;
+          modules = [
+            home-manager.nixosModules.home-manager
+            ./nixosConfig/server
+          ];
+        };
+      };
+
+      # desktop computer Home Manager
+      homeConfigurations = {
+        "luke@desktop" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [ ./homeManager/desktop ];
+        };
+      };
+
+      # server computer Home-Manager
+      homeConfigurations = {
+        "luke@server" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [ ./homeManager/server ];
+        };
       };
     };
-
-    # server computer Config
-    nixosConfigurations = {
-      server = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = inputs;
-        modules = [
-          home-manager.nixosModules.home-manager
-          ./nixosConfig/server
-        ];
-      };
-    };
-
-    # desktop computer Home Manager
-    homeConfigurations = {
-      "luke@desktop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./homeManager/desktop
-        ];
-      };
-    };
-
-    # server computer Home-Manager
-    homeConfigurations = {
-      "luke@server" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./homeManager/server
-        ];
-      };
-    };
-  };
 }

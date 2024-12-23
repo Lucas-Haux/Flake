@@ -1,4 +1,5 @@
-{ pkgs, config, ... }: { 
+{ pkgs, config, ... }:
+{
   environment.systemPackages = with pkgs; [
     rustc
     gcc
@@ -6,4 +7,3 @@
     cargo
   ];
 }
-

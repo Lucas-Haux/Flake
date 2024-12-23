@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   wayland.windowManager.hyprland.extraConfig = ''
     # Bind k = keepass special
     windowrulev2 = tile,class:(keepassxc)

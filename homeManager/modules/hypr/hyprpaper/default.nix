@@ -1,12 +1,10 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{ pkgs, config, ... }:
+let
   wallpaper1 = "/home/luke/Media/pictures/nixWallpaper.png";
   wallpaper2 = "/home/luke/Media/pictures/rustWallpaper.png";
   wallpaper3 = "/home/luke/Media/pictures/jellyfishWallpaper.png";
-in {
+in
+{
   services.hyprpaper = {
     enable = true;
     settings = {
@@ -14,7 +12,7 @@ in {
       splash = false;
       splash_offset = 2.0;
 
-      preload = [wallpaper3];
+      preload = [ wallpaper3 ];
 
       wallpaper = [
         "HDMI-A-1,${wallpaper3}"

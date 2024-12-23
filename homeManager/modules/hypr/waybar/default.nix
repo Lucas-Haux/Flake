@@ -4,7 +4,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   programs.waybar.enable = true;
   programs.waybar.settings = [
     {
@@ -15,9 +16,7 @@
         "hyprland/workspaces"
         "hyprland/window"
       ];
-      modules-center = [
-        "clock"
-      ];
+      modules-center = [ "clock" ];
       modules-right = [
         "memory"
         "cpu"
@@ -71,65 +70,67 @@
       };
     }
   ];
-  programs.waybar.style = let
-    inherit (inputs.nix-colors.lib.conversions) hexToRGBString;
-    inherit (config.colorscheme) colors;
-    toRGBA = color: opacity: "rgba(${hexToRGBString "," (lib.removePrefix "#" color)},${opacity})";
-  in ''
-        window#waybar {
-        font-family: Intel One Mono Nerd Font;
-        background: transparent;
-        margin: 5px;
-       }
+  programs.waybar.style =
+    let
+      inherit (inputs.nix-colors.lib.conversions) hexToRGBString;
+      inherit (config.colorscheme) colors;
+      toRGBA = color: opacity: "rgba(${hexToRGBString "," (lib.removePrefix "#" color)},${opacity})";
+    in
+    ''
+          window#waybar {
+          font-family: Intel One Mono Nerd Font;
+          background: transparent;
+          margin: 5px;
+         }
 
-      .modules-right {
-        padding: 10px;
-        border-radius: 15px 15px 15px 15px;
-        margin-top: 20px;
-        margin-right: 20px;
-        background: ${toRGBA colors.base03 "0.7"};
-        border: 2px solid ${toRGBA colors.base0F "1"};
-      }
+        .modules-right {
+          padding: 10px;
+          border-radius: 15px 15px 15px 15px;
+          margin-top: 20px;
+          margin-right: 20px;
+          background: ${toRGBA colors.base03 "0.7"};
+          border: 2px solid ${toRGBA colors.base0F "1"};
+        }
 
-      .modules-center {
-        padding: 10px;
-        margin-top: 20px;
-        border-radius: 15px 15px 15px 15px;
-        background: ${toRGBA colors.base03 "0.7"};
-        border: 2px solid ${toRGBA colors.base0E "1"};
-      }
+        .modules-center {
+          padding: 10px;
+          margin-top: 20px;
+          border-radius: 15px 15px 15px 15px;
+          background: ${toRGBA colors.base03 "0.7"};
+          border: 2px solid ${toRGBA colors.base0E "1"};
+        }
 
-      .modules-left {
-        border-radius: 15px 15px 15px 15px;
-        margin-top: 20px;
-        margin-left: 20px;
-        background: ${toRGBA colors.base03 "0.7"};
-        border: 2px solid ${toRGBA colors.base07 "1"};
-      }
+        .modules-left {
+          border-radius: 15px 15px 15px 15px;
+          margin-top: 20px;
+          margin-left: 20px;
+          background: ${toRGBA colors.base03 "0.7"};
+          border: 2px solid ${toRGBA colors.base07 "1"};
+        }
 
-    #window {
-        color: ${toRGBA colors.base07 "1"};
-        padding-right: 7px;
-      }
-      #workspaces button {
-        color: ${toRGBA colors.base07 "1"};
-      }
+      #window {
+          color: ${toRGBA colors.base07 "1"};
+          padding-right: 7px;
+        }
+        #workspaces button {
+          color: ${toRGBA colors.base07 "1"};
+        }
 
-      #pulseaudio {
-        color: ${toRGBA colors.base0F "1"};
-        padding-right: 5px;
-      }
+        #pulseaudio {
+          color: ${toRGBA colors.base0F "1"};
+          padding-right: 5px;
+        }
 
-      #cpu {
-        color: ${toRGBA colors.base0F "1"};
-      }
+        #cpu {
+          color: ${toRGBA colors.base0F "1"};
+        }
 
-      #memory {
-        color: ${toRGBA colors.base0F "1"};
-      }
+        #memory {
+          color: ${toRGBA colors.base0F "1"};
+        }
 
-      #clock{
-        color: ${toRGBA colors.base0E "1"};
-      }
-  '';
+        #clock{
+          color: ${toRGBA colors.base0E "1"};
+        }
+    '';
 }

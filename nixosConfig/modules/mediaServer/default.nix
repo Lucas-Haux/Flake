@@ -1,16 +1,22 @@
-{ pkgs, config, lib, ... }: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
   fileSystems."/data/media" = {
     device = "/dev/media/lvol0";
     fsType = "ext4";
   };
-  
+
   systemd.tmpfiles.rules = [
     "d /data/media 755 multimedia multimedia"
     "d /data/media/library/shows 0755 sonarr multimedia"
     "d /data/media/library/movies 0775 radarr multimedia"
   ];
 
-  users.groups.multimedia = {};
+  users.groups.multimedia = { };
   users.users.multimedia = {
     isSystemUser = true;
     group = "multimedia";
@@ -33,7 +39,7 @@
 
   services.plex = {
     enable = true;
-    openFirewall = true; # 32400 
+    openFirewall = true; # 32400
     user = "multimedia";
     group = "multimedia";
   };
@@ -42,25 +48,25 @@
     enable = true;
     openFirewall = true; # 7878
     group = "multimedia";
-    user = "multimedia"; 
+    user = "multimedia";
   };
-  
-  services.sonarr = { 
+
+  services.sonarr = {
     enable = true;
     openFirewall = true; # 8989
     group = "multimedia";
     user = "multimedia";
   };
 
-  services.bazarr = { 
+  services.bazarr = {
     enable = true;
-    openFirewall = true; # 6767 
+    openFirewall = true; # 6767
     group = "multimedia";
     user = "multimedia";
   };
 
-
-  services.deluge = { # torrent download client
+  services.deluge = {
+    # torrent download client
     enable = true;
     group = "multimedia";
     openFirewall = true; # 8112
@@ -69,8 +75,9 @@
       openFirewall = true;
     };
   };
-  
-  services.sabnzbd = with lib; { # usenet download client
+
+  services.sabnzbd = with lib; {
+    # usenet download client
     enable = true;
     openFirewall = true;
     group = "multimedia";
