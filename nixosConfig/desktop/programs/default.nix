@@ -31,6 +31,7 @@
     libreoffice
     # qbittorrent-qt5
     radeontop # amd gpu utilization
+    nixd # nixos language server
   ];
   programs.steam.package = pkgs.steam.override {
     extraLibraries =
