@@ -4,13 +4,9 @@
     enable = true;
     cycle = true;
     package = pkgs.rofi-wayland;
-    plugins = with pkgs; [
-      # HACK: temporary fix until ABI update
-      (rofi-emoji.override { rofi-unwrapped = rofi-wayland-unwrapped; })
-      (rofi-calc.override { rofi-unwrapped = rofi-wayland-unwrapped; })
-    ];
+
     extraConfig = {
-      modi = "drun,calc,window,emoji,run";
+      modi = "drun,window,run";
       sidebar-mode = true;
       terminal = "wezterm";
       show-icons = true;
@@ -28,8 +24,6 @@
       kb-mode-complete = "";
       display-drun = "";
       display-run = "";
-      display-emoji = "󰞅";
-      display-calc = "󰃬";
       display-window = "";
       display-filebrowser = "";
       drun-display-format = "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
