@@ -11,6 +11,7 @@
       nix_shell = {
         format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$symbol](bold bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base03} bg:none) ";
         disabled = false;
+        heuristic = true;
         symbol = "󱄅 ";
       };
 
