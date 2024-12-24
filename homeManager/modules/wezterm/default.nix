@@ -7,6 +7,7 @@
     extraConfig = ''
       return {
         enable_wayland = false,
+        front_end = "WebGpu",
 
         color_scheme = 'nordfox',
         window_background_opacity = 0.7,
