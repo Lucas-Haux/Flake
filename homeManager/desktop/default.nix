@@ -33,6 +33,8 @@
 
   home.packages = [
     # pkgs.steam
+    pkgs.jq
+    pkgs.socat
     inputs.zen-browser.packages.x86_64-linux.specific
     inputs.nixvim.packages.x86_64-linux.default
     (pkgs.nerdfonts.override {
@@ -53,5 +55,5 @@
   # Fonts
   fonts.fontconfig.enable = true;
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 }

@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   lib,
   ...
@@ -19,10 +18,9 @@
         "telegram-desktop"
         "obsidian"
         "keepassxc"
-        "zen"
-      ];
-      exec = [
-        "zen"
+        # "bash $HOME/Scripts/move_zenbrowser_to_workspaces.bash"
+        "bash $HOME/Flake/homeManager/modules/hypr/scripts/move_zen_browser_windows_to_workspaces.bash"
+
       ];
     };
     extraConfig = ''
@@ -77,13 +75,14 @@
             popups_ignorealpha = 0.6
           }
 
-          # Shadow
-          drop_shadow = yes
-          shadow_ignore_window = true
-          shadow_range = 20
-          shadow_offset = 0 2
-          shadow_render_power = 4
-          col.shadow = rgba(0000002A)
+          shadow {
+            enabled = true
+            ignore_window = true
+            range = 20
+            offset = 0 2
+            render_power = 4
+            color = rgba(0000002A)
+          }
       }
 
       animations { # todo

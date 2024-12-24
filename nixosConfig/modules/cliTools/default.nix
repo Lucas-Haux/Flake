@@ -8,5 +8,7 @@
     neovim # config in home manager
     wget
     wgnord # nordvpn client
+    jq # json processor
+    socat # data transfer
   ];
 }

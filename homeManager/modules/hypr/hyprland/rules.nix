@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ ... }:
 {
   wayland.windowManager.hyprland.extraConfig = ''
     # Bind k = keepass special
