@@ -5,7 +5,6 @@
     signal-desktop
     discord
     vesktop # better discord
-    element-desktop-wayland # matrix client
     # cinny-desktop # matrix client
     github-desktop
     protonmail-desktop
