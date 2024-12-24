@@ -35,7 +35,7 @@
     # pkgs.steam
     pkgs.jq
     pkgs.socat
-    inputs.zen-browser.packages.x86_64-linux.specific
+    inputs.zen-browser.packages.x86_64-linux
     inputs.nixvim.packages.x86_64-linux.default
     (pkgs.nerdfonts.override {
       fonts = [
