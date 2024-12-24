@@ -16,6 +16,10 @@
     ../modules/nextcloud
     ../modules/docker
   ];
+                nixpkgs.config.permittedInsecurePackages = [
+                "dotnet-sdk-6.0.428"
+                "aspnetcore-runtime-6.0.36"
+              ];
   nixpkgs.config.experimental.features = true;
   nix.settings.experimental-features = [
     "nix-command"
@@ -23,9 +27,9 @@
   ];
   nixpkgs.config.allowUnfree = true; # unfree packages
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     extraOptions = lib.optionalString (
-      config.nix.package == pkgs.nixFlakes
+      config.nix.package == pkgs.nixVersions.stable
     ) "experimental-features = nix-command flakes";
   };
 
