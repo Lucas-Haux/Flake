@@ -13,12 +13,16 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      exec = [
+      exec-once = [
         "waybar"
         "vesktop"
         "telegram-desktop"
         "obsidian"
         "keepassxc"
+        "zen"
+      ];
+      exec = [
+        "zen"
       ];
     };
     extraConfig = ''
