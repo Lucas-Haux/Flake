@@ -33,13 +33,13 @@
 
   # Nix
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     settings.experimental-features = [
       "nix-command"
       "flakes"
     ];
     extraOptions = lib.optionalString (
-      config.nix.package == pkgs.nixFlakes
+      config.nix.package == pkgs.nixVersions.stable
     ) "experimental-features = nix-command flakes";
     # Nix storage
     optimise = {
