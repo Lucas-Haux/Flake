@@ -12,7 +12,7 @@
 
 
     # Exec Binds
-    bind = $mainMod, Q, exec, wezterm # terminal
+    bind = $mainMod, Q, exec, ghostty # terminal
     bind = $mainMod SHIFT, F, exec, floorp # browser
     bind = $mainMod, R, exec, rofi -show drun # application starter
     # Screen shot area

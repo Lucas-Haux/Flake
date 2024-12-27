@@ -26,6 +26,9 @@
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
     };
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
   };
 
   outputs =
@@ -33,6 +36,7 @@
       nixpkgs,
       home-manager,
       nix-flatpak,
+      ghostty,
       ...
     }:
     {
@@ -44,6 +48,11 @@
           system = "x86_64-linux";
           specialArgs = inputs;
           modules = [
+            {
+              environment.systemPackages = [
+                ghostty.packages.x86_64-linux.default
+              ];
+            }
             home-manager.nixosModules.home-manager
             nix-flatpak.nixosModules.nix-flatpak
             ./nixosConfig/desktop
