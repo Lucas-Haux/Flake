@@ -33,7 +33,7 @@ in
       env = [
         "HYPRCURSOR_THEME,${cursorName}"
         "HYPRCURSOR_SIZE,${toString pointer.size}"
-        "GTK_THEME,Nord"
+        "GTK_THEME,Nordic"
       ];
     };
     extraConfig = # hyprlang

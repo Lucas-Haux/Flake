@@ -55,7 +55,7 @@
 
     theme = {
       package = pkgs.nordic;
-      name = "nordic";
+      name = "Nordic";
     };
     cursorTheme = {
       package = pkgs.nordzy-cursor-theme;
