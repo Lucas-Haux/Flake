@@ -45,7 +45,7 @@
       gtk.enable = true;
       # x11.enable = true;
       package = pkgs.nordzy-cursor-theme;
-      name = "nordzy-cursor-theme";
+      name = "Nordzy-hyprcursors";
       size = 16;
     };
   };
@@ -56,6 +56,11 @@
     theme = {
       package = pkgs.nordic;
       name = "nordic";
+    };
+    cursorTheme = {
+      package = pkgs.nordzy-cursor-theme;
+      name = "Nordzy-cursors";
+      size = 16;
     };
   };
 
