@@ -6,7 +6,7 @@
 let
   pointer = config.home.pointerCursor;
 
-  cursorName = "Nordzy-hyprcursors";
+  cursorName = "Nordzy-cursors";
 in
 {
   imports = [
@@ -27,13 +27,12 @@ in
         "obsidian"
         "keepassxc"
         "zen"
-        "hyprctl setcursor ${cursorName} ${toString pointer.size}"
-
+        # Other
+        "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
       ];
       env = [
-        "HYPRCURSOR_THEME,${cursorName}"
-        "HYPRCURSOR_SIZE,${toString pointer.size}"
         "GTK_THEME,Nordic"
+        "env = WLR_NO_HARDWARE_CURSORS,1"
       ];
     };
     extraConfig = # hyprlang
@@ -74,14 +73,14 @@ in
             blur {
               enabled = true
               xray = true
-              special = false
+              special = true
               new_optimizations = true
               size = 3
               passes = 1
               brightness = 1
               noise = 0.01
               contrast = 1
-              popups = true
+              popups = false
               popups_ignorealpha = 0.6
             }
 
