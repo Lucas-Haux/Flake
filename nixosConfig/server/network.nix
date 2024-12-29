@@ -50,6 +50,8 @@
         32400
         80
         443
+        3000
+        9001
       ];
       allowedUDPPorts = [
         64000
@@ -65,6 +67,16 @@
           sourcePort = 64000;
           proto = "tcp";
           destination = "10.0.0.178:64000";
+        }
+        {
+          sourcePort = 9001;
+          proto = "tcp";
+          destination = "10.0.0.178:9001";
+        }
+        {
+          sourcePort = 3000;
+          proto = "tcp";
+          destination = "10.0.0.178:3000";
         }
         {
           sourcePort = 64000;

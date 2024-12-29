@@ -15,6 +15,7 @@
     ../modules/syncthing
     ../modules/nextcloud
     ../modules/docker
+    ../modules/monitoring
   ];
                 nixpkgs.config.permittedInsecurePackages = [
                 "dotnet-sdk-6.0.428"
