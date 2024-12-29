@@ -11,6 +11,7 @@
     ./../modules/starship
     ./../modules/zsh
     ./../modules/nvim
+    ./../modules/yazi
     inputs.nix-colors.homeManagerModules.default
   ];
   colorScheme = inputs.nix-colors.colorSchemes.nord;

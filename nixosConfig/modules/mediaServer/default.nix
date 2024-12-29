@@ -22,6 +22,8 @@
     group = "multimedia";
     home = "/var/lib/multimedia";
     createHome = true;
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
   };
 
   environment.systemPackages = [
