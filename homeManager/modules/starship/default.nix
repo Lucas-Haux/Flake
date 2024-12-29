@@ -1,36 +1,85 @@
-{ pkgs, config, ... }:
+{ lib, config, ... }:
+let
+  colors = config.colorscheme.colors;
+
+  nixShellFormat = lib.concatStrings [
+    "[](fg:#${colors.base0E} bg:none)"
+    "[ 󱄅 ](bold bg:#${colors.base0E} fg:#252525)"
+    "[](fg:#${colors.base0E} bg:none) "
+    " "
+  ];
+  hostnameFormat = lib.concatStrings [
+    "[](fg:#${colors.base03} bg:none)"
+    "[$ssh_symbol](bold bg:#${colors.base03})"
+    "[](fg:#${colors.base03} bg:none)"
+    " "
+  ];
+  directoryFormat = lib.concatStrings [
+    "[](fg:#${colors.base03} bg:none)"
+    "[$path]($style)"
+    "[█](fg:#${colors.base03} bg:#${colors.base03})"
+    "[](fg:#${colors.base0C} bg:#${colors.base03})"
+    "[ 󰉖 ](fg:#252525 bg:#${colors.base0C})"
+    "[](fg:#${colors.base0C} bg:none)"
+    " "
+  ];
+  packageFormat = lib.concatStrings [
+    "[](fg:#${colors.base03} bg:none)"
+    "[$version](bg:#${colors.base03})"
+    "[█](fg:#${colors.base03} bg:#${colors.base03})"
+    "[](fg:#${colors.base09} bg:#${colors.base03})"
+    "[  ](fg:#252525 bg:#${colors.base09})"
+    "[](fg:#${colors.base09} bg:none)"
+  ];
+  gitBranchFormat = lib.concatStrings [
+    "[](fg:#${colors.base03} bg:none)"
+    "[$branch]($style)"
+    "[](fg:#${colors.base03} bg:#${colors.base03})"
+    "[](fg:#${colors.base0B} bg:#${colors.base03})"
+    "[  ](fg:#252525 bg:#${colors.base0B})"
+    "[](fg:#${colors.base0B} bg:none)"
+    " "
+  ];
+  gitStatusFormat = lib.concatStrings [
+    "[](fg:#${colors.base03} bg:none)"
+    "[$all_status$ahead_behind]($style)"
+    "[](fg:#${colors.base03} bg:#${colors.base03})"
+    "[](fg:#${colors.base0C} bg:#${colors.base03})"
+    "[  ](fg:#252525 bg:#${colors.base0C})"
+    "[](fg:#${colors.base0C} bg:none)"
+  ];
+in
+
 {
   programs.starship = {
     enable = true;
-    # Configuration written to ~/.config/starship.toml
     enableZshIntegration = true;
     settings = {
       add_newline = false;
-      format = "$nix_shell$hostname$directory$localip$shlvl$singularity$kubernetes$vcsh$hg_branch$docker_context$package$custom$sudo$fill$git_branch$git_status$git_commit$cmd_duration$jobs$shell$line_break$character";
+      format = "$nix_shell$hostname$directory$package$custom$sudo$fill$git_branch$git_status$git_commit$cmd_duration$line_break$character";
 
       nix_shell = {
-        format = "[](fg:#${config.colorScheme.colors.base0E} bg:none)[ 󱄅 ](bold bg:#${config.colorScheme.colors.base0E} fg:#252525)[](fg:#${config.colorScheme.colors.base0E} bg:none) ";
+        format = nixShellFormat;
         disabled = false;
         heuristic = true;
       };
 
       hostname = {
         ssh_only = true;
-        format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$ssh_symbol](bold bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base03} bg:none) ";
+        format = hostnameFormat;
         disabled = false;
-        ssh_symbol = "󰒋 ";
+        ssh_symbol = " 󰒋 ";
       };
 
       package = {
-        format = " [](fg:#${config.colorScheme.colors.base03} bg:none)[$version](bg:#${config.colorScheme.colors.base03})[█](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base09} bg:#${config.colorScheme.colors.base03})[  ](fg:#252525 bg:#${config.colorScheme.colors.base09})[](fg:#${config.colorScheme.colors.base09} bg:none)";
-
+        format = packageFormat;
+        version_format = " \${raw}";
         disabled = false;
       };
 
       git_branch = {
-        format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$branch]($style)[](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0B} bg:#${config.colorScheme.colors.base03})[  ](fg:#252525 bg:#${config.colorScheme.colors.base0B})[](fg:#${config.colorScheme.colors.base0B} bg:none) ";
-        style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03}";
-        symbol = " ";
+        format = gitBranchFormat;
+        style = "fg:#E8E3E3 bg:#${colors.base03}";
       };
 
       git_commit = {
@@ -51,8 +100,8 @@
       };
 
       git_status = {
-        format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$all_status$ahead_behind]($style)[](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:#${config.colorScheme.colors.base03})[  ](fg:#252525 bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none) ";
-        style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03}";
+        format = gitStatusFormat;
+        style = "fg:#E8E3E3 bg:#${colors.base03}";
         conflicted = "  ";
         ahead = "  \${count}";
         behind = "  \${count}";
@@ -67,15 +116,15 @@
       };
 
       directory = {
-        format = "[](fg:#${config.colorScheme.colors.base03} bg:none)[$path]($style)[█](fg:#${config.colorScheme.colors.base03} bg:#${config.colorScheme.colors.base03})[](fg:#${config.colorScheme.colors.base0C} bg:#${config.colorScheme.colors.base03})[ 󰉋 ](fg:#252525 bg:#${config.colorScheme.colors.base0C})[](fg:#${config.colorScheme.colors.base0C} bg:none)";
-        style = "fg:#E8E3E3 bg:#${config.colorScheme.colors.base03} bold";
+        format = directoryFormat;
+        style = "fg:#E8E3E3 bg:#${colors.base03} bold";
         truncation_length = 3;
         truncate_to_repo = false;
         read_only = " 󱧸 ";
       };
 
       cmd_duration = {
-        format = "[$duration]($style) ";
+        format = " [$duration]($style)";
         style = "bright-blue";
       };
 
@@ -89,7 +138,7 @@
       };
 
       character = {
-        success_symbol = "[ ](#${config.colorScheme.colors.base0C} bold)";
+        success_symbol = "[ ](#${colors.base0C} bold)";
         error_symbol = "[ ](#B66467 bold)";
       };
     };
