@@ -29,6 +29,7 @@
           #
           buildToolsVersions = [
             "30.0.3"
+            "33.0.1"
             "35.0.0"
           ];
           platformVersions = [
@@ -36,6 +37,7 @@
             "32"
             "33"
             "34"
+            "35"
           ];
           cmakeVersions = [ "3.18.1" ];
           includeNDK = true;
@@ -57,30 +59,34 @@
       {
         devShell =
           with pkgs;
-          mkShell rec {
+          mkShell {
             ANDROID_HOME = "${androidSdk}/libexec/android-sdk";
             ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
             JAVA_HOME = jdk17.home;
             JAVA_8_HOME = jdk8.home;
             JAVA_17_HOME = jdk17.home;
-            FLUTTER_ROOT = flutter324;
-            DART_ROOT = "${flutter324}/bin/cache/dart-sdk";
+            FLUTTER_ROOT = flutter327;
+            DART_ROOT = "${flutter327}/bin/cache/dart-sdk";
             GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/35.0.0/aapt2";
             QT_QPA_PLATFORM = "wayland;xcb"; # emulator related: try using wayland, otherwise fall back to X
             # NB: due to the emulator's bundled qt version, it currently does not start with QT_QPA_PLATFORM="wayland".
             # Maybe one day this will be supported.
             buildInputs = [
               ## General needs
-              flutter324
+              flutter327
+              google-chrome
 
               ## Android target
               androidSdk
+              android-studio
+              android-tools
               jdk17
               jdk8 # for gradle sake...
             ];
             # Globally installed packages, which are installed through `dart pub global activate package_name`,
             # are located in the `$PUB_CACHE/bin` directory.
             shellHook = ''
+
               if [ -z "$PUB_CACHE" ]; then
                 export PATH="$PATH:$HOME/.pub-cache/bin"
               else
