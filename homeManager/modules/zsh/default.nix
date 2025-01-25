@@ -2,10 +2,6 @@
 {
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    enableAutosuggestions = true;
-    autocd = true;
     initExtra = # bash
       ''
         function y() {
@@ -17,13 +13,11 @@
         	rm -f -- "$tmp"
         };
 
+        nixsearch() {
+          nix search nixpkgs "$@" 2>/dev/null | sed -E 's/legacyPackages\.[a-z0-9_\-]+\.//'
+        }
+
          export EDITOR="nvim"
       '';
-
-    shellAliases = {
-      ll = "ls -l";
-      update = "sudo nixos-rebuild switch";
-    };
-
   };
 }
