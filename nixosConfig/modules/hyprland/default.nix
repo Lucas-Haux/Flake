@@ -19,6 +19,7 @@ with lib;
     libnotify
     # rofi-wayland
     wofi
+    hyprlock
     wl-clipboard
   ];
   programs.hyprland = {

@@ -27,6 +27,7 @@
   # Security
   security = {
     polkit.enable = true; # Permission control for unprivileged programs
+    pam.services.hyprlock = { };
     # tpm2.enable = true;
     rtkit.enable = true; # Needed for pipewire
   };

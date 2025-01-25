@@ -9,6 +9,7 @@
     ./hyprland
     ./waybar
     ./hyprpaper
+    ./hyprlock
   ];
   home.packages = with pkgs; [
     grimblast # Screenshots

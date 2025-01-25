@@ -61,7 +61,7 @@ in
           # border
           border_size = 3
           resize_on_border = true
-          col.active_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base0B}ee) # rgba(${lib.removePrefix "#" config.colorscheme.colors.base0B}ee) 45deg
+          col.active_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base0B}ee) 
           col.inactive_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base00}ee)
 
           allow_tearing = false
