@@ -13,6 +13,7 @@
     ./../modules/zsh
     ./../modules/yazi
     ./../modules/git
+    ./../modules/ghostty
     # ./../modules/nvim
     inputs.nix-colors.homeManagerModules.default
   ];

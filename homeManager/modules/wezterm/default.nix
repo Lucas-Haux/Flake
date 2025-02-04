@@ -1,6 +1,6 @@
 { ... }:
 {
-  home.sessionVariables.TERMINAL = "wezterm";
+  #home.sessionVariables.TERMINAL = "wezterm";
   programs.wezterm = {
     enable = true;
     enableZshIntegration = true;

@@ -7,8 +7,8 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
@@ -26,19 +26,15 @@
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
     };
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
   };
 
   outputs =
-    inputs@{
+    {
       nixpkgs,
       home-manager,
       nix-flatpak,
-      ghostty,
       ...
-    }:
+    }@inputs:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
@@ -46,16 +42,11 @@
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = inputs;
+          specialArgs = { inherit inputs; };
           modules = [
-            {
-              environment.systemPackages = [
-                ghostty.packages.x86_64-linux.default
-              ];
-            }
-            home-manager.nixosModules.home-manager
             nix-flatpak.nixosModules.nix-flatpak
             ./nixosConfig/desktop
+
             (import ./overlays)
           ];
         };
@@ -87,6 +78,7 @@
       # server computer Home-Manager
       homeConfigurations = {
         "luke@server" = home-manager.lib.homeManagerConfiguration {
+          home-manager.backupFileExtension = "backup-";
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = {
             inherit inputs;
