@@ -3,7 +3,7 @@
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   outputs =
@@ -21,6 +21,8 @@
           allowUnfree = true;
           config.permittedInsecurePackages = [
             "olm-3.2.16"
+            "android-sdk-cmdline-tools"
+            "androidsdk"
           ];
         };
         androidEnv = pkgs.androidenv.override { licenseAccepted = true; };
@@ -30,14 +32,20 @@
           buildToolsVersions = [
             "30.0.3"
             "33.0.1"
+            "34.0.0"
             "35.0.0"
           ];
           platformVersions = [
+            "30"
             "31"
             "32"
             "33"
             "34"
-            "35"
+            #  "35"
+          ];
+          abiVersions = [
+            "armeabi-v7a"
+            "arm64-v8a"
           ];
           cmakeVersions = [ "3.18.1" ];
           includeNDK = true;
@@ -65,15 +73,15 @@
             JAVA_HOME = jdk17.home;
             JAVA_8_HOME = jdk8.home;
             JAVA_17_HOME = jdk17.home;
-            FLUTTER_ROOT = flutter327;
-            DART_ROOT = "${flutter327}/bin/cache/dart-sdk";
+            FLUTTER_ROOT = flutter;
+            DART_ROOT = "${flutter}/bin/cache/dart-sdk";
             GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/35.0.0/aapt2";
             QT_QPA_PLATFORM = "wayland;xcb"; # emulator related: try using wayland, otherwise fall back to X
             # NB: due to the emulator's bundled qt version, it currently does not start with QT_QPA_PLATFORM="wayland".
             # Maybe one day this will be supported.
             buildInputs = [
               ## General needs
-              flutter327
+              flutter
               google-chrome
 
               ## Android target
