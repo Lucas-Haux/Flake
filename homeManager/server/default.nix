@@ -10,7 +10,6 @@
   imports = [
     ./../modules/starship
     ./../modules/zsh
-    ./../modules/nvim
     ./../modules/yazi
     ./../modules/git
     inputs.nix-colors.homeManagerModules.default
