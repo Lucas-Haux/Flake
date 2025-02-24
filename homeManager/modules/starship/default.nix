@@ -19,7 +19,7 @@ let
     "[$path]($style)"
     "[█](fg:#${colors.base03} bg:#${colors.base03})"
     "[](fg:#${colors.base0C} bg:#${colors.base03})"
-    "[ 󰉋 ](fg:#252525 bg:#${colors.base0C})"
+    "[ 󰉋 ](fg:#252525 bg:#${colors.base03})"
     "[](fg:#${colors.base0C} bg:none)"
     " "
   ];
