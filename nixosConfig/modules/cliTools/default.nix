@@ -5,7 +5,7 @@
     htop
     nvtop
     gcc
-    neovim # config in home manager
+    # neovim # config in home manager
     wget
     wgnord # nordvpn client
     jq # json processor
