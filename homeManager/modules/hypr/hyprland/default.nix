@@ -32,7 +32,9 @@ in
       ];
       env = [
         "GTK_THEME,Nordic"
-        "env = WLR_NO_HARDWARE_CURSORS,1"
+        "WLR_NO_HARDWARE_CURSORS,1"
+        "MOZ_ENABLE_WAYLAND=1"
+        "EGL_PLATFORM=wayland"
       ];
     };
     extraConfig = # hyprlang
@@ -146,9 +148,10 @@ in
             workspace_swipe = off
         }
 
+
         misc {
-          vfr = 1
-          vrr = 1
+          vfr = true
+          vrr = 0
           enable_swallow = true
         }
       '';

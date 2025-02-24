@@ -19,6 +19,7 @@
     obsidian # notes
     keepassxc # password manager
     # floorp
+    inputs.zen-browser.packages.${pkgs.system}.default
     brave
     portfolio
     tor-browser
@@ -31,6 +32,7 @@
     libreoffice
     # qbittorrent-qt5
     radeontop # amd gpu utilization
+    ente-auth
   ];
   programs.steam.package = pkgs.steam.override {
     extraLibraries =
