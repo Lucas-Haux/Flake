@@ -34,17 +34,17 @@
     ) "experimental-features = nix-command flakes";
   };
 
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/nvme0n1";
-  boot.loader.grub.useOSProber = true;
-
   networking.hostName = "nodeserver"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+	boot.loader.systemd-boot.enable = true;
+boot.loader.efi.canTouchEfiVariables = true;
+	
+
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -94,7 +94,6 @@
   environment.systemPackages = with pkgs; [
     home-manager
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -108,8 +107,10 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
+  services.openssh = {
+enable = true;
+ports = [22];
+};
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

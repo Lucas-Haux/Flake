@@ -25,8 +25,10 @@
   };
 
   # Security
+  services.gnome.gnome-keyring.enable = true;
   security = {
     polkit.enable = true; # Permission control for unprivileged programs
+    pam.services.hyprland.enableGnomeKeyring = true;
     pam.services.hyprlock = { };
     # tpm2.enable = true;
     rtkit.enable = true; # Needed for pipewire
@@ -120,6 +122,15 @@
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
+  };
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      libvdpau-va-gl
+    ];
   };
 
   system.stateVersion = "24.05";
