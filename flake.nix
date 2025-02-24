@@ -57,9 +57,8 @@
       nixosConfigurations = {
         server = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = inputs;
+          specialArgs = { inherit inputs; };
           modules = [
-            home-manager.nixosModules.home-manager
             ./nixosConfig/server
           ];
         };
@@ -79,7 +78,6 @@
       # server computer Home-Manager
       homeConfigurations = {
         "luke@server" = home-manager.lib.homeManagerConfiguration {
-          home-manager.backupFileExtension = "backup-";
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = {
             inherit inputs;

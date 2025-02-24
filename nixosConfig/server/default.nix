@@ -13,7 +13,7 @@
     ../modules/gamingServers
     ../modules/homepage
     ../modules/syncthing
-#    ../modules/nextcloud
+    # ../modules/nextcloud
     ../modules/docker
     ../modules/monitoring
   ];
