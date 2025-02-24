@@ -24,6 +24,9 @@
   home = {
     username = "luke";
     homeDirectory = "/home/luke";
+    packages = [
+      inputs.nixvim.packages.x86_64-linux.default
+    ];
   };
 
   programs.home-manager.enable = true;
