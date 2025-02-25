@@ -41,7 +41,7 @@
             "32"
             "33"
             "34"
-            #  "35"
+            "35"
           ];
           abiVersions = [
             "armeabi-v7a"
@@ -108,6 +108,10 @@
               echo
               echo "Please Make Sure That: '$HOME/.gradle/gradle.properties' contains:"
               echo "org.gradle.java.installations.paths=$JAVA_8_HOME,$JAVA_17_HOME"
+              echo
+              echo
+              echo "If android cmdline-tools is missing run:"
+              echo "flutter config --android-sdk $ANDROID_SDK_ROOT"
               echo
               echo
             '';

@@ -14,6 +14,7 @@
     ./../modules/yazi
     ./../modules/git
     ./../modules/ghostty
+    ./../modules/zen
     # ./../modules/nvim
     inputs.nix-colors.homeManagerModules.default
   ];
