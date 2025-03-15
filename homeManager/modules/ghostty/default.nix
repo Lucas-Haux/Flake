@@ -6,7 +6,7 @@
     enableZshIntegration = true;
     installVimSyntax = true;
     settings = {
-      background-opacity = 0.85;
+      background-opacity = 0.70;
       gtk-titlebar = false;
       theme = "nord";
       resize-overlay = "never";
