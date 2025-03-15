@@ -78,7 +78,7 @@ in
               special = true
               new_optimizations = true
               size = 3
-              passes = 1
+              passes = 2
               brightness = 1
               noise = 0.01
               contrast = 1
