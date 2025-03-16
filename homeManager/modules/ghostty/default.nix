@@ -6,9 +6,13 @@
     enableZshIntegration = true;
     installVimSyntax = true;
     settings = {
+      window-padding-y = 4;
+      window-padding-x = 4;
+      window-padding-balance = true;
       background-opacity = 0.70;
-      gtk-titlebar = false;
       theme = "nord";
+
+      gtk-titlebar = false;
       resize-overlay = "never";
       window-save-state = "always";
       keybind = "ctrl+enter=unbind";
