@@ -11,5 +11,6 @@
     hexchat # IRC client
     # jitsi-meet  # Video Conference
     thunderbird # Email client
+    (callPackage ../../../pkgs/androidMessages { })
   ];
 }
