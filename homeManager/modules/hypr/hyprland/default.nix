@@ -23,8 +23,9 @@ in
         # Programs
         "waybar"
         "vesktop"
-        "telegram-desktop"
+        "android-messages"
         "obsidian"
+        "spotify"
         "keepassxc"
         "zen"
         # Other
@@ -40,9 +41,9 @@ in
     extraConfig = # hyprlang
       ''
         # Monitor settings
-        monitor=DP-2, 1920x1080@120, 1080x490, 1
+        monitor=DP-1, 1920x1080@240, 1080x490, 1
         monitor=HDMI-A-1, 1920x1080@60, 3000x450, 1
-        monitor=DP-3, 1920x1080@60, 0x0, 1, transform,3
+        monitor=DP-2, 1920x1080@60, 0x0, 1, transform,3
 
         input {
           kb_layout = us
