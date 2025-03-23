@@ -14,7 +14,8 @@
     ./../modules/yazi
     ./../modules/git
     ./../modules/ghostty
-    ./../modules/zen
+    ./../modules/spotify
+    # ./../modules/zen_browser
     # ./../modules/nvim
     inputs.nix-colors.homeManagerModules.default
   ];
