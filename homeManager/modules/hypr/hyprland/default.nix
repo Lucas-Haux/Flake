@@ -58,7 +58,7 @@ in
 
         general {
           layout = dwindle
-          gaps_in = 4
+          gaps_in = 5
           gaps_out = 10
 
           # border

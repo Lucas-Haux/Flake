@@ -16,7 +16,6 @@
       # Exec Binds
       bind = $mainMod, Q, exec, ghostty # terminal
       bind = $mainMod, L, exec, hyprlock # lock screen
-      bind = $mainMod SHIFT, F, exec, floorp # browser
       bind = $mainMod, R, exec, rofi -show drun # application starter
       # Screen shot area
       bind = $mainMod SHIFT, P, exec, grimblast --notify --cursor --freeze --wait 2 --scale 1 copy area
