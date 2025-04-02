@@ -7,6 +7,7 @@
     gcc
     # neovim # config in home manager
     wget
+    lazygit
     wgnord # nordvpn client
     jq # json processor
     socat # data transfer
