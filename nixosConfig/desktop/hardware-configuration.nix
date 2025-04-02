@@ -29,11 +29,17 @@
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-3df79f78-d8bd-453d-bb50-bf5e95feae3e".device = "/dev/disk/by-uuid/3df79f78-d8bd-453d-bb50-bf5e95feae3e";
+  boot.initrd.luks.devices."luks-3df79f78-d8bd-453d-bb50-bf5e95feae3e".device =
+    "/dev/disk/by-uuid/3df79f78-d8bd-453d-bb50-bf5e95feae3e";
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/B5A5-47FF";
     fsType = "vfat";
+  };
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   swapDevices = [ ];
