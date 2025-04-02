@@ -34,6 +34,7 @@
             "33.0.1"
             "34.0.0"
             "35.0.0"
+            "36.0.0"
           ];
           platformVersions = [
             "30"
@@ -42,6 +43,7 @@
             "33"
             "34"
             "35"
+            "36"
           ];
           abiVersions = [
             "armeabi-v7a"
@@ -82,11 +84,11 @@
             buildInputs = [
               ## General needs
               flutter
-              google-chrome
+              # google-chrome
 
               ## Android target
               androidSdk
-              android-studio
+              # android-studio
               android-tools
               jdk17
               jdk8 # for gradle sake...
