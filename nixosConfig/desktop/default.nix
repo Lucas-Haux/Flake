@@ -109,7 +109,9 @@
   };
 
   #fonts
-  fonts.packages = with pkgs; [ nerdfonts ];
+  fonts.packages =
+    [ ]
+    ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # Users
   users.users.luke = {

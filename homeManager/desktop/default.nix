@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }:
 
@@ -36,13 +37,6 @@
       pkgs.socat
       # inputs.zen-browser.packages.x86_64-linux.default
       inputs.nixvim.packages.x86_64-linux.default
-      (pkgs.nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "DroidSansMono"
-          "Hack"
-        ];
-      })
     ];
     pointerCursor = {
       gtk.enable = true;
@@ -76,6 +70,9 @@
   systemd.user.startServices = "sd-switch";
 
   # Fonts
+  # fonts.packages =
+  #   [ ]
+  #   ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   fonts.fontconfig.enable = true;
 
   home.stateVersion = "24.11";
