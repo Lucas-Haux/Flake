@@ -9,7 +9,7 @@
       # Bind D = Discord special
       windowrulev2 = tile,class:(vesktop)
       windowrulev2 = workspace special:vesktop silent,class:(vesktop)
-      windowrulev2 = opacity 0.8 0.8, class:(vesktop)
+      windowrulev2 = opacity 1 1, class:(vesktop)
 
 
       # Bind O = Obsidian special
@@ -19,14 +19,18 @@
 
 
       # Bind T = Android Message Special
-      windowrulev2 = tile,class:(android-messages)
-      windowrulev2 = workspace special:android-messages silent,class:(android-messages)
-      windowrulev2 = opacity 0.8 0.8, class:(android-messages)
+      windowrulev2 = tile,class:(android-messages-desktop)
+      windowrulev2 = workspace special:android-messages-desktop silent,class:(android-messages-desktop)
+      windowrulev2 = opacity 0.8 0.8, class:(android-messages-desktop)
 
 
       # Bind S = Spotify Special
       windowrulev2 = tile,class:(spotify)
       windowrulev2 = workspace special:spotify silent,class:(spotify)
-      windowrulev2 = opacity 0.7 0.7, class:(spotify)
+      windowrulev2 = opacity 0.75 0.75, class:(spotify)
+
+      windowrulev2 = float, title:^(Picture-in-Picture)$
+      windowrulev2 = pin, title:^(Picture-in-Picture)$ 
+      windowrulev2 = keepaspectratio, title:^(Picture-in-Picture)$
     '';
 }

@@ -2,6 +2,10 @@
 {
   wayland.windowManager.hyprland.extraConfig = # hyprlang
     ''
+      binds {
+        allow_pin_fullscreen = true
+      }
+
       $mainMod = SUPER
 
       bind = $mainMod, C, killactive, # close window
@@ -37,7 +41,7 @@
       bind = SUPER, K, exec, pgrep keepassxc && hyprctl dispatch togglespecialworkspace keepassxc || keepassxc &
       bind = SUPER, D, exec, pgrep electron && hyprctl dispatch togglespecialworkspace vesktop || electron &
       bind = SUPER, O, exec, hyprctl dispatch togglespecialworkspace obsidian
-      bind = SUPER, T, exec, hyprctl dispatch togglespecialworkspace android-messages
+      bind = SUPER, T, exec, hyprctl dispatch togglespecialworkspace android-messages-desktop
       bind = SUPER, S, exec, hyprctl dispatch togglespecialworkspace spotify 
 
 

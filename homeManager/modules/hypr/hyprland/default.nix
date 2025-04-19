@@ -26,7 +26,7 @@ in
         "android-messages"
         "obsidian"
         "spotify"
-        "keepassxc"
+        # "keepassxc"
         "zen"
         # Other
         "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
