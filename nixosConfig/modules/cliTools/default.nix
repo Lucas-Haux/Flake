@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     pciutils
     htop
-    nvtop
+    # nvtop
     gcc
     # neovim # config in home manager
     wget
