@@ -25,7 +25,7 @@
     tor-browser
     qemu
     quickemu
-    pavucontrol # control audio
+    # pavucontrol # control audio
     pwvucontrol
     gparted # manage drive partions
     gimp # image editor
@@ -34,7 +34,6 @@
     # qbittorrent-qt5
     radeontop # amd gpu utilization
     ente-auth
-    networkmanagerapplet
   ];
   programs.steam.package = pkgs.steam.override {
     extraLibraries =
