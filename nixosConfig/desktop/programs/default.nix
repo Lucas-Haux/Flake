@@ -34,6 +34,7 @@
     # qbittorrent-qt5
     radeontop # amd gpu utilization
     ente-auth
+    networkmanagerapplet
   ];
   programs.steam.package = pkgs.steam.override {
     extraLibraries =
