@@ -1,11 +1,11 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-24.11";
-    };
-    nixpkgs-unstable = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
+    # nixpkgs-unstable = {
+    #   url = "github:nixos/nixpkgs/nixos-unstable";
+    # };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +25,10 @@
     };
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

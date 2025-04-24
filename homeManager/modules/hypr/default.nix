@@ -10,6 +10,7 @@
     ./waybar
     ./hyprpaper
     ./hyprlock
+    ./swaync
   ];
   home.packages = with pkgs; [
     grimblast # Screenshots

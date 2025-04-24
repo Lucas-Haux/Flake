@@ -2,6 +2,10 @@
 {
   wayland.windowManager.hyprland.extraConfig = # hyprlang
     ''
+      binds {
+        allow_pin_fullscreen = true
+      }
+
       $mainMod = SUPER
 
       bind = $mainMod, C, killactive, # close window
@@ -16,7 +20,6 @@
       # Exec Binds
       bind = $mainMod, Q, exec, ghostty # terminal
       bind = $mainMod, L, exec, hyprlock # lock screen
-      bind = $mainMod SHIFT, F, exec, floorp # browser
       bind = $mainMod, R, exec, rofi -show drun # application starter
       # Screen shot area
       bind = $mainMod SHIFT, P, exec, grimblast --notify --cursor --freeze --wait 2 --scale 1 copy area
@@ -32,14 +35,14 @@
       bindm = $mainMod, mouse:273, resizewindow
 
       # Switch Special workspaces
-      bind = $mainMod, S, togglespecialworkspace, magic
-      bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+      bind = $mainMod, M, togglespecialworkspace, magic
+      bind = $mainMod SHIFT, M, movetoworkspace, special:magic
 
       bind = SUPER, K, exec, pgrep keepassxc && hyprctl dispatch togglespecialworkspace keepassxc || keepassxc &
       bind = SUPER, D, exec, pgrep electron && hyprctl dispatch togglespecialworkspace vesktop || electron &
       bind = SUPER, O, exec, hyprctl dispatch togglespecialworkspace obsidian
-      bind = SUPER, T, exec, hyprctl dispatch togglespecialworkspace telegram-desktop
-
+      bind = SUPER, T, exec, hyprctl dispatch togglespecialworkspace android-messages-desktop
+      bind = SUPER, S, exec, hyprctl dispatch togglespecialworkspace spotify 
 
 
       # Switch workspaces with mainMod + [0-9]

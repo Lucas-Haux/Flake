@@ -10,16 +10,18 @@ with lib;
     trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
   environment.systemPackages = with pkgs; [
+    waybar-mpris
     waybar
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     }))
     hyprcursor
-    dunst
+    # dunst
     libnotify
     # rofi-wayland
     wofi
     hyprlock
+    swaynotificationcenter
     wl-clipboard
   ];
   programs.hyprland = {

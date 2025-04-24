@@ -29,10 +29,12 @@
     pwvucontrol
     gparted # manage drive partions
     gimp # image editor
+    xterm # for ssh support in ghostty
     libreoffice
     # qbittorrent-qt5
     radeontop # amd gpu utilization
     ente-auth
+    networkmanagerapplet
   ];
   programs.steam.package = pkgs.steam.override {
     extraLibraries =

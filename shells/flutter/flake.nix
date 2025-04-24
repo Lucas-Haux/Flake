@@ -3,7 +3,7 @@
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
   };
 
   outputs =
@@ -34,6 +34,7 @@
             "33.0.1"
             "34.0.0"
             "35.0.0"
+            "36.0.0"
           ];
           platformVersions = [
             "30"
@@ -41,7 +42,8 @@
             "32"
             "33"
             "34"
-            #  "35"
+            "35"
+            "36"
           ];
           abiVersions = [
             "armeabi-v7a"
@@ -73,20 +75,20 @@
             JAVA_HOME = jdk17.home;
             JAVA_8_HOME = jdk8.home;
             JAVA_17_HOME = jdk17.home;
-            FLUTTER_ROOT = flutter;
-            DART_ROOT = "${flutter}/bin/cache/dart-sdk";
+            FLUTTER_ROOT = flutter327;
+            DART_ROOT = "${flutter327}/bin/cache/dart-sdk";
             GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/35.0.0/aapt2";
             QT_QPA_PLATFORM = "wayland;xcb"; # emulator related: try using wayland, otherwise fall back to X
             # NB: due to the emulator's bundled qt version, it currently does not start with QT_QPA_PLATFORM="wayland".
             # Maybe one day this will be supported.
             buildInputs = [
               ## General needs
-              flutter
-              google-chrome
+              flutter327
+              # google-chrome
 
               ## Android target
               androidSdk
-              android-studio
+              # android-studio
               android-tools
               jdk17
               jdk8 # for gradle sake...
@@ -108,6 +110,10 @@
               echo
               echo "Please Make Sure That: '$HOME/.gradle/gradle.properties' contains:"
               echo "org.gradle.java.installations.paths=$JAVA_8_HOME,$JAVA_17_HOME"
+              echo
+              echo
+              echo "If android cmdline-tools is missing run:"
+              echo "flutter config --android-sdk $ANDROID_SDK_ROOT"
               echo
               echo
             '';

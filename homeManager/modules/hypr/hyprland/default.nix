@@ -23,9 +23,10 @@ in
         # Programs
         "waybar"
         "vesktop"
-        "telegram-desktop"
+        "android-messages"
         "obsidian"
-        "keepassxc"
+        "spotify"
+        # "keepassxc"
         "zen"
         # Other
         "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
@@ -40,9 +41,9 @@ in
     extraConfig = # hyprlang
       ''
         # Monitor settings
-        monitor=DP-2, 1920x1080@120, 1080x490, 1
+        monitor=DP-1, 1920x1080@240, 1080x490, 1
         monitor=HDMI-A-1, 1920x1080@60, 3000x450, 1
-        monitor=DP-3, 1920x1080@60, 0x0, 1, transform,3
+        monitor=DP-2, 1920x1080@60, 0x0, 1, transform,3
 
         input {
           kb_layout = us
@@ -57,7 +58,7 @@ in
 
         general {
           layout = dwindle
-          gaps_in = 4
+          gaps_in = 5
           gaps_out = 10
 
           # border
@@ -78,7 +79,7 @@ in
               special = true
               new_optimizations = true
               size = 3
-              passes = 1
+              passes = 2
               brightness = 1
               noise = 0.01
               contrast = 1

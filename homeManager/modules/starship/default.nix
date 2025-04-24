@@ -2,16 +2,16 @@
 let
   colors = config.colorscheme.colors;
 
+  hostnameFormat = lib.concatStrings [
+    "[](fg:#${colors.base0A} bg:none)"
+    "[  ](bold bg:#${colors.base0A} fg:#252525)"
+    "[](fg:#${colors.base0A} bg:none)"
+    " "
+  ];
   nixShellFormat = lib.concatStrings [
     "[](fg:#${colors.base0E} bg:none)"
     "[ 󱄅 ](bold bg:#${colors.base0E} fg:#252525)"
-    "[](fg:#${colors.base0E} bg:none) "
-    " "
-  ];
-  hostnameFormat = lib.concatStrings [
-    "[](fg:#${colors.base03} bg:none)"
-    "[$ssh_symbol](bold bg:#${colors.base03})"
-    "[](fg:#${colors.base03} bg:none)"
+    "[](fg:#${colors.base0E} bg:none)"
     " "
   ];
   directoryFormat = lib.concatStrings [
@@ -19,11 +19,11 @@ let
     "[$path]($style)"
     "[█](fg:#${colors.base03} bg:#${colors.base03})"
     "[](fg:#${colors.base0C} bg:#${colors.base03})"
-    "[ 󰉋 ](fg:#252525 bg:#${colors.base03})"
+    "[ 󰉋 ](bold fg:#252525 bg:#${colors.base0C})"
     "[](fg:#${colors.base0C} bg:none)"
-    " "
   ];
   packageFormat = lib.concatStrings [
+    " "
     "[](fg:#${colors.base03} bg:none)"
     "[$version](bg:#${colors.base03})"
     "[█](fg:#${colors.base03} bg:#${colors.base03})"
@@ -44,19 +44,30 @@ let
     "[](fg:#${colors.base03} bg:none)"
     "[$all_status$ahead_behind]($style)"
     "[](fg:#${colors.base03} bg:#${colors.base03})"
-    "[](fg:#${colors.base0C} bg:#${colors.base03})"
-    "[  ](fg:#252525 bg:#${colors.base0C})"
-    "[](fg:#${colors.base0C} bg:none)"
+    "[](fg:#${colors.base0F} bg:#${colors.base03})"
+    "[  ](fg:#252525 bg:#${colors.base0F})"
+    "[](fg:#${colors.base0F} bg:none)"
+  ];
+  cmdDurationFormat = lib.concatStrings [
+    " "
+    "[](fg:#${colors.base03} bg:none)"
+    "[$duration](bold bg:#${colors.base03})"
+    "[](fg:#${colors.base03} bg:none)"
   ];
 in
-
 {
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
     settings = {
       add_newline = false;
-      format = "$nix_shell$hostname$directory$package$custom$sudo$fill$git_branch$git_status$git_commit$cmd_duration$line_break$character";
+      format = "$hostname$nix_shell$directory$package$fill$git_branch$git_status$git_commit$cmd_duration$line_break$character";
+
+      hostname = {
+        ssh_only = true;
+        format = hostnameFormat;
+        disabled = false;
+      };
 
       nix_shell = {
         format = nixShellFormat;
@@ -64,16 +75,17 @@ in
         heuristic = true;
       };
 
-      hostname = {
-        ssh_only = true;
-        format = hostnameFormat;
-        disabled = false;
-        ssh_symbol = " 󰒋 ";
+      directory = {
+        format = directoryFormat;
+        style = "fg:#E8E3E3 bg:#${colors.base03} bold";
+        truncation_length = 3;
+        truncate_to_repo = false;
+        read_only = " 󱧸 ";
       };
 
       package = {
         format = packageFormat;
-        version_format = " \${raw}";
+        version_format = "\${raw}";
         disabled = false;
       };
 
@@ -115,21 +127,9 @@ in
         deleted = "  \${count}";
       };
 
-      directory = {
-        format = directoryFormat;
-        style = "fg:#E8E3E3 bg:#${colors.base03} bold";
-        truncation_length = 3;
-        truncate_to_repo = false;
-        read_only = " 󱧸 ";
-      };
-
       cmd_duration = {
-        format = " [$duration]($style)";
+        format = cmdDurationFormat;
         style = "bright-blue";
-      };
-
-      jobs = {
-        style = "bright-green bold";
       };
 
       fill = {
@@ -138,8 +138,8 @@ in
       };
 
       character = {
-        success_symbol = "[ ](#${colors.base0C} bold)";
-        error_symbol = "[ ](#B66467 bold)";
+        success_symbol = "[  ](#${colors.base0C} bold)";
+        error_symbol = "[  ](#${colors.base08} bold)";
       };
     };
   };
