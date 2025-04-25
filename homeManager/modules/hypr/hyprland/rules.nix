@@ -35,5 +35,12 @@
       windowrulev2 = float, title:^(Picture-in-Picture)$
       windowrulev2 = pin, title:^(Picture-in-Picture)$ 
       windowrulev2 = keepaspectratio, title:^(Picture-in-Picture)$
+
+      windowrulev2 = workspace special:AI silent,class:(chrome-t3.chat__-Default)
+      windowrulev2 = float, class:(chrome-t3.chat__-Default)
+      windowrulev2 = move onscreen 0% 5%, class:(chrome-t3.chat__-Default)
+      windowrulev2 = size 65% 93%, class:(chrome-t3.chat__-Default)
+      windowrulev2 = opacity 0.75 0.75, class:(chrome-t3.chat__-Default)
+      windowrulev2 = bordercolor rgba(${lib.removePrefix "#" config.colorscheme.colors.base0E}cc), class:(chrome-t3.chat__-Default)
     '';
 }

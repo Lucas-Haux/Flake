@@ -23,6 +23,7 @@
     brave
     portfolio
     tor-browser
+    chromium
     qemu
     quickemu
     # pavucontrol # control audio

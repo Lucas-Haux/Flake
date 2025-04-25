@@ -25,11 +25,12 @@ in
         "android-messages"
         "obsidian"
         "spotify"
+        "chromium --app=https://t3.chat --user-data-dir=$HOME/.config/webapps/t3_chat"
         # "keepassxc"
         "zen"
         # Other
         "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-        "exec-once = clipse -listen"
+        "clipse -listen"
       ];
       env = [
         "GTK_THEME,Nordic"
@@ -72,11 +73,12 @@ in
 
         decoration {
             rounding = 15
+            rounding_power = 4
 
             blur {
               enabled = true
               xray = true
-              special = true
+              special = false
               new_optimizations = true
               size = 3
               passes = 2
