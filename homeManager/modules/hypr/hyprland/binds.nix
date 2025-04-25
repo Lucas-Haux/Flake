@@ -21,7 +21,7 @@
       bind = $mainMod, Q, exec, ghostty # terminal
       bind = $mainMod, L, exec, hyprlock # lock screen
       bind = $mainMod, R, exec, rofi -show drun # application starter
-      bind = $mainMod, A, exec, ghostty --class=com.clipse.clipse --confirm-close-surface=false -e clipse # clipboard history
+      bind = $mainMod, W, exec, ghostty --class=com.clipse.clipse --confirm-close-surface=false -e clipse # clipboard history
       # Screen shot area
       bind = $mainMod SHIFT, P, exec, grimblast --notify --cursor --freeze --wait 2 --scale 1 copy area
 
@@ -44,7 +44,7 @@
       bind = SUPER, O, exec, hyprctl dispatch togglespecialworkspace obsidian
       bind = SUPER, T, exec, hyprctl dispatch togglespecialworkspace android-messages-desktop
       bind = SUPER, S, exec, hyprctl dispatch togglespecialworkspace spotify 
-
+      bind = SUPER, A, exec, hyprctl dispatch togglespecialworkspace AI
 
       # Switch workspaces with mainMod + [0-9]
       bind = $mainMod, 1, workspace, 1
