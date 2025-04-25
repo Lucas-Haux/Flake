@@ -19,7 +19,6 @@ with lib;
     # dunst
     libnotify
     # rofi-wayland
-    wofi
     hyprlock
     swaynotificationcenter
     wl-clipboard

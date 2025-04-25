@@ -6,7 +6,6 @@
 let
   pointer = config.home.pointerCursor;
 
-  cursorName = "Nordzy-cursors";
 in
 {
   imports = [
@@ -30,6 +29,7 @@ in
         "zen"
         # Other
         "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
+        "exec-once = clipse -listen"
       ];
       env = [
         "GTK_THEME,Nordic"

@@ -1,7 +1,5 @@
 {
   pkgs,
-  inputs,
-  config,
   ...
 }:
 {
@@ -11,6 +9,7 @@
     ./hyprpaper
     ./hyprlock
     ./swaync
+    ./clipse
   ];
   home.packages = with pkgs; [
     grimblast # Screenshots
