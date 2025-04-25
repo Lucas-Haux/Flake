@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ ... }:
 {
   wayland.windowManager.hyprland.extraConfig = # hyprlang
     ''
@@ -21,6 +21,7 @@
       bind = $mainMod, Q, exec, ghostty # terminal
       bind = $mainMod, L, exec, hyprlock # lock screen
       bind = $mainMod, R, exec, rofi -show drun # application starter
+      bind = $mainMod, A, exec, ghostty --class=com.clipse.clipse --confirm-close-surface=false -e clipse # clipboard history
       # Screen shot area
       bind = $mainMod SHIFT, P, exec, grimblast --notify --cursor --freeze --wait 2 --scale 1 copy area
 
