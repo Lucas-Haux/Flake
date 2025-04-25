@@ -1,14 +1,14 @@
 # Desktop:
 
-| Component             | Version/Name                |
+| Component             | Name/Version                |
 |-----------------------|-----------------------------|
 | Distro                | NixOS                       |
 | Kernel                | 6.6.75                         |
 | Shell                 | Zsh                        |
 | Display Server        | Wayland                     |
-| WM (Compositor)       | Hyprland                    |
+| Compositor (WM)       | Hyprland                    |
 | Bar                   | Waybar                      |
-| Notification          | Dunst                       |
+| Notification          | Libnotify                   |
 | Launcher              | Rofi-Wayland                |
 | Editor                | NixVim                      |
 | Terminal              | Ghostty + Starship          |
