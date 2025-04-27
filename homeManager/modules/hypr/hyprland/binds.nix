@@ -22,8 +22,7 @@
       bind = $mainMod, L, exec, hyprlock # lock screen
       bind = $mainMod, R, exec, rofi -show drun # application starter
       # Screen shot area
-      bind = $mainMod SHIFT, P, exec, grimblast --notify --cursor --freeze --wait 2 --scale 1 copy area
-
+      bind = $mainMod SHIFT, P, exec, grimblast --notify copy area
       # Move focus with mainMod + arrow keys
       bind = $mainMod, left, movefocus, l
       bind = $mainMod, right, movefocus, r
