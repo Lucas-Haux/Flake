@@ -59,11 +59,18 @@
   };
 
   # Nixpkgs
-  nixpkgs = {
-    config = {
-      experimental.features = true;
-      allowUnfree = true;
+  nixpkgs.config = {
+    experimental.features = true;
+    allowUnfree = true;
+    qt5 = {
+      enable = true;
+      platformTheme = "qt5ct";
+      style = {
+        package = pkgs.utterly-nord-plasma;
+        name = "Utterly Nord Plasma";
+      };
     };
+
   };
 
   # Networking
@@ -133,6 +140,26 @@
       intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
       libvdpau-va-gl
     ];
+  };
+
+  environment = {
+    systemPackages = with pkgs; [
+      libsForQt5.qtstyleplugin-kvantum
+      libsForQt5.qt5ct
+    ];
+    sessionVariables = {
+      XDG_CURRENT_DESKTOP = "Hyprland";
+      XDG_SESSION_DESKTOP = "Hyprland";
+      XDG_SESSION_TYPE = "wayland";
+      GDK_BACKEND = "wayland";
+      GTK_USE_PORTAL = "1";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
+      QT_QPA_PLATFORM = "wayland";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+    };
+    variables.QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 
   system.stateVersion = "24.05";

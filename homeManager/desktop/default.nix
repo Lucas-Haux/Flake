@@ -35,6 +35,7 @@
       # pkgs.steam
       pkgs.jq
       pkgs.socat
+      pkgs.dconf
       # inputs.zen-browser.packages.x86_64-linux.default
       inputs.nixvim.packages.x86_64-linux.default
     ];
@@ -44,6 +45,15 @@
       package = pkgs.nordzy-cursor-theme;
       name = "Nordzy-cursors";
       size = 16;
+    };
+  };
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
     };
   };
 
@@ -59,6 +69,25 @@
       name = "Nordzy-cursors";
       size = 16;
     };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "qtct";
+    style = {
+      package = pkgs.utterly-nord-plasma;
+      name = "Utterly Nord Solid";
+    };
+  };
+
+  xdg.configFile = {
+    "Kvantum/Utterly-Nord-Solid-Plasma/Utterly-Nord-Solid/Utterly-Nord-Solid.kvconfig".source =
+      "${pkgs.utterly-nord-plasma}/share/Kvantum/Utterly-Nord-Solid/Utterly-Nord-Solid.kvconfig";
+    "Kvantum/Utterly-Nord-Solid-Plasma/Utterly-Nord-Solid/Utterly-Nord-Solid.svg".source =
+      "${pkgs.utterly-nord-plasma}/share/Kvantum/Utterly-Nord-Solid/Utterly-Nord-Solid.svg";
+    "Kvantum/Utterly-Nord-Solid-Plasma/Utterly-Nord-Solid/Nord.patchconfig".source =
+      "${pkgs.utterly-nord-plasma}/share/Kvantum/Utterly-Nord-Solid/Nord.patchconfig";
+    "Kvantum/kvantum.kvconfig".text = "[General]\ntheme=Utterly-Nord-Solid";
   };
 
   programs = {
