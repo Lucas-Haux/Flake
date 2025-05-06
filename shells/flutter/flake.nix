@@ -53,6 +53,8 @@
           includeNDK = true;
           ndkVersion = "23.1.7779620";
           useGoogleAPIs = true;
+          includeEmulator = true;
+          emulatorVersion = "35.6.2";
           extraLicenses = [
             "android-googletv-license"
             "android-sdk-arm-dbt-license"
@@ -81,6 +83,10 @@
             QT_QPA_PLATFORM = "wayland;xcb"; # emulator related: try using wayland, otherwise fall back to X
             # NB: due to the emulator's bundled qt version, it currently does not start with QT_QPA_PLATFORM="wayland".
             # Maybe one day this will be supported.
+            LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath [
+              pkgs.vulkan-loader
+              pkgs.libGL
+            ]}";
             buildInputs = [
               ## General needs
               flutter327
@@ -89,6 +95,7 @@
               ## Android target
               androidSdk
               # android-studio
+              qemu_kvm
               android-tools
               jdk17
               jdk8 # for gradle sake...
