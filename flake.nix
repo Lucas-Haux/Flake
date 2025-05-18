@@ -31,6 +31,9 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+    };
   };
 
   outputs =
@@ -75,7 +78,9 @@
           extraSpecialArgs = {
             inherit inputs;
           };
-          modules = [ ./homeManager/desktop ];
+          modules = [
+            ./homeManager/desktop
+          ];
         };
       };
 

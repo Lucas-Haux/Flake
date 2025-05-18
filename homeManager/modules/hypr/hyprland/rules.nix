@@ -7,9 +7,9 @@
       windowrulev2 = workspace special:keepassxc silent,class:(keepassxc)
 
       # Bind D = Discord special
-      windowrulev2 = tile,class:(vesktop)
-      windowrulev2 = workspace special:vesktop silent,class:(vesktop)
-      windowrulev2 = opacity 1 1, class:(vesktop)
+      windowrulev2 = tile,class:(discord)
+      windowrulev2 = workspace special:discord silent,class:(discord)
+      windowrulev2 = opacity 0.8 0.8, class:(discord)
 
       # Bind O = Obsidian special
       windowrulev2 = tile,class:(obsidian)

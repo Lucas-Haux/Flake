@@ -16,9 +16,11 @@
     ./../modules/git
     ./../modules/ghostty
     ./../modules/spotify
+    ./../modules/nixcord
     # ./../modules/zen_browser
     # ./../modules/nvim
     inputs.nix-colors.homeManagerModules.default
+
   ];
   colorScheme = inputs.nix-colors.colorSchemes.nord;
 

@@ -39,7 +39,7 @@
       bind = $mainMod SHIFT, M, movetoworkspace, special:magic
 
       bind = SUPER, K, exec, pgrep keepassxc && hyprctl dispatch togglespecialworkspace keepassxc || keepassxc &
-      bind = SUPER, D, exec, pgrep electron && hyprctl dispatch togglespecialworkspace vesktop || electron &
+      bind = SUPER, D, exec, hyprctl dispatch togglespecialworkspace discord
       bind = SUPER, O, exec, hyprctl dispatch togglespecialworkspace obsidian
       bind = SUPER, T, exec, hyprctl dispatch togglespecialworkspace android-messages-desktop
       bind = SUPER, S, exec, hyprctl dispatch togglespecialworkspace spotify 
