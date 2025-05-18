@@ -46,7 +46,9 @@
       format = "{usage:02}% ";
     };
     "temperature" = {
-      thermal-zone = 0;
+      thermal-zone = 3;
+      hwmon-path-abs = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/";
+      input-filename = "temp1_input";
       format = "{temperatureC}°C ";
       format-critical = "{temperatureC}°C 󰈸";
       critical-threshold = 80;
