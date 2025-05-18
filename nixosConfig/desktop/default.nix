@@ -94,7 +94,10 @@
 
   # XDG portal
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.xdg-desktop-portal-hyprland
+  ];
 
   # printing
   services.printing.enable = true; # Enable CUPS to print documents.
