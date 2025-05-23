@@ -21,7 +21,7 @@ in
         "bash $HOME/Flake/homeManager/modules/hypr/scripts/move_zen_browser_windows_to_workspaces.bash"
         # Programs
         "waybar"
-        "discord"
+        "Discord"
         "android-messages"
         "obsidian"
         "spotify"
