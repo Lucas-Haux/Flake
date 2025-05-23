@@ -8,12 +8,12 @@
 }:
 let
   pname = "android-messages";
-  version = "5.4.2";
+  version = "5.7.1";
   src = fetchurl {
     url =
       "https://github.com/OrangeDrangon/android-messages-desktop"
-      + "/releases/download/v5.4.2/Android-Messages-v5.4.2-linux-x86_64.AppImage";
-    hash = "sha256-/gAbBel58ktxiLjTa40XPa8iwn8oFU29oRivVLGKt5s=";
+      + "/releases/download/v5.7.1/Android-Messages-v5.7.1-linux-x86_64.AppImage";
+    hash = "sha256-WmFKJlkKlIpZY62qFc2hQq3jpQJwreEuweYN4RRgGis=";
   };
   contents = appimageTools.extractType2 { inherit pname version src; };
 in
