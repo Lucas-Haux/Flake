@@ -13,6 +13,8 @@
             iifname "enp5s0" tcp dport 25565 dnat to 10.0.0.59:25565
             iifname "enp5s0" udp dport 25565 dnat to 10.0.0.59:25565
             iifname "enp5s0" tcp dport 32400 dnat to 10.0.0.59:32400
+            iifname "enp5s0" udp dport 443 dnat to 10.0.0.59:443
+            iifname "enp5s0" tcp dport 443 dnat to 10.0.0.59:443
           }
         }
       '';
@@ -25,7 +27,7 @@
         8080
         32400
         80
-	      22
+        22
         443
         3000
         9001
@@ -33,6 +35,8 @@
       allowedUDPPorts = [
         64000
         25565
+        8080
+        443
       ];
     };
     nat = {
@@ -74,6 +78,16 @@
           sourcePort = 32400;
           proto = "tcp";
           destination = "10.0.0.59:32400";
+        }
+        {
+          sourcePort = 443;
+          proto = "udp";
+          destination = "10.0.0.59:443";
+        }
+        {
+          sourcePort = 443;
+          proto = "tcp";
+          destination = "10.0.0.59:443";
         }
       ];
     };
