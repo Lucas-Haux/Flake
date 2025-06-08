@@ -15,12 +15,12 @@
     ../modules/syncthing
     # ../modules/nextcloud
     ../modules/docker
-    ../modules/monitoring
+    # ../modules/monitoring
   ];
-                nixpkgs.config.permittedInsecurePackages = [
-                "dotnet-sdk-6.0.428"
-                "aspnetcore-runtime-6.0.36"
-              ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "dotnet-sdk-6.0.428"
+    "aspnetcore-runtime-6.0.36"
+  ];
   nixpkgs.config.experimental.features = true;
   nix.settings.experimental-features = [
     "nix-command"
@@ -41,10 +41,8 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-	boot.loader.systemd-boot.enable = true;
-boot.loader.efi.canTouchEfiVariables = true;
-	
-
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -108,9 +106,9 @@ boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable the OpenSSH daemon.
   services.openssh = {
-enable = true;
-ports = [22];
-};
+    enable = true;
+    ports = [ 22 ];
+  };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
