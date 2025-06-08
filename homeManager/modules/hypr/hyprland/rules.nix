@@ -32,10 +32,13 @@
       windowrulev2 = stayfocused, class:(com.clipse.clipse)
       windowrulev2 = bordercolor rgba(${lib.removePrefix "#" config.colorscheme.colors.base0E}cc), class:(com.clipse.clipse) 
 
+      # PIP
       windowrulev2 = float, title:^(Picture-in-Picture)$
       windowrulev2 = pin, title:^(Picture-in-Picture)$ 
       windowrulev2 = keepaspectratio, title:^(Picture-in-Picture)$
+      windowrulev2 = size 1074 603, title:^(Picture-in-Picture)&
 
+      # t3.chat
       windowrulev2 = workspace special:AI silent,class:(chrome-t3.chat__-Default)
       windowrulev2 = float, class:(chrome-t3.chat__-Default)
       windowrulev2 = move onscreen 0% 5%, class:(chrome-t3.chat__-Default)
