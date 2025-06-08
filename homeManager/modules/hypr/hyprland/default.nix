@@ -30,7 +30,7 @@ in
         "zen"
         # Other
         "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-        "clipse -listen"
+        "clipse --listen-shell"
       ];
       env = [
         "GTK_THEME,Nordic"

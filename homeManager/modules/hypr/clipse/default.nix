@@ -10,6 +10,7 @@
       scaleX = 15;
       heightCut = 2;
     };
+    systemdTarget = "hyprland-session.target";
     theme = with config.colorscheme.colors; {
       useCustomTheme = true;
       TitleFore = "#${base07}";
