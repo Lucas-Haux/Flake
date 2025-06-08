@@ -26,11 +26,11 @@ in
         "obsidian"
         "spotify"
         "chromium --app=https://t3.chat --user-data-dir=$HOME/.config/webapps/t3_chat"
-        # "keepassxc"
         "zen"
         # Other
         "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
         "clipse --listen-shell"
+        "swaync-client -df"
       ];
       env = [
         "GTK_THEME,Nordic"
@@ -42,8 +42,8 @@ in
     extraConfig = # hyprlang
       ''
         # Monitor settings
-        monitor=DP-1, 1920x1080@240, 1080x490, 1
-        monitor=HDMI-A-1, 1920x1080@60, 3000x450, 1
+        monitor=DP-1, 1920x1080@240, 1080x505, 1
+        monitor=HDMI-A-1, 1920x1080@60, 3000x385, 1
         monitor=DP-2, 1920x1080@60, 0x0, 1, transform,3
 
         input {
@@ -61,14 +61,18 @@ in
           layout = dwindle
           gaps_in = 5
           gaps_out = 10
+          allow_tearing = false
+          snap {
+            enabled = true
+            # respect_gaps = true
+          }
+
 
           # border
           border_size = 3
           resize_on_border = true
           col.active_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base0B}ee) 
           col.inactive_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base00}ee)
-
-          allow_tearing = false
         }
 
         decoration {
