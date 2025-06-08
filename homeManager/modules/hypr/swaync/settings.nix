@@ -53,10 +53,11 @@
     };
     buttons-grid = {
       actions = [
+        # SSH into Server
         {
           label = "";
           command = "ghostty -e ssh 10.0.0.59";
-          type = "toggle";
+          type = "normal";
         }
         # Do not Distrub
         {
@@ -67,14 +68,19 @@
         {
           label = "󰌿";
           command = "hyprlock";
+          type = "toggle";
         }
         {
           label = "";
           command = "reboot";
+          type = "normal";
+
         }
         {
           label = "";
           command = "shutdown now";
+          type = "normal";
+
         }
       ];
     };
