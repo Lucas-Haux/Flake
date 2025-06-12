@@ -47,6 +47,10 @@
   hardware = {
     enableRedistributableFirmware = true;
     enableAllFirmware = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
     graphics = {
       enable = true;
       enable32Bit = true;
