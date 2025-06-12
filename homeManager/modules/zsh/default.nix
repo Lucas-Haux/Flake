@@ -3,7 +3,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     autocd = true;
     oh-my-zsh = {
@@ -16,7 +16,7 @@
       ];
     };
 
-    initExtra = # bash
+    initContent = # bash
       ''
         export KEYTIMEOUT=1
 
@@ -56,6 +56,5 @@
       webcamOn = "adb -s 19271FDEE00013 shell svc usb setFunctions uvc";
       webcamOff = "adb -s 19271FDEE00013 usb";
     };
-
   };
 }
