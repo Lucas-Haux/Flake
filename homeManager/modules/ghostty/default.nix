@@ -1,7 +1,13 @@
-{ ... }:
+{ pkgs, ... }:
 {
   home.sessionVariables.TERMINAL = "ghostty";
+
   programs.ghostty = {
+    package = pkgs.ghostty.overrideAttrs (_oldAttrs: {
+      patchPhase = ''
+        find . -name "*.zig" -exec sh -c 'echo "Patching: $1"; sed -i "s/^const xev = @import(\"xev\");$/const xev = @import(\"xev\").Epoll;/" "$1"' _ {} \;
+      '';
+    });
     enable = true;
     enableZshIntegration = true;
     installVimSyntax = true;
