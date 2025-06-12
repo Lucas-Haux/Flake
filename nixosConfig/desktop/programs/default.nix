@@ -14,7 +14,7 @@
     scrcpy
     fastfetch
     jellyfin-media-player
-    plex-media-player
+    plex-desktop
     spacedrive # file manager
     obsidian # notes
     keepassxc # password manager
