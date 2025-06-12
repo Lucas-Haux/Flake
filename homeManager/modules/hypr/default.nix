@@ -5,10 +5,11 @@
 {
   imports = [
     ./hyprland
-    ./waybar
+    # ./waybar
     ./hyprpaper
     ./hyprlock
-    ./swaync
+    ./hyprpanel
+    # ./swaync
     ./clipse
   ];
   home.packages = with pkgs; [
@@ -16,5 +17,6 @@
     kooha # for video
     wf-recorder # Screen recorder
     hyprpicker # Color picker
+
   ];
 }
