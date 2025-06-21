@@ -17,6 +17,7 @@
     ./../modules/ghostty
     ./../modules/spotify
     ./../modules/nixcord
+    ./../modules/rquickshare
     # ./../modules/zen_browser
     # ./../modules/nvim
     inputs.nix-colors.homeManagerModules.default

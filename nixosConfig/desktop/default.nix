@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./networking.nix
     ./programs
     ./../modules/syncthing
     ./../modules/hyprland
