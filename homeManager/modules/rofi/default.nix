@@ -4,16 +4,27 @@
     enable = true;
     cycle = true;
     package = pkgs.rofi-wayland;
-
+      # plugins = [
+      #   pkgs.rofi-file-browser
+      #   pkgs.rofi-pulse-select
+      #   pkgs.rofi-systemd
+      # ];
     extraConfig = {
-      modi = "drun,window,run";
-      sidebar-mode = true;
-      terminal = "wezterm";
+      modi = [
+        "drun"
+        "window" 
+        "run"
+      ];
+      terminal = "ghostty";
+
+      case-sensitive = false;
       show-icons = true;
+      sidebar-mode = true;
+
       kb-remove-char-back = "BackSpace";
       kb-accept-entry = "Control+m,Return,KP_Enter";
-      kb-mode-next = "Control+l";
-      kb-mode-previous = "Control+h";
+      kb-mode-next = "Control+l"; # switch modes
+      kb-mode-previous = "Control+h"; # switch modes
       kb-row-up = "Control+k,Up";
       kb-row-down = "Control+j,Down";
       kb-row-left = "Control+u";
@@ -22,6 +33,7 @@
       kb-remove-to-sol = "";
       kb-remove-to-eol = "";
       kb-mode-complete = "";
+
       display-drun = "";
       display-run = "";
       display-window = "";
