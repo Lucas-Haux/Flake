@@ -1,4 +1,4 @@
-{ 
+{
   prepend_dirs = [
     {
       name = ".config";
@@ -51,6 +51,14 @@
     {
       name = "Scripts";
       text = "󱧼";
+    }
+    {
+      name = "!TEMP";
+      text = "󱞞";
+    }
+    {
+      name = "Library";
+      text = "";
     }
   ];
 }
