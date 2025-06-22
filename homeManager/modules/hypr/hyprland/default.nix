@@ -50,12 +50,10 @@ in
         input {
           kb_layout = us
           kb_variant = ,qwerty
-          kb_model =
 
-          follow_mouse = 1 # focus window where my mouse is
+          follow_mouse = 1 
+          follow_mouse_threshold = 5
           sensitivity = -1
-
-          special_fallthrough = true
         }
 
         general {
@@ -68,12 +66,11 @@ in
             # respect_gaps = true
           }
 
-
           # border
           border_size = 3
           resize_on_border = true
           col.active_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base0B}ee) 
-          col.inactive_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base00}ee)
+          col.inactive_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base01}ee)
         }
 
         decoration {
@@ -82,7 +79,7 @@ in
 
             blur {
               enabled = true
-              xray = true
+              xray = false
               special = false
               new_optimizations = true
               size = 3
@@ -106,6 +103,7 @@ in
 
         animations { # todo
           enabled = true
+          workspace_wraparound = true
           # Animation curves
 
           bezier = linear, 0, 0, 1, 1
@@ -161,6 +159,8 @@ in
           vfr = true
           vrr = 0
           enable_swallow = true
+          new_window_takes_over_fullscreen = 2
+          middle_click_paste = 0
         }
       '';
   };
