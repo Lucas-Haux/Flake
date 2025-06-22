@@ -16,14 +16,15 @@
       bind = $mainMod, F, fullscreen, 1
       bind = $mainMod CTRL, F, fullscreen, 0
 
-
       # Exec Binds
       bind = $mainMod, Q, exec, ghostty # terminal
       bind = $mainMod, L, exec, hyprlock # lock screen
       bind = $mainMod, R, exec, rofi -show drun # application starter
       bind = $mainMod, W, exec, ghostty --class=com.clipse.clipse --confirm-close-surface=false -e clipse # clipboard history
-      # Screen shot area
-      bind = $mainMod SHIFT, P, exec, grimblast --notify copy area
+      # Screenrecord
+      bind = $mainMod SHIFT, P, exec, hyprshot -m region -s --clipboard-only -f \"$HOME/Media/screenShots/$(date '+%b-%d-%Y_%H-%M').jpg\" 
+      # Screenshot
+      bind = $mainMod SHIFT, R, exec, wf-recorder -a -f \"$HOME/Media/screenRecordings/$(date '+%b-%d-%Y_%H-%M').mkv\" -g \"$(slurp -b 18202599 -d)\"
       # Move focus with mainMod + arrow keys
       bind = $mainMod, left, movefocus, l
       bind = $mainMod, right, movefocus, r

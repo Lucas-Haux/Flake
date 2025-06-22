@@ -13,10 +13,10 @@
     ./clipse
   ];
   home.packages = with pkgs; [
-    grimblast # Screenshots
+    slurp
+    hyprshot
     kooha # for video
     wf-recorder # Screen recorder
     hyprpicker # Color picker
-
   ];
 }
