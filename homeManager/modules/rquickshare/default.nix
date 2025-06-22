@@ -13,11 +13,11 @@
       enable = true;
       text = ''
         {
-          "realclose": false,
-          "autostart": true,
+          "realclose": true,
+          "autostart": false,
           "startminimized":false,
           "download_path": "/home/luke/Downloads/QuickShare",
-          "visibility": 1,
+          "visibility": 0,
           "port": 49999 
         }
       '';
