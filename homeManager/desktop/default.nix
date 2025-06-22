@@ -32,6 +32,7 @@
   };
 
   home = {
+    stateVersion = "24.11";
     username = "luke";
     homeDirectory = "/home/luke";
     packages = [
@@ -77,6 +78,4 @@
   #   [ ]
   #   ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   fonts.fontconfig.enable = true;
-
-  home.stateVersion = "24.11";
 }
