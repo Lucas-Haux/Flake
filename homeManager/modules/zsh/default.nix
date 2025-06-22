@@ -20,20 +20,11 @@
       ''
         export KEYTIMEOUT=1
 
-        function y() {
-        	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-        	yazi "$@" --cwd-file="$tmp"
-        	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        		builtin cd -- "$cwd"
-        	fi
-        	rm -f -- "$tmp"
-        };
-
-        nixSearch() {
+        nix-search() {
           nix search "$@" 2>/dev/null | sed -E 's/legacyPackages\.[a-z0-9_\-]+\.//'
         }
 
-        nixShell() {
+        nix-shell() {
           nix-shell -p "$@" --run zsh
         }
 
@@ -45,6 +36,7 @@
 
     shellAliases = {
       ll = "ls -l";
+      cd = "z"; # replace cd with zoxide
 
       rebuild = "sudo nixos-rebuild switch --flake ~/Flake#desktop";
       rebuild-server = "sudo nixos-rebuild switch --flake ~/Flake#server";
@@ -53,8 +45,8 @@
 
       flutter-shell = "export NIXPKGS_ALLOW_UNFREE=1; nix develop --impure ~/Flake/shells/flutter -c zsh";
 
-      webcamOn = "adb -s 19271FDEE00013 shell svc usb setFunctions uvc";
-      webcamOff = "adb -s 19271FDEE00013 usb";
+      webcam-on = "adb -s 19271FDEE00013 shell svc usb setFunctions uvc";
+      webcam-off = "adb -s 19271FDEE00013 usb";
     };
   };
 }
