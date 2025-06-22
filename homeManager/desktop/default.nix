@@ -18,6 +18,7 @@
     ./../modules/spotify
     ./../modules/nixcord
     ./../modules/rquickshare
+    ./../modules/zoxide
     # ./../modules/zen_browser
     # ./../modules/nvim
     inputs.nix-colors.homeManagerModules.default
@@ -53,7 +54,6 @@
 
   gtk = {
     enable = true;
-
     theme = {
       package = pkgs.nordic;
       name = "Nordic";
