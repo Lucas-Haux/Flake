@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  inputs,
   ...
 }:
 with lib;
@@ -10,19 +11,27 @@ with lib;
     trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
   environment.systemPackages = with pkgs; [
-    waybar-mpris
-    waybar
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    }))
     hyprcursor
-    # dunst
     libnotify
-    # rofi-wayland
     hyprlock
-    swaynotificationcenter
     wl-clipboard
+
+    # For hyprpanel
+    libgtop
+    gtop
+    bluez
+    upower
+    gvfs
+    gtksourceview3
+    libsoup_3
   ];
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      libgtop
+    ];
+  };
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -32,8 +41,14 @@ with lib;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.sessionPath = [
+    pkgs.libgtop
+  ];
 
   # Wayland
+  environment.variables = {
+    GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0";
+  };
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";

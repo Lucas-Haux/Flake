@@ -45,5 +45,19 @@
       windowrulev2 = size 65% 93%, class:(chrome-t3.chat__-Default)
       windowrulev2 = opacity 0.75 0.75, class:(chrome-t3.chat__-Default)
       windowrulev2 = bordercolor rgba(${lib.removePrefix "#" config.colorscheme.colors.base0E}cc), class:(chrome-t3.chat__-Default)
+      # default workspaces for each monitor 
+      workspace = 1, monitor:DP-1, default:true
+      workspace = 2, monitor:DP-1
+      workspace = 3, monitor:DP-1
+      workspace = 4, monitor:DP-2, default:true
+      workspace = 5, monitor:DP-2
+      workspace = 6, monitor:DP-2
+      workspace = 7, monitor:HDMI-A-1, default:true
+      workspace = 8, monitor:HDMI-A-1
+      workspace = 9, monitor:HDMI-A-1
+      # btop
+      windowrulev2 = float, class:(com.btop.btop)
+      windowrulev2 = move 13 62, class:(com.btop.btop)
+      windowrulev2 = size 810 538, class:(com.btop.btop)
     '';
 }

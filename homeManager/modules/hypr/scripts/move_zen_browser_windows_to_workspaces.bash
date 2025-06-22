@@ -1,8 +1,8 @@
 #!/bin/bash
 
 workspace_name1="1"
-workspace_name2="2"
-workspace_name3="3"
+workspace_name2="4"
+workspace_name3="7"
 browser_name="Zen Browser"
 
 # Function to get window address based on title pattern

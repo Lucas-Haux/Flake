@@ -19,6 +19,7 @@ in
       exec-once = [
         # Scripts
         "bash $HOME/Flake/homeManager/modules/hypr/scripts/move_zen_browser_windows_to_workspaces.bash"
+        "bash $HOME/Flake/homeManager/modules/hypr/scripts/btop_close_script.bash" # used for hyprpanel btop popup
         # Programs
         "waybar"
         "Discord"
@@ -30,7 +31,7 @@ in
         # Other
         "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
         "clipse --listen-shell"
-        "swaync-client -df"
+        # "swaync-client -df"
       ];
       env = [
         "GTK_THEME,Nordic"

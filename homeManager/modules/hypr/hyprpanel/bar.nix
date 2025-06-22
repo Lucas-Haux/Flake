@@ -1,7 +1,15 @@
 {
   launcher.autoDetectIcon = true;
 
-  customModules.ram.round = true;
+  customModules = {
+    ram = {
+      leftClick = "ghostty --class=com.btop.btop --confirm-close-surface=false -e btop";
+      round = true;
+    };
+    cpu = {
+      leftClick = "ghostty --class=com.btop.btop --confirm-close-surface=false -e btop";
+    };
+  };
 
   network = {
     label = false;

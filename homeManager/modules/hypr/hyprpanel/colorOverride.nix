@@ -246,27 +246,6 @@ in
           passive = "#d8dee9";
         };
         menu = {
-          battery = {
-            background.color = "#2e3440";
-            border.color = "#434c53";
-            card.color = "#3b4252";
-            icons = {
-              active = active;
-              passive = "#5e81ac";
-            };
-            label.color = barModuleBorder;
-            listitems = {
-              active = active;
-              passive = "#d8dee9";
-            };
-            slider = {
-              background = "#434c53";
-              backgroundhover = "#434c53";
-              primary = active;
-              puck = "#4c566a";
-            };
-            text = "#d8dee9";
-          };
           bluetooth = {
             background.color = darkBackground;
             border.color = menuBorder;
@@ -321,7 +300,7 @@ in
                 background = primary;
                 text = "#2e3440";
               };
-              disabled = "#434c53";
+              disabled = darkBackground;
               input = {
                 background = primary;
                 text = "#2e3440";
@@ -440,6 +419,7 @@ in
             text = "#d8dee9";
           };
           notifications = {
+            scaling = 99;
             background = darkBackground;
             border = menuBorder;
             card = menuBackground;
@@ -503,11 +483,11 @@ in
             border.color = menuBackground;
             card.color = menuBackground;
             iconbutton = {
-              active = primary;
+              active = active;
               passive = "#d8dee9";
             };
             icons = {
-              active = primary;
+              active = active;
               passive = "#4c566a";
             };
             input_slider = {

@@ -10,14 +10,12 @@
     inputs.hyprpanel.homeManagerModules.hyprpanel
     # inputs.ags.homeManagerModules.default
   ];
-
   home.packages = [
     pkgs.libgtop
     pkgs.gtop
     pkgs.btop
     inputs.hyprpanel.packages.${pkgs.system}.wrapper
   ];
-
   programs.hyprpanel = {
     enable = true;
     overwrite.enable = true;
@@ -28,9 +26,8 @@
       layout = {
         "bar.layouts" =
           let
-            layout =
-              {
-              }:
+            main =
+              { }:
               {
                 "left" = [
                   "dashboard"
@@ -51,6 +48,21 @@
                   "notifications"
                 ];
               };
+            alt =
+              { }:
+              {
+                "left" = [
+                  "dashboard"
+                  "cpu"
+                ];
+                "middle" = [
+                  "workspaces"
+                ];
+                "right" = [
+                  "ram"
+                  "notifications"
+                ];
+              };
             none = {
               "left" = [ ];
               "middle" = [ ];
@@ -58,17 +70,16 @@
             };
           in
           {
-            "0" = layout { };
-            "1" = layout { };
-            "2" = layout { };
+            "0" = main { };
+            "1" = alt { };
+            "2" = alt { };
             "3" = none;
           };
       };
+      scalingPriority = "both";
       # theme = import ./theme.nix;
       bar = import ./bar.nix;
       menus = (import ./menus.nix { inherit pkgs; });
-
     };
-
   };
 }

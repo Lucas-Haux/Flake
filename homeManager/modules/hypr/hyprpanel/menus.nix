@@ -11,10 +11,55 @@
       image = "$HOME/Media/pictures/NixOS.ico";
       name = "Luke";
     };
+    # broken in home manager
     shortcuts = {
-      enabled = true;
-      right.shortcut1.command = "${pkgs.gcolor3}/bin/gcolor3";
+      enabled = false;
+      # left = {
+      #   shortcut1 = {
+      #     icon = "";
+      #     command = "ghostty -e ssh 10.0.0.59";
+      #   };
+      #   shortcut2 = {
+      #     icon = "";
+      #     command = "hyprpicker -a";
+      #   };
+      #   shortcut3 = {
+      #     icon = "󰚺";
+      #     command = "";
+      #   };
+      #   shortcut4 = {
+      #     icon = "󰄛";
+      #     command = "";
+      #   };
+      # };
+      # right = {
+      #   shortcut1 = {
+      #     icon = "󰚺";
+      #     command = "";
+      #   };
+      #   shortcut2 = {
+      #     icon = "󰄛";
+      #     command = "";
+      #   };
+      #   shortcut3 = {
+      #     icon = "󱩌";
+      #     command = "";
+      #   };
+      #   shortcut4 = {
+      #     icon = "";
+      #     command = "hyprpanel -t dashboardmenu";
+      #   };
+      #  shortcut3 = {
+      #   icon = "󰹑";
+      #   command = "hyprshot -m region -s --clipboard-only -f \"$HOME/Media/screenShots/$(date '+%b-%d-%Y_%H-%M').jpg\"";
+      # };
+      # shortcut4 = {
+      #   icon = "󰑋";
+      #   command = "wf-recorder -a -f \"$HOME/Media/screenRecordings/$(date '+%b-%d-%Y_%H-%M').mkv\" -g \"$(slurp -b 18202599 -d)\"";
+      # };
+      # };
     };
+
     directories = {
       enabled = true;
       left = {
