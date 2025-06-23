@@ -19,8 +19,8 @@
       # Exec Binds
       bind = $mainMod, Q, exec, ghostty # terminal
       bind = $mainMod, L, exec, hyprlock # lock screen
-      bind = $mainMod, R, exec, rofi -show drun # application starter
       bind = $mainMod, W, exec, ghostty --class=com.clipse.clipse --confirm-close-surface=false -e clipse # clipboard history
+      bind = $mainMod, R, exec, rofi -run-command "zsh -i -c '{cmd}'" -show drun # application starter
       # Screenrecord
       bind = $mainMod SHIFT, P, exec, hyprshot -m region -s --clipboard-only -f \"$HOME/Media/screenShots/$(date '+%b-%d-%Y_%H-%M').jpg\" 
       # Screenshot
