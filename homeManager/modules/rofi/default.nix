@@ -4,11 +4,11 @@
     enable = true;
     cycle = true;
     package = pkgs.rofi-wayland;
-      # plugins = [
-      #   pkgs.rofi-file-browser
-      #   pkgs.rofi-pulse-select
-      #   pkgs.rofi-systemd
-      # ];
+    # plugins = [
+    #   pkgs.rofi-file-browser
+    #   pkgs.rofi-pulse-select
+    #   pkgs.rofi-systemd
+    # ];
     extraConfig = {
       modi = [
         "drun"
@@ -246,28 +246,29 @@
         };
       };
   };
-  xdg.dataFile."rofi/themes/preview.rasi".text = ''
-    @import "./custom.rasi"
-    icon-current-entry {
-      enabled: true;
-      size: 50%;
-      padding: 10px;
-      background-color: inherit;
-    }
-    listview-split {
-      background-color: transparent;
-      border-radius: 0px;
-      cycle: true;
-      dynamic : true;
-      orientation: horizontal;
-      border: 0px solid;
-      children: [listview,icon-current-entry];
-    }
-    listview {
-      lines: 10;
-    }
-    mainbox {
-      children: [inputbar,listview-split];
-    }
-  '';
+  xdg.dataFile."rofi/themes/preview.rasi".text = # rasi
+    ''
+      @import "./custom.rasi"
+      icon-current-entry {
+        enabled: true;
+        size: 50%;
+        padding: 10px;
+        background-color: inherit;
+      }
+      listview-split {
+        background-color: transparent;
+        border-radius: 0px;
+        cycle: true;
+        dynamic : true;
+        orientation: horizontal;
+        border: 0px solid;
+        children: [listview,icon-current-entry];
+      }
+      listview {
+        lines: 10;
+      }
+      mainbox {
+        children: [inputbar,listview-split];
+      }
+    '';
 }
