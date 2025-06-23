@@ -12,8 +12,8 @@
     extraConfig = {
       modi = [
         "drun"
-        "window" 
         "run"
+        "window"
       ];
       terminal = "ghostty";
 
@@ -47,7 +47,6 @@
       in
       {
         "*" = {
-          font = "Dank Mono";
           background = mkLiteral "#${config.colorScheme.colors.base01}"; # base01
           border = mkLiteral "#${config.colorScheme.colors.base0D}"; # base00
           background-alt = mkLiteral "#${config.colorScheme.colors.base00}"; # base00
