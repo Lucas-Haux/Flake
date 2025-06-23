@@ -2,7 +2,7 @@
 {
   services.clipse = {
     enable = true;
-    allowDuplicates = false;
+    allowDuplicates = true;
     historySize = 500;
     imageDisplay = {
       type = "kitty";
