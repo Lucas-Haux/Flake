@@ -1,73 +1,66 @@
 { ... }:
 {
-  wayland.windowManager.hyprland.extraConfig = # hyprlang
-    ''
-      binds {
-        allow_pin_fullscreen = true
-      }
+  wayland.windowManager.hyprland.settings = {
+    binds = {
+      allow_pin_fullscreen = true;
+    };
 
-      $mainMod = SUPER
+    bind = [
+      # Navigation
+      "SUPER, C, killactive," # close window
+      "SUPER, J, togglesplit," # dwindle
+      "SUPER, V, togglefloating,"
+      "SUPER, P, pseudo," # dwindle
+      "SUPER, F, fullscreen, 1"
+      "SUPER CTRL, F, fullscreen, 0"
+      "SUPER, left, movefocus, l"
+      "SUPER, right, movefocus, r"
+      "SUPER, up, movefocus, u"
+      "SUPER, down, movefocus, d"
 
-      bind = $mainMod, C, killactive, # close window
-      # bind = $mainMod, C, exec, zsh -c '! hyprctl activewindow -j | grep -q "\"class\" *: *\"zen\"" && hyprctl dispatch killactive',
-      bind = $mainMod, J, togglesplit, # dwindle
-      bind = $mainMod, V, togglefloating,
-      bind = $mainMod, P, pseudo, # dwindle
-      bind = $mainMod, F, fullscreen, 1
-      bind = $mainMod CTRL, F, fullscreen, 0
+      # Exec
+      "SUPER, R, exec, rofi -run-command \"zsh -i -c '{cmd}'\" -show drun" # application starter
+      "SUPER, Q, exec, ghostty" # terminal
+      "SUPER, L, exec, hyprlock" # lock screen
+      "SUPER, W, exec, ghostty --class=popup.clipse --confirm-close-surface=false -e clipse" # clipboard history
+      ''SUPER SHIFT, P, exec, hyprshot -m region -s --clipboard-only -f "$HOME/Media/screenShots/$(date '+%b-%d-%Y_%H-%M').jpg"''
+      ''SUPER SHIFT, R, exec, wf-recorder -a -f "$HOME/Media/screenRecordings/$(date '+%b-%d-%Y_%H-%M').mkv" -g "$(slurp -b 18202599 -d)"''
 
-      # Exec Binds
-      bind = $mainMod, Q, exec, ghostty # terminal
-      bind = $mainMod, L, exec, hyprlock # lock screen
-      bind = $mainMod, W, exec, ghostty --class=com.clipse.clipse --confirm-close-surface=false -e clipse # clipboard history
-      bind = $mainMod, R, exec, rofi -run-command "zsh -i -c '{cmd}'" -show drun # application starter
-      # Screenrecord
-      bind = $mainMod SHIFT, P, exec, hyprshot -m region -s --clipboard-only -f \"$HOME/Media/screenShots/$(date '+%b-%d-%Y_%H-%M').jpg\" 
-      # Screenshot
-      bind = $mainMod SHIFT, R, exec, wf-recorder -a -f \"$HOME/Media/screenRecordings/$(date '+%b-%d-%Y_%H-%M').mkv\" -g \"$(slurp -b 18202599 -d)\"
-      # Move focus with mainMod + arrow keys
-      bind = $mainMod, left, movefocus, l
-      bind = $mainMod, right, movefocus, r
-      bind = $mainMod, up, movefocus, u
-      bind = $mainMod, down, movefocus, d
+      # Switch/Move Workspaces [0-9]
+      "SUPER, 1, workspace, 1"
+      "SUPER SHIFT, 1, movetoworkspace, 1"
+      "SUPER, 2, workspace, 2"
+      "SUPER SHIFT, 2, movetoworkspace, 2"
+      "SUPER, 3, workspace, 3"
+      "SUPER SHIFT, 3, movetoworkspace, 3"
+      "SUPER, 4, workspace, 4"
+      "SUPER SHIFT, 4, movetoworkspace, 4"
+      "SUPER, 5, workspace, 5"
+      "SUPER SHIFT, 5, movetoworkspace, 5"
+      "SUPER, 6, workspace, 6"
+      "SUPER SHIFT, 6, movetoworkspace, 6"
+      "SUPER, 7, workspace, 7"
+      "SUPER SHIFT, 7, movetoworkspace, 7"
+      "SUPER, 8, workspace, 8"
+      "SUPER SHIFT, 8, movetoworkspace, 8"
+      "SUPER, 9, workspace, 9"
+      "SUPER SHIFT, 9, movetoworkspace, 9"
+      "SUPER, 0, workspace, 10"
+      "SUPER SHIFT, 0, movetoworkspace, 10"
 
-      # Move/resize windows with mainMod + LMB/RMB and dragging
-      bindm = $mainMod, mouse:272, movewindow
-      bindm = $mainMod, mouse:273, resizewindow
+      # Special Workspaces
+      "SUPER, M, togglespecialworkspace, blankSpecialWorkspace"
+      "SUPER SHIFT, M, movetoworkspace, special:blankSpecialWorkspace"
+      "SUPER, D, togglespecialworkspace, discord"
+      "SUPER, O, togglespecialworkspace, obsidian"
+      "SUPER, T, togglespecialworkspace, android-messages-desktop"
+      "SUPER, S, togglespecialworkspace, spotify"
+      "SUPER, A, togglespecialworkspace, AI"
+    ];
 
-      # Switch Special workspaces
-      bind = $mainMod, M, togglespecialworkspace, magic
-      bind = $mainMod SHIFT, M, movetoworkspace, special:magic
-
-      bind = SUPER, K, exec, pgrep keepassxc && hyprctl dispatch togglespecialworkspace keepassxc || keepassxc &
-      bind = SUPER, D, exec, hyprctl dispatch togglespecialworkspace discord
-      bind = SUPER, O, exec, hyprctl dispatch togglespecialworkspace obsidian
-      bind = SUPER, T, exec, hyprctl dispatch togglespecialworkspace android-messages-desktop
-      bind = SUPER, S, exec, hyprctl dispatch togglespecialworkspace spotify 
-      bind = SUPER, A, exec, hyprctl dispatch togglespecialworkspace AI
-
-      # Switch workspaces with mainMod + [0-9]
-      bind = $mainMod, 1, workspace, 1
-      bind = $mainMod, 2, workspace, 2
-      bind = $mainMod, 3, workspace, 3
-      bind = $mainMod, 4, workspace, 4
-      bind = $mainMod, 5, workspace, 5
-      bind = $mainMod, 6, workspace, 6
-      bind = $mainMod, 7, workspace, 7
-      bind = $mainMod, 8, workspace, 8
-      bind = $mainMod, 9, workspace, 9
-      bind = $mainMod, 0, workspace, 10
-
-      # Move active window to a workspace with mainMod + SHIFT + [0-9]
-      bind = $mainMod SHIFT, 1, movetoworkspace, 1
-      bind = $mainMod SHIFT, 2, movetoworkspace, 2
-      bind = $mainMod SHIFT, 3, movetoworkspace, 3
-      bind = $mainMod SHIFT, 4, movetoworkspace, 4
-      bind = $mainMod SHIFT, 5, movetoworkspace, 5
-      bind = $mainMod SHIFT, 6, movetoworkspace, 6
-      bind = $mainMod SHIFT, 7, movetoworkspace, 7
-      bind = $mainMod SHIFT, 8, movetoworkspace, 8
-      bind = $mainMod SHIFT, 9, movetoworkspace, 9
-      bind = $mainMod SHIFT, 0, movetoworkspace, 10
-    '';
+    bindm = [
+      "SUPER, mouse:272, movewindow"
+      "SUPER, mouse:273, resizewindow"
+    ];
+  };
 }

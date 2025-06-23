@@ -5,163 +5,77 @@
 }:
 let
   pointer = config.home.pointerCursor;
-
 in
 {
   imports = [
     ./rules.nix
     ./binds.nix
+    ./animations.nix
+    ./decoration.nix
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      exec-once = [
-        # Scripts
-        "bash $HOME/Flake/homeManager/modules/hypr/scripts/move_zen_browser_windows_to_workspaces.bash"
-        "bash $HOME/Flake/homeManager/modules/hypr/scripts/btop_close_script.bash" # used for hyprpanel btop popup
-        # Programs
-        "waybar"
-        "Discord"
-        "android-messages"
-        "obsidian"
-        "spotify"
-        "chromium --app=https://t3.chat --user-data-dir=$HOME/.config/webapps/t3_chat"
-        "zen"
-        # Other
-        "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-        "clipse --listen-shell"
-        # "swaync-client -df"
-      ];
+
+      exec-once = (import ./execOnce.nix { inherit pointer; });
+
       env = [
         "GTK_THEME,Nordic"
         "WLR_NO_HARDWARE_CURSORS,1"
         "MOZ_ENABLE_WAYLAND=1"
         "EGL_PLATFORM=wayland"
       ];
+
+      general = {
+        layout = "dwindle";
+        gaps_in = 5;
+        gaps_out = 10;
+        allow_tearing = false;
+        snap = {
+          enabled = true;
+          # respect_gaps = true;
+        };
+        border_size = 3;
+        resize_on_border = true;
+        "col.active_border" = "rgba(${lib.removePrefix "#" config.colorscheme.colors.base0B}ee)";
+        "col.inactive_border" = "rgba(${lib.removePrefix "#" config.colorscheme.colors.base01}ee)";
+      };
+
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
+      };
+
+      master = {
+        # new_is_master = true;
+      };
+
+      monitor = [
+        "DP-1, 1920x1080@240, 1080x505, 1"
+        "HDMI-A-1, 1920x1080@60, 3000x385, 1"
+        "DP-2, 1920x1080@60, 0x0, 1, transform,3"
+      ];
+
+      input = {
+        kb_layout = "us";
+        kb_variant = ",qwerty";
+        follow_mouse = 1;
+        follow_mouse_threshold = 5;
+        sensitivity = -1;
+      };
+
+      gestures = {
+        workspace_swipe = "off";
+      };
+
+      misc = {
+        vfr = true;
+        vrr = 0;
+        enable_swallow = true;
+        new_window_takes_over_fullscreen = 2;
+        middle_click_paste = 0;
+      };
     };
-    extraConfig = # hyprlang
-      ''
-        # Monitor settings
-        monitor=DP-1, 1920x1080@240, 1080x505, 1
-        monitor=HDMI-A-1, 1920x1080@60, 3000x385, 1
-        monitor=DP-2, 1920x1080@60, 0x0, 1, transform,3
-
-        input {
-          kb_layout = us
-          kb_variant = ,qwerty
-
-          follow_mouse = 1 
-          follow_mouse_threshold = 5
-          sensitivity = -1
-        }
-
-        general {
-          layout = dwindle
-          gaps_in = 5
-          gaps_out = 10
-          allow_tearing = false
-          snap {
-            enabled = true
-            # respect_gaps = true
-          }
-
-          # border
-          border_size = 3
-          resize_on_border = true
-          col.active_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base0B}ee) 
-          col.inactive_border = rgba(${lib.removePrefix "#" config.colorscheme.colors.base01}ee)
-        }
-
-        decoration {
-            rounding = 15
-            rounding_power = 4
-
-            blur {
-              enabled = true
-              xray = false
-              special = false
-              new_optimizations = true
-              size = 3
-              passes = 2
-              brightness = 1
-              noise = 0.01
-              contrast = 1
-              popups = false
-              popups_ignorealpha = 0.6
-            }
-
-            shadow {
-              enabled = true
-              ignore_window = true
-              range = 20
-              offset = 0 2
-              render_power = 4
-              color = rgba(0000002A)
-            }
-        }
-
-        animations { # todo
-          enabled = true
-          workspace_wraparound = true
-          # Animation curves
-
-          bezier = linear, 0, 0, 1, 1
-          bezier = md3_standard, 0.2, 0, 0, 1
-          bezier = md3_decel, 0.05, 0.7, 0.1, 1
-          bezier = md3_accel, 0.3, 0, 0.8, 0.15
-          bezier = overshot, 0.05, 0.9, 0.1, 1.1
-          bezier = crazyshot, 0.1, 1.5, 0.76, 0.92
-          bezier = hyprnostretch, 0.05, 0.9, 0.1, 1.0
-          bezier = menu_decel, 0.1, 1, 0, 1
-          bezier = menu_accel, 0.38, 0.04, 1, 0.07
-          bezier = easeInOutCirc, 0.85, 0, 0.15, 1
-          bezier = easeOutCirc, 0, 0.55, 0.45, 1
-          bezier = easeOutExpo, 0.16, 1, 0.3, 1
-          bezier = softAcDecel, 0.26, 0.26, 0.15, 1
-          bezier = md2, 0.4, 0, 0.2, 1 # use with .2s duration
-          # Animation configs
-          animation = windows, 1, 3, md3_decel, popin 60%
-          animation = windowsIn, 1, 3, md3_decel, popin 60%
-          animation = windowsOut, 1, 3, md3_accel, popin 60%
-          animation = border, 1, 10, default
-          animation = fade, 1, 3, md3_decel
-          # animation = layers, 1, 2, md3_decel, slide
-          animation = layersIn, 1, 3, menu_decel, slide
-          animation = layersOut, 1, 1.6, menu_accel
-          animation = fadeLayersIn, 1, 2, menu_decel
-          animation = fadeLayersOut, 1, 4.5, menu_accel
-          animation = workspaces, 1, 7, menu_decel, slide
-          # animation = workspaces, 1, 2.5, softAcDecel, slide
-          # animation = workspaces, 1, 7, menu_decel, slidefade 15%
-          # animation = specialWorkspace, 1, 3, md3_decel, slidefadevert 15%
-          animation = specialWorkspace, 1, 3, md3_decel, slidevert
-        }
-
-        dwindle { # todo
-            # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-            pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-            preserve_split = yes
-        }
-
-        master {
-            # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-            # new_is_master = true
-        }
-
-        gestures {
-            # See https://wiki.hyprland.org/Configuring/Variables/ for more
-            workspace_swipe = off
-        }
-
-
-        misc {
-          vfr = true
-          vrr = 0
-          enable_swallow = true
-          new_window_takes_over_fullscreen = 2
-          middle_click_paste = 0
-        }
-      '';
   };
 }
