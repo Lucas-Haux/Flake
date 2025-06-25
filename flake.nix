@@ -10,18 +10,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak = {
-      url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
-    };
-    nix-colors = {
-      url = "github:misterio77/nix-colors";
-    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixvim = {
-      url = "github:Lucas-Haux/nixvim";
     };
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
@@ -31,9 +22,13 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixcord = {
-      url = "github:kaylorben/nixcord";
-    };
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+    nix-colors.url = "github:misterio77/nix-colors";
+    nixvim.url = "github:Lucas-Haux/nixvim";
+    nixcord.url = "github:kaylorben/nixcord";
+    ags.url = "github:Aylur/ags";
+    astal.url = "github:Aylur/astal";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs =
