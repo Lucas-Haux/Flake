@@ -1,9 +1,12 @@
 { pkgs }:
 {
-  clock.time.military = false;
-  clock.time.hideSeconds = false;
-  clock.weather.enabled = false;
-  media.displayTime = true;
+  clock = {
+    time = {
+      military = false;
+      hideSeconds = true;
+    };
+    weather.enabled = false;
+  };
 
   dashboard = {
     controls.enabled = true;

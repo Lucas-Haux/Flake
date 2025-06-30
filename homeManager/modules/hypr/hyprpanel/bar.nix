@@ -1,4 +1,40 @@
 {
+  layouts = {
+    # Main Monitor
+    "0" = {
+      "left" = [
+        "dashboard"
+        "cpu"
+        "ram"
+        "cputemp"
+        "network"
+        "bluetooth"
+      ];
+      "middle" = [
+        "clock"
+        "workspaces"
+      ];
+      "right" = [
+        "volume"
+        "media"
+        "systray"
+        "notifications"
+      ];
+    };
+    # Vertical 2nd Monitor
+    "1" = {
+      "left" = [ ];
+      "middle" = [ "workspaces" ];
+      "right" = [ ];
+    };
+    # Horizontal 3rd Monitor
+    "2" = {
+      "left" = [ ];
+      "middle" = [ "workspaces" ];
+      "right" = [ ];
+    };
+  };
+
   launcher.autoDetectIcon = true;
 
   customModules = {
