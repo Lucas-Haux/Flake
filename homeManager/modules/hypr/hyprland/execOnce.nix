@@ -8,7 +8,7 @@
   "bash $HOME/Flake/homeManager/modules/hypr/scripts/btop_close_script.bash" # used for hyprpanel btop popup
 
   # Programs
-  "waybar"
+  "hyprpaper"
   "Discord"
   "android-messages"
   "obsidian"
