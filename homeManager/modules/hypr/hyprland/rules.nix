@@ -27,19 +27,19 @@
       "tile,class:(discord)"
       "workspace special:discord silent,class:(discord)"
       "opacity 0.8 0.8, class:(discord)"
-      # "noscreenshare, class:(discord)"
+      "noscreenshare, class:(discord)"
 
       # Obsidian special
       "tile,class:(obsidian)"
       "workspace special:obsidian silent,class:(obsidian)"
       "opacity 0.8 0.8, class:(obsidian)"
-      # "noscreenshare, class:(obsidian)"
+      "noscreenshare, class:(obsidian)"
 
       # Android Message Special
       "tile,class:(android-messages-desktop)"
       "workspace special:android-messages-desktop silent,class:(android-messages-desktop)"
       "opacity 0.8 0.8, class:(android-messages-desktop)"
-      # "noscreenshare, class:(android-messages-desktop)"
+      "noscreenshare, class:(android-messages-desktop)"
 
       # Spotify Special
       "tile,class:(spotify)"
@@ -52,14 +52,15 @@
       "stayfocused, class:(popup.clipse)"
       "dimaround, class:(popup.clipse)"
       "bordercolor rgba(${lib.removePrefix "#" config.colorscheme.colors.base0E}cc), class:(popup.clipse)"
-      # "noscreenshare, class:(popup.clipse)"
+      "noscreenshare, class:(popup.clipse)"
 
       # PIP
-      "float, title:^(Picture-in-Picture)$"
-      "pin, title:^(Picture-in-Picture)$"
-      "keepaspectratio, title:^(Picture-in-Picture)$"
-      "size 1074 603, title:^(Picture-in-Picture)&"
-      "content video, title:^(Picture-in-Picture)&"
+      "float, title:^(Picture-in-Picture)"
+      "pin, title:^(Picture-in-Picture)"
+      "keepaspectratio, title:^(Picture-in-Picture)"
+      "size 1054 593, title:^(Picture-in-Picture)"
+      "content video, title:^(Picture-in-Picture)"
+      "renderunfocused, title:^(Picture-in-Picture)"
 
       # t3.chat
       "workspace special:AI silent,class:(chrome-t3.chat__-Default)"
@@ -67,9 +68,9 @@
       "center=1, class:(chrome-t3.chat__-Default)"
       "size 65% 90%, class:(chrome-t3.chat__-Default)"
       "opacity 0.75 0.75, class:(chrome-t3.chat__-Default)"
-      "stayfocused, class:(chrome-t3.chat__-Default)"
+      # "stayfocused, class:(chrome-t3.chat__-Default)"
       "bordercolor rgba(${lib.removePrefix "#" config.colorscheme.colors.base0E}cc), class:(chrome-t3.chat__-Default)"
-      # "noscreenshare, class:(chrome-t3.chat__-Default)"
+      "noscreenshare, class:(chrome-t3.chat__-Default)"
 
       # btop
       "float, class:(com.btop.btop)"
