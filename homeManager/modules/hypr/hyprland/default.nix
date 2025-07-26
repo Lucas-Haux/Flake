@@ -64,6 +64,7 @@ in
         follow_mouse = 1;
         follow_mouse_threshold = 5;
         sensitivity = -1;
+        repeat_delay = 300;
       };
 
       gestures = {
