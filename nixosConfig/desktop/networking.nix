@@ -4,8 +4,7 @@
     firewall =
       let
         ports = [
-          # rQuickShare
-          49999
+          2002 # rQuickShare
         ];
       in
       {

@@ -11,6 +11,7 @@
     home.packages = [ pkgs.rquickshare ];
     home.file.".local/share/dev.mandre.rquickshare/.settings.json" = {
       enable = true;
+      force = true;
       text = ''
         {
           "realclose": true,
@@ -18,10 +19,9 @@
           "startminimized":false,
           "download_path": "/home/luke/Downloads/QuickShare",
           "visibility": 0,
-          "port": 49999 
+          "port": 2002 
         }
       '';
-      force = true;
     };
   };
 }
