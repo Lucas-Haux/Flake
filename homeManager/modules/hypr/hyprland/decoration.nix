@@ -1,28 +1,27 @@
 {
   wayland.windowManager.hyprland.settings.decoration = {
     rounding = 15;
-    rounding_power = 4;
+    rounding_power = 5;
+    dim_special = 0.1;
 
     blur = {
       enabled = true;
       xray = false;
       special = false;
       new_optimizations = true;
-      size = 3;
+      size = 4;
       passes = 2;
-      brightness = 1;
-      noise = 0.01;
+      brightness = 0.8;
       contrast = 1;
-      popups = false;
-      popups_ignorealpha = 0.6;
+      noise = 0.01;
     };
 
     shadow = {
       enabled = true;
-      ignore_window = true;
+      ignore_window = false;
       range = 20;
       offset = "0 2";
-      render_power = 4;
+      render_power = 3;
       color = "rgba(0000002A)";
     };
   };

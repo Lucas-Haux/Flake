@@ -32,9 +32,10 @@ in
         gaps_in = 5;
         gaps_out = 10;
         allow_tearing = false;
+        float_gaps = 10;
         snap = {
           enabled = true;
-          # respect_gaps = true;
+          respect_gaps = true;
         };
         border_size = 3;
         resize_on_border = true;
@@ -69,12 +70,21 @@ in
         workspace_swipe = "off";
       };
 
+      ecosystem = {
+        no_update_news = true;
+        no_donation_nag = true;
+      };
+
       misc = {
         vfr = true;
         vrr = 0;
         enable_swallow = true;
         new_window_takes_over_fullscreen = 2;
         middle_click_paste = 0;
+        disable_hyprland_logo = true;
+        animate_manual_resizes = true;
+        animate_mouse_windowdragging = true;
+        focus_on_activate = true;
       };
     };
   };
