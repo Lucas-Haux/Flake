@@ -75,7 +75,7 @@
       # btop
       "float, class:(com.btop.btop)"
       "move 13 62, class:(com.btop.btop)"
-      "size 810 538, class:(com.btop.btop)"
+      "size 613 436, class:(com.btop.btop)"
     ];
   };
 }

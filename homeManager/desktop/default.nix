@@ -19,6 +19,7 @@
     ./../modules/nixcord
     ./../modules/rquickshare
     ./../modules/zoxide
+    ./../modules/btop
     # ./../modules/zen_browser
     # ./../modules/nvim
     inputs.nix-colors.homeManagerModules.default
