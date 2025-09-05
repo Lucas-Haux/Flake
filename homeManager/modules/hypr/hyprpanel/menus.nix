@@ -3,7 +3,7 @@
   clock = {
     time = {
       military = false;
-      hideSeconds = true;
+      hideSeconds = false;
     };
     weather.enabled = false;
   };

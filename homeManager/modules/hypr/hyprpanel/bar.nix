@@ -24,13 +24,15 @@
     # Vertical 2nd Monitor
     "1" = {
       "left" = [ ];
-      "middle" = [ "workspaces" ];
+      # "middle" = [ "workspaces" ];
+      "middle" = [ ];
       "right" = [ ];
     };
     # Horizontal 3rd Monitor
     "2" = {
       "left" = [ ];
-      "middle" = [ "workspaces" ];
+      # "middle" = [ "workspaces" ];
+      "middle" = [ ];
       "right" = [ ];
     };
   };
@@ -64,7 +66,7 @@
     numbered_active_indicator = "highlight";
   };
 
-  clock.format = "%y/%m/%d  %H:%M";
+  clock.format = "%a %b %d  %I:%M %p";
 
   volume = {
     rightClick = "pwvucontrol";
@@ -73,6 +75,13 @@
   media = {
     show_active_only = true;
     format = "{title}";
+  };
+
+  systray = {
+    ignore = [
+      "spotify-client"
+      "chrome_status_icon_1" # alot of programs use this
+    ];
   };
 
   notifications.show_total = false;

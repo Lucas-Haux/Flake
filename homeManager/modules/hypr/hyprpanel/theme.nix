@@ -179,14 +179,14 @@ in
       workspaces = {
         numbered_active_highlight_padding = "0.8em";
         numbered_active_highlight_border = "0.5em";
-        active = active;
+        active = barModuleBorder;
         available = content;
         occupied = content;
         background = barModuleBackground;
         border = barModuleBorder;
         hover = "#434c53";
-        numbered_active_highlighted_text_color = "#21252b";
-        numbered_active_underline_color = "#ffffff";
+        numbered_active_highlighted_text_color = active;
+        # numbered_active_underline_color = "#ffffff";
       };
     };
     menus = {
@@ -530,7 +530,7 @@ in
     bar_empty_color = darkBackground;
     bar_overflow_color = error;
     icon_container = barModuleBorder;
-    icon = content;
-    label = content;
+    icon = active;
+    label = active;
   };
 }

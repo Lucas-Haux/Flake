@@ -7,7 +7,6 @@
   home.packages = [
     pkgs.libgtop
     pkgs.gtop
-    # pkgs.btop
     # inputs.hyprpanel.packages.${pkgs.system}.default
   ];
   programs.hyprpanel = {
