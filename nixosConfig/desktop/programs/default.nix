@@ -13,8 +13,8 @@
     android-tools
     scrcpy
     fastfetch
-    jellyfin-media-player
     plex-desktop
+    nautilus # file manager
     spacedrive # file manager
     obsidian # notes
     keepassxc # password manager
@@ -35,6 +35,8 @@
     # qbittorrent-qt5
     radeontop # amd gpu utilization
     ente-auth
+    zoom-us
+    obs-studio
   ];
   programs.steam.package = pkgs.steam.override {
     extraLibraries =
