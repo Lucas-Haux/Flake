@@ -1,7 +1,7 @@
 {
   inputs,
   pkgs,
-  lib,
+  config,
   ...
 }:
 
@@ -64,6 +64,13 @@
       name = "Nordzy-cursors";
       size = 24;
     };
+  };
+
+  xdg.userDirs = {
+    download = "${config.home.homeDirectory}/Downloads";
+    documents = "${config.home.homeDirectory}/Documents";
+    pictures = "${config.home.homeDirectory}/Media/Pictures";
+    videos = "${config.home.homeDirectory}/Media/Videos";
   };
 
   programs = {
