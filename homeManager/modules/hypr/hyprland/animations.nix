@@ -7,7 +7,8 @@
       "linear, 0, 0, 1, 1"
       "md3_standard, 0.2, 0, 0, 1"
       "md3_decel, 0.05, 0.7, 0.1, 1"
-      "md3_accel, 0.3, 0, 0.8, 0.15"
+      "md3_accel, 1, 0.1, 0.7, 0.05"
+      # "md3_accel, 0.3, 0, 0.8, 0.15"
       "overshot, 0.05, 0.9, 0.1, 1.1"
       "crazyshot, 0.1, 1.5, 0.76, 0.92"
       "hyprnostretch, 0.05, 0.9, 0.1, 1.0"
@@ -21,17 +22,18 @@
     ];
 
     animation = [
-      "windows, 1, 3, md3_decel, popin 60%"
-      "windowsIn, 1, 3, md3_decel, popin 60%"
-      "windowsOut, 1, 3, md3_accel, popin 60%"
-      "border, 1, 10, default"
+      "windowsMove, 1, 4, md3_decel, popin "
+      "windowsIn, 1, 4, md3_decel, slide "
+      "windowsOut, 1, 4, md3_decel, slide "
+      "border, 1, 10, md3_decel"
+      "borderangle, 1, 10, md3_decel, loop"
       "fade, 1, 3, md3_decel"
       "layersIn, 1, 3, menu_decel, slide"
       "layersOut, 1, 1.6, menu_accel"
       "fadeLayersIn, 1, 2, menu_decel"
       "fadeLayersOut, 1, 4.5, menu_accel"
-      "workspaces, 1, 7, menu_decel, slide"
-      "specialWorkspace, 1, 3, md3_decel, slidevert"
+      "workspaces, 1, 4, menu_decel, slide"
+      "specialWorkspace, 1, 4, md3_decel, slidevert"
     ];
   };
 }
