@@ -2,6 +2,7 @@
   wayland.windowManager.hyprland.settings.decoration = {
     rounding = 15;
     rounding_power = 5;
+    # dim_special = 0.1; causes bug with opactiy and multiple specdials
     dim_special = 0.1;
 
     blur = {
