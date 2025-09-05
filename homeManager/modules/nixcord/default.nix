@@ -13,7 +13,7 @@
       transparent = false;
       frameless = true;
       plugins = {
-        alwaysAnimate.enable = true;
+        alwaysAnimate.enable = false;
         alwaysTrust.enable = true;
         betterSettings = {
           enable = true;
@@ -26,7 +26,7 @@
         colorSighted.enable = true;
         copyFileContents.enable = true;
         ctrlEnterSend.enable = true;
-        decor.enable = true;
+        decor.enable = false;
         fakeNitro = {
           enable = true;
           transformCompoundSentence = true;
