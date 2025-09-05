@@ -21,7 +21,7 @@
       # Exec
       "SUPER, R, exec, rofi -run-command \"zsh -i -c '{cmd}'\" -show drun" # application starter
       "SUPER, Q, exec, ghostty" # terminal
-      "SUPER, L, exec, hyprlock" # lock screen
+      "SUPER, L, exec, hyprlock --grace 5" # lock screen
       "SUPER, W, exec, ghostty --class=popup.clipse --confirm-close-surface=false -e clipse" # clipboard history
       ''SUPER SHIFT, P, exec, hyprshot -m region -s --clipboard-only -f "$HOME/Media/screenShots/$(date '+%b-%d-%Y_%H-%M').jpg"''
       ''SUPER SHIFT, R, exec, wf-recorder -a -f "$HOME/Media/screenRecordings/$(date '+%b-%d-%Y_%H-%M').mkv" -g "$(slurp -b 18202599 -d)"''
