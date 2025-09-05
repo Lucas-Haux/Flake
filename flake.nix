@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
@@ -28,7 +28,7 @@
     nixcord.url = "github:kaylorben/nixcord";
     ags.url = "github:Aylur/ags";
     astal.url = "github:Aylur/astal";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprpanel.url = "github:jas-singhfsu/hyprpanel";
   };
 
   outputs =
@@ -38,6 +38,9 @@
       nix-flatpak,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+    in
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
@@ -69,9 +72,14 @@
       # desktop computer Home Manager
       homeConfigurations = {
         "luke@desktop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          pkgs = import nixpkgs {
+            system = system;
+            overlays = [
+              inputs.hyprpanel.overlay
+            ];
+          };
           extraSpecialArgs = {
-            inherit inputs;
+            inherit inputs system;
           };
           modules = [
             ./homeManager/desktop
