@@ -1,9 +1,9 @@
 { pkgs, config, ... }:
 let
-  wallpaper1 = "/home/luke/Media/pictures/nixWallpaper.png";
-  wallpaper2 = "/home/luke/Media/pictures/rustWallpaper.png";
-  wallpaper3 = "/home/luke/Media/pictures/jellyfishWallpaper.png";
-  wallpaper4 = "/home/luke/Media/pictures/nordForestWallpaper.png";
+  wallpaper1 = "/home/luke/Media/Pictures/nixWallpaper.png";
+  wallpaper2 = "/home/luke/Media/Pictures/rustWallpaper.png";
+  wallpaper3 = "/home/luke/Media/Pictures/jellyfishWallpaper.png";
+  wallpaper4 = "/home/luke/Media/Pictures/nordForestWallpaper.png";
 in
 {
   services.hyprpaper = {
