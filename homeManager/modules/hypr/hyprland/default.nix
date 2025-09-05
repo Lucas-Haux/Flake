@@ -63,7 +63,7 @@ in
         kb_variant = ",qwerty";
         follow_mouse = 1;
         follow_mouse_threshold = 5;
-        sensitivity = -1;
+        sensitivity = -0.85;
         repeat_delay = 300;
       };
 
@@ -85,7 +85,7 @@ in
         disable_hyprland_logo = true;
         animate_manual_resizes = true;
         animate_mouse_windowdragging = true;
-        focus_on_activate = true;
+        # focus_on_activate = true; # makes the auto open mess up
       };
     };
   };
