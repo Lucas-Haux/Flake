@@ -49,7 +49,7 @@
       # x11.enable = true;
       package = pkgs.nordzy-cursor-theme;
       name = "Nordzy-cursors";
-      size = 16;
+      size = 24;
     };
   };
 
@@ -62,7 +62,7 @@
     cursorTheme = {
       package = pkgs.nordzy-cursor-theme;
       name = "Nordzy-cursors";
-      size = 16;
+      size = 24;
     };
   };
 
