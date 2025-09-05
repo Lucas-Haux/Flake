@@ -14,6 +14,7 @@ in
 
       presets = "proc:0:default net:0:default";
       shown_boxes = "cpu mem";
+      update_ms = 300;
       vim_keys = true;
       background_update = true;
 
