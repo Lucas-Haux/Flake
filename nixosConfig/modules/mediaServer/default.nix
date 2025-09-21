@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   lib,
   ...
 }:
@@ -67,8 +66,8 @@
     user = "multimedia";
   };
 
+  # torrent download client
   services.deluge = {
-    # torrent download client
     enable = true;
     user = "multimedia";
     group = "multimedia";
@@ -79,8 +78,8 @@
     };
   };
 
+  # usenet download client
   services.sabnzbd = with lib; {
-    # usenet download client
     enable = true;
     openFirewall = true;
     group = "multimedia";
@@ -90,5 +89,6 @@
   services.jellyseerr = {
     enable = true;
     openFirewall = true; # 5055
+    configDir = "/var/lib/jellyseerr";
   };
 }
