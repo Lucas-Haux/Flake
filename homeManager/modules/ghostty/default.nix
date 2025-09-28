@@ -16,9 +16,11 @@
       window-padding-x = 4;
       window-padding-balance = true;
       background-opacity = 0.70;
-      theme = "nord";
-
+      theme = "Nord";
+      window-decoration = "client";
       gtk-titlebar = false;
+      window-theme = "ghostty";
+      gtk-toolbar-style = "raised";
       resize-overlay = "never";
       window-save-state = "always";
       keybind = "ctrl+enter=unbind";
