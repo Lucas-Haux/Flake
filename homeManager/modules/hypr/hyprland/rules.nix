@@ -29,6 +29,8 @@
     ];
 
     windowrulev2 = [
+      "noblur,class:^()$,title:^()$" # Fixes a bug with contex menues
+
       # Discord special
       "tile,class:(discord)"
       "workspace special:discord silent,class:(discord)"
