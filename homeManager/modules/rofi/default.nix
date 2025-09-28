@@ -3,7 +3,6 @@
   programs.rofi = {
     enable = true;
     cycle = true;
-    package = pkgs.rofi-wayland;
     # plugins = [
     #   pkgs.rofi-file-browser
     #   pkgs.rofi-pulse-select
