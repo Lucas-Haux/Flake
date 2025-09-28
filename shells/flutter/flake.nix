@@ -3,7 +3,7 @@
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   outputs =
@@ -84,6 +84,11 @@
             buildInputs = [
               ## General needs
               flutter327
+              firebase-tools
+
+              nodejs
+              eslint
+              typescript-language-server
               # google-chrome
 
               ## Android target

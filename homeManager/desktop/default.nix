@@ -59,6 +59,10 @@
       package = pkgs.nordic;
       name = "Nordic";
     };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-nord;
+    };
     cursorTheme = {
       package = pkgs.nordzy-cursor-theme;
       name = "Nordzy-cursors";

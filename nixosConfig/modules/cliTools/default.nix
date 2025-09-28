@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 {
   environment.systemPackages = with pkgs; [
+    nh
     pciutils
     htop
     # nvtop

@@ -13,6 +13,8 @@
     android-tools
     scrcpy
     fastfetch
+    proton-pass
+    # jellyfin-media-player
     plex-desktop
     nautilus # file manager
     spacedrive # file manager
@@ -32,7 +34,8 @@
     gimp # image editor
     xterm # for ssh support in ghostty
     libreoffice
-    # qbittorrent-qt5
+    qbittorrent-enhanced
+    protonvpn-gui
     radeontop # amd gpu utilization
     ente-auth
     zoom-us
@@ -47,6 +50,20 @@
       )
       ++ [ pkgs.libxcrypt ];
   };
+  programs = {
+    # command-not-found.enable = true;
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+    xfconf.enable = true;
+  };
+  services.gvfs.enable = true; # Mount, trash, and other functionalities
+  services.tumbler.enable = true; # Thumbnail support for images
   programs.adb.enable = true;
   programs.steam.enable = true;
+  programs.wshowkeys.enable = true;
 }

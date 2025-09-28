@@ -91,4 +91,16 @@
     openFirewall = true; # 5055
     configDir = "/var/lib/jellyseerr";
   };
+
+  # Enable the Audiobookshelf service
+  services.audiobookshelf = {
+    enable = true;
+    dataDir = "/home/luke/Books/"; 
+    host = "0.0.0.0";     
+    port = 8234;
+  };
+
+  # Include the audiobookshelf package in the system environment
+  environment.systemPackages = with pkgs; [ audiobookshelf ];
+}
 }
