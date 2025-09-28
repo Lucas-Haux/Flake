@@ -1,5 +1,6 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  programs.command-not-found.enable = true;
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -12,7 +13,9 @@
         "vi-mode"
         "colorize"
         "colored-man-pages"
+        "command-not-found"
         "pj"
+        "zsh-navigation-tools"
       ];
     };
 
@@ -42,10 +45,10 @@
       cd = "z"; # replace cd with zoxide
 
       # Nixos And Home Manager Switch Aliases
-      rebuild = "sudo nixos-rebuild switch --flake ~/Flake#desktop";
-      rebuild-server = "sudo nixos-rebuild switch --flake ~/Flake#server";
-      home = "home-manager switch --flake ~/Flake/.#luke@desktop";
-      home-server = "home-manager switch --flake ~/Flake/.#luke@server";
+      rebuild = "nh os switch -u -H desktop ~/Flake";
+      rebuild-server = "nh os switch -u -H desktop ~/Flake";
+      home = "nh home switch -c luke@desktop ~/Flake";
+      home-server = "nh home switch -c luke@server ~/Flake";
 
       # Quickly Enter My Flutter Dev Shell
       flutter-shell = "export NIXPKGS_ALLOW_UNFREE=1; nix develop --impure ~/Flake/shells/flutter -c zsh";
