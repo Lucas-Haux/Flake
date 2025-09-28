@@ -1,6 +1,7 @@
 { pointer }:
 [
-  "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
+  # "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
+  "hyprctl setcursor ${pointer.name} 24"
   "clipse --listen-shell"
 
   # Scripts
