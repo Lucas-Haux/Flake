@@ -12,9 +12,9 @@
       new_optimizations = true;
       size = 4;
       passes = 2;
-      brightness = 0.8;
-      contrast = 1;
-      noise = 0.01;
+      brightness = 0.75;
+      contrast = 1.1;
+      # noise = 0.01;
     };
 
     shadow = {
