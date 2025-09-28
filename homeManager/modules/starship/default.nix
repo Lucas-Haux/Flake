@@ -4,13 +4,13 @@ let
 
   hostnameFormat = lib.concatStrings [
     "[](fg:#${colors.base0A} bg:none)"
-    "[  ](bold bg:#${colors.base0A} fg:#252525)"
+    "[ ](bold bg:#${colors.base0A} fg:#252525)"
     "[](fg:#${colors.base0A} bg:none)"
     " "
   ];
   nixShellFormat = lib.concatStrings [
     "[](fg:#${colors.base0E} bg:none)"
-    "[ 󱄅 ](bold bg:#${colors.base0E} fg:#252525)"
+    "[󱄅 ](bold bg:#${colors.base0E} fg:#252525)"
     "[](fg:#${colors.base0E} bg:none)"
     " "
   ];
@@ -19,7 +19,7 @@ let
     "[$path]($style)"
     "[█](fg:#${colors.base03} bg:#${colors.base03})"
     "[](fg:#${colors.base0C} bg:#${colors.base03})"
-    "[ 󰉋 ](bold fg:#252525 bg:#${colors.base0C})"
+    "[󰉖 ](bold fg:#252525 bg:#${colors.base0C})"
     "[](fg:#${colors.base0C} bg:none)"
   ];
   packageFormat = lib.concatStrings [
@@ -28,7 +28,7 @@ let
     "[$version](bg:#${colors.base03})"
     "[█](fg:#${colors.base03} bg:#${colors.base03})"
     "[](fg:#${colors.base09} bg:#${colors.base03})"
-    "[  ](fg:#252525 bg:#${colors.base09})"
+    "[ ](fg:#252525 bg:#${colors.base09})"
     "[](fg:#${colors.base09} bg:none)"
   ];
   gitBranchFormat = lib.concatStrings [
@@ -36,7 +36,7 @@ let
     "[$branch]($style)"
     "[](fg:#${colors.base03} bg:#${colors.base03})"
     "[](fg:#${colors.base0B} bg:#${colors.base03})"
-    "[  ](fg:#252525 bg:#${colors.base0B})"
+    "[ ](fg:#252525 bg:#${colors.base0B})"
     "[](fg:#${colors.base0B} bg:none)"
     " "
   ];
@@ -45,7 +45,7 @@ let
     "[$all_status$ahead_behind]($style)"
     "[](fg:#${colors.base03} bg:#${colors.base03})"
     "[](fg:#${colors.base0F} bg:#${colors.base03})"
-    "[  ](fg:#252525 bg:#${colors.base0F})"
+    "[ ](fg:#252525 bg:#${colors.base0F})"
     "[](fg:#${colors.base0F} bg:none)"
   ];
   cmdDurationFormat = lib.concatStrings [
@@ -61,7 +61,17 @@ in
     enableZshIntegration = true;
     settings = {
       add_newline = false;
-      format = "$hostname$nix_shell$directory$package$fill$git_branch$git_status$git_commit$cmd_duration$line_break$character";
+      format = lib.concatStrings [
+        "$hostname"
+        "$nix_shell"
+        "$directory"
+        "$package"
+        "$fill"
+        "$git_branch$git_status$git_commit"
+        "$cmd_duration"
+        "$line_break"
+        "$character"
+      ];
 
       hostname = {
         ssh_only = true;
@@ -72,15 +82,17 @@ in
       nix_shell = {
         format = nixShellFormat;
         disabled = false;
-        heuristic = true;
+        heuristic = false;
       };
 
       directory = {
         format = directoryFormat;
         style = "fg:#E8E3E3 bg:#${colors.base03} bold";
-        truncation_length = 3;
+        truncation_length = 4;
         truncate_to_repo = false;
-        read_only = " 󱧸 ";
+        read_only = "󱧸 ";
+        truncation_symbol = " /";
+        home_symbol = "~";
       };
 
       package = {
@@ -114,17 +126,17 @@ in
       git_status = {
         format = gitStatusFormat;
         style = "fg:#E8E3E3 bg:#${colors.base03}";
-        conflicted = "  ";
-        ahead = "  \${count}";
-        behind = "  \${count}";
+        conflicted = " ";
+        ahead = " \${count}";
+        behind = " \${count}";
         diverged = "   \${ahead_count} \${behind_count}";
-        up_to_date = "  ";
-        untracked = "  \${count}";
-        stashed = "  ";
-        modified = "  \${count}";
+        up_to_date = " ";
+        untracked = " \${count}";
+        stashed = " ";
+        modified = " \${count}";
         staged = "  \${count}";
-        renamed = "  \${count}";
-        deleted = "  \${count}";
+        renamed = " \${count}";
+        deleted = " \${count}";
       };
 
       cmd_duration = {
@@ -134,12 +146,16 @@ in
 
       fill = {
         symbol = " ";
-        style = "bold green";
+        style = "";
       };
 
       character = {
-        success_symbol = "[  ](#${colors.base0C} bold)";
-        error_symbol = "[  ](#${colors.base08} bold)";
+        success_symbol = "[ ](#${colors.base07} bold)";
+        error_symbol = "[ ](#${colors.base08} bold)";
+        vimcmd_symbol = "[ ](#${colors.base09} bold)";
+        vimcmd_replace_one_symbol = "[ ](#${colors.base09} bold)";
+        vimcmd_replace_symbol = "[ ](#${colors.base09} bold)";
+        vimcmd_visual_symbol = "[󰴲 ](#${colors.base0A} bold)";
       };
     };
   };
