@@ -13,6 +13,10 @@ let
   darkBackground = "#2e3440";
 in
 {
+  font = {
+    name = "Symbols Nerd Font Mono";
+  };
+
   bar = {
     floating = true;
     transparent = true;

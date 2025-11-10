@@ -1,13 +1,17 @@
 { config, pkgs, ... }:
+let
+  colors = config.lib.stylix.colors;
+in
 {
+  stylix.targets.rofi.enable = false;
   programs.rofi = {
     enable = true;
     cycle = true;
-    # plugins = [
-    #   pkgs.rofi-file-browser
-    #   pkgs.rofi-pulse-select
-    #   pkgs.rofi-systemd
-    # ];
+    plugins = [
+      pkgs.rofi-file-browser
+      pkgs.rofi-pulse-select
+      pkgs.rofi-systemd
+    ];
     extraConfig = {
       modi = [
         "drun"
@@ -33,10 +37,10 @@
       kb-remove-to-eol = "";
       kb-mode-complete = "";
 
-      display-drun = "";
-      display-run = "";
-      display-window = "";
-      display-filebrowser = "";
+      display-drun = " ";
+      display-run = " ";
+      display-window = " ";
+      display-filebrowser = " ";
       drun-display-format = "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
       window-format = "{w} · {c} · {t}";
     };
@@ -46,14 +50,14 @@
       in
       {
         "*" = {
-          background = mkLiteral "#${config.colorScheme.colors.base01}"; # base01
-          border = mkLiteral "#${config.colorScheme.colors.base0D}"; # base00
-          background-alt = mkLiteral "#${config.colorScheme.colors.base00}"; # base00
-          foreground = mkLiteral "#${config.colorScheme.colors.base06}"; # base06
-          foreground-alt = mkLiteral "#${config.colorScheme.colors.base02}"; # base02
-          selected = mkLiteral "#${config.colorScheme.colors.base0C}"; # base0C
-          active = mkLiteral "#${config.colorScheme.colors.base0B}"; # base0B
-          urgent = mkLiteral "#${config.colorScheme.colors.base09}"; # base0D
+          background = mkLiteral "#${colors.base01}"; # base01
+          border = mkLiteral "#${colors.base0D}"; # base00
+          background-alt = mkLiteral "#${colors.base00}"; # base00
+          foreground = mkLiteral "#${colors.base06}"; # base06
+          foreground-alt = mkLiteral "#${colors.base02}"; # base02
+          selected = mkLiteral "#${colors.base0C}"; # base0C
+          active = mkLiteral "#${colors.base0B}"; # base0B
+          urgent = mkLiteral "#${colors.base09}"; # base0D
         };
         "window" = {
           transparency = "real";

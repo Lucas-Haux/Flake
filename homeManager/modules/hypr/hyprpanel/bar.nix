@@ -56,6 +56,7 @@
 
   bluetooth = {
     label = false;
+    icon = "";
   };
 
   workspaces = {
@@ -66,7 +67,7 @@
     numbered_active_indicator = "highlight";
   };
 
-  clock.format = "%a %b %d  %I:%M %p";
+  clock.format = "%a %b %-d %I:%M%p";
 
   volume = {
     rightClick = "pwvucontrol";

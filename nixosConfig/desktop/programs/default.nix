@@ -13,6 +13,7 @@
     android-tools
     scrcpy
     fastfetch
+    davinci-resolve
     proton-pass
     # jellyfin-media-player
     plex-desktop
@@ -20,8 +21,6 @@
     spacedrive # file manager
     obsidian # notes
     keepassxc # password manager
-    # floorp
-    inputs.zen-browser.packages.${pkgs.system}.default
     brave
     portfolio
     tor-browser

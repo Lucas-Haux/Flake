@@ -1,6 +1,6 @@
 { lib, config, ... }:
 let
-  colors = config.colorscheme.colors;
+  colors = config.lib.stylix.colors;
 
   hostnameFormat = lib.concatStrings [
     "[](fg:#${colors.base0A} bg:none)"
@@ -32,21 +32,19 @@ let
     "[](fg:#${colors.base09} bg:none)"
   ];
   gitBranchFormat = lib.concatStrings [
-    "[](fg:#${colors.base03} bg:none)"
-    "[$branch]($style)"
-    "[](fg:#${colors.base03} bg:#${colors.base03})"
-    "[](fg:#${colors.base0B} bg:#${colors.base03})"
-    "[ ](fg:#252525 bg:#${colors.base0B})"
-    "[](fg:#${colors.base0B} bg:none)"
-    " "
+    "[](fg:#${colors.base0D} bg:#${colors.base03})"
+    "[$branch](fg:#252525 bg:#${colors.base0D})"
+    "[](fg:#${colors.base0D} bg:none)"
   ];
   gitStatusFormat = lib.concatStrings [
     "[](fg:#${colors.base03} bg:none)"
-    "[$all_status$ahead_behind]($style)"
-    "[](fg:#${colors.base03} bg:#${colors.base03})"
-    "[](fg:#${colors.base0F} bg:#${colors.base03})"
-    "[ ](fg:#252525 bg:#${colors.base0F})"
-    "[](fg:#${colors.base0F} bg:none)"
+    "[$modified]($style)"
+    "[$untracked]($style)"
+    "[$staged]($style)"
+    "[$deleted]($style)"
+    "[$ahead_behind]($style)"
+    "[$conflicted](fg:#${colors.base08}bg:#${colors.base03})"
+    "[$stashed]($style)"
   ];
   cmdDurationFormat = lib.concatStrings [
     " "
@@ -67,7 +65,7 @@ in
         "$directory"
         "$package"
         "$fill"
-        "$git_branch$git_status$git_commit"
+        "$git_status$git_branch"
         "$cmd_duration"
         "$line_break"
         "$character"
@@ -106,37 +104,20 @@ in
         style = "fg:#E8E3E3 bg:#${colors.base03}";
       };
 
-      git_commit = {
-        format = "[\\($hash\\)]($style) [\\($tag\\)]($style)";
-        style = "green";
-      };
-
-      git_state = {
-        rebase = "REBASING";
-        merge = "MERGING";
-        revert = "REVERTING";
-        cherry_pick = "CHERRY-PICKING";
-        bisect = "BISECTING";
-        am = "AM";
-        am_or_rebase = "M/REBASE";
-        style = "yellow";
-        format = "\([$state( $progress_current/$progress_total)]($style)\) ";
-      };
-
       git_status = {
         format = gitStatusFormat;
         style = "fg:#E8E3E3 bg:#${colors.base03}";
-        conflicted = " ";
-        ahead = " \${count}";
-        behind = " \${count}";
-        diverged = "   \${ahead_count} \${behind_count}";
-        up_to_date = " ";
-        untracked = " \${count}";
-        stashed = " ";
-        modified = " \${count}";
-        staged = "  \${count}";
-        renamed = " \${count}";
-        deleted = " \${count}";
+        conflicted = " ";
+        ahead = "󱓊 \${count} ";
+        behind = "󱓋 \${count} ";
+        diverged = "󱓌 ";
+        up_to_date = "󱓏 ";
+        untracked = " \${count} ";
+        stashed = "  ";
+        modified = "󰜚\${count} ";
+        staged = " \${count} ";
+        renamed = "";
+        deleted = " \${count} ";
       };
 
       cmd_duration = {

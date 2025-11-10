@@ -11,7 +11,7 @@
       heightCut = 2;
     };
     systemdTarget = "hyprland-session.target";
-    theme = with config.colorscheme.colors; {
+    theme = with config.lib.stylix.colors; {
       useCustomTheme = true;
       TitleFore = "#${base07}";
       TitleBack = "";

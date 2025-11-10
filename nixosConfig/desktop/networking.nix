@@ -1,6 +1,7 @@
 { config, ... }:
 {
   config.networking = {
+    networkmanager.enable = true;
     firewall =
       let
         ports = [

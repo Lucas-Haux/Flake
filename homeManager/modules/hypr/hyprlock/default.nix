@@ -3,8 +3,12 @@
   lib,
   ...
 }:
+let
+  colors = config.lib.stylix.colors;
+in
 
 {
+  stylix.targets.hyprlock.enable = false;
 
   programs.hyprlock = {
     enable = true;
@@ -19,7 +23,7 @@
       background = {
         monitor = "";
         path = "screenshot";
-        color = "rgb(${lib.removePrefix "#" config.colorscheme.colors.base03})";
+        color = "rgb(${lib.removePrefix "#" colors.base03})";
         blur_size = 4;
         blur_passes = 3;
         noise = 1.17e-2;
@@ -34,7 +38,7 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo "<b><big> $(date +"$TIME12") </big></b>"'';
-          color = "rgb(${lib.removePrefix "#" config.colorscheme.colors.base0F})";
+          color = "rgb(${lib.removePrefix "#" colors.base0F})";
           font_size = 64;
           position = "0, 16";
           halign = "center";
@@ -50,9 +54,9 @@
           dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
           dots_spacing = 0.64; # Scale of dots' absolute size, 0.0 - 1.0
           dots_center = true;
-          outer_color = "rgb(${lib.removePrefix "#" config.colorscheme.colors.base0C})";
-          inner_color = "rgb(${lib.removePrefix "#" config.colorscheme.colors.base00})";
-          font_color = "rgb(${lib.removePrefix "#" config.colorscheme.colors.base04})";
+          outer_color = "rgb(${lib.removePrefix "#" colors.base0C})";
+          inner_color = "rgb(${lib.removePrefix "#" colors.base00})";
+          font_color = "rgb(${lib.removePrefix "#" colors.base04})";
           fade_on_empty = true;
           placeholder_text = "Password..."; # Text rendered in the input box when it's empty.
           position = "0, -100";

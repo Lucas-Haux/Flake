@@ -1,4 +1,5 @@
 {
+  lib,
   inputs,
   pkgs,
   config,
@@ -20,13 +21,10 @@
     ./../modules/rquickshare
     ./../modules/zoxide
     ./../modules/btop
-    # ./../modules/zen_browser
-    # ./../modules/nvim
-    inputs.nix-colors.homeManagerModules.default
+    # ./../modules/stylix
+    ./../modules/zenBrowser
 
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.nord;
-
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -38,35 +36,49 @@
     username = "luke";
     homeDirectory = "/home/luke";
     packages = [
-      # pkgs.steam
       pkgs.jq
       pkgs.socat
-      # inputs.zen-browser.packages.x86_64-linux.default
       inputs.nixvim.packages.x86_64-linux.default
     ];
     pointerCursor = {
       gtk.enable = true;
-      # x11.enable = true;
+      x11.enable = true;
       package = pkgs.nordzy-cursor-theme;
       name = "Nordzy-cursors";
       size = 24;
     };
   };
 
-  gtk = {
+  stylix = {
     enable = true;
-    theme = {
-      package = pkgs.nordic;
-      name = "Nordic";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    polarity = "dark";
+    targets = {
+      zen-browser.profileNames = [ "default" ];
+      zen-browser.enable = false;
+      firefox.enable = false;
+      spicetify.enable = false;
     };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-nord;
-    };
-    cursorTheme = {
-      package = pkgs.nordzy-cursor-theme;
-      name = "Nordzy-cursors";
-      size = 24;
+    fonts = {
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
+      monospace = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans Mono";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-color-emoji;
+        name = "Noto Color Emoji";
+      };
     };
   };
 
@@ -87,7 +99,6 @@
 
   # Fonts
   # fonts.packages =
-  #   [ ]
-  #   ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  #   [ ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   fonts.fontconfig.enable = true;
 }

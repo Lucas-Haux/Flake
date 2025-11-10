@@ -21,7 +21,6 @@ in
       exec-once = (import ./execOnce.nix { inherit pointer; });
 
       env = [
-        "GTK_THEME,Nordic"
         "WLR_NO_HARDWARE_CURSORS,1"
         "MOZ_ENABLE_WAYLAND=1"
         "EGL_PLATFORM=wayland"
@@ -39,8 +38,6 @@ in
         };
         border_size = 3;
         resize_on_border = true;
-        "col.active_border" = "rgba(${lib.removePrefix "#" config.colorscheme.colors.base0B}ee)";
-        "col.inactive_border" = "rgba(${lib.removePrefix "#" config.colorscheme.colors.base01}ee)";
       };
 
       dwindle = {
@@ -65,10 +62,6 @@ in
         follow_mouse_threshold = 5;
         sensitivity = -0.85;
         repeat_delay = 300;
-      };
-
-      gestures = {
-        workspace_swipe = "off";
       };
 
       ecosystem = {

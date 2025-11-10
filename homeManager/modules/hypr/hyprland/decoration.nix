@@ -23,7 +23,6 @@
       range = 20;
       offset = "0 2";
       render_power = 3;
-      color = "rgba(0000002A)";
     };
   };
 }

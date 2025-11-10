@@ -9,7 +9,6 @@ in
     enable = true;
     package = btopWithRocm;
     settings = {
-      color_theme = "nord";
       theme_background = false;
 
       presets = "proc:0:default net:0:default";

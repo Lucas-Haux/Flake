@@ -3,6 +3,7 @@
   ...
 }:
 {
+  stylix.targets.hyprpanel.enable = false;
   # idk if i need this
   home.packages = [
     pkgs.libgtop

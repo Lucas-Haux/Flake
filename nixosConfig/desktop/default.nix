@@ -112,7 +112,7 @@
     pulse.enable = true;
   };
 
-  #fonts
+  # Fonts
   fonts.packages =
     [ ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
@@ -127,6 +127,12 @@
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
+  };
+
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    polarity = "dark";
   };
 
   hardware.graphics = {
