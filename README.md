@@ -1,32 +1,16 @@
 # Desktop:
 
-| Component             | Name/Version                |
-|-----------------------|-----------------------------|
-| Distro                | NixOS                       |
-| Kernel                | 6.6.75                         |
-| Shell                 | Zsh                        |
-| Display Server        | Wayland                     |
-| Compositor (WM)       | Hyprland                    |
-| Bar                   | Waybar                      |
-| Notification          | Libnotify                   |
-| Launcher              | Rofi-Wayland                |
-| Editor                | NixVim                      |
-| Terminal              | Ghostty + Starship          |
-| Theme                 | Nord        |
-| File Browser          | Yazi               |
-| Internet Browser      | Zen                         |
-| Lock                  | Hyprlock                    |
-| Wallpaper             | Hyprpaper                   |
-## Showcase: ![image](https://github.com/user-attachments/assets/0e4f7b97-fe81-4d3f-b494-1a55de8a0e00)
+| Component             | Name               |       | Component             | Name               |
+|-----------------------|---------------------|-------|-----------------------|---------------------|
+| Distro:               | NixOS               |       | Editor:               | NixVim              |
+| Shell:                | Zsh                 |       | Terminal:             | Ghostty + Starship |
+| Display Server:       | Wayland             |       | Theme:                | Nord                |
+| Compositor (WM):      | Hyprland            |       | File Browser:         | Yazi                |
+| Bar:                  | Hyprpanel           |       | Internet Browser:     | Zen                 |
+| Launcher:             | Rofi-Wayland        |       | Lock:                 | Hyprlock            |
+| Wallpaper:            | Hyprpaper           |       | Colors:               | Stylix              |
 
+## Showcase:
 
-# Server Programs:
-- Plex
-- Jellyfin?
-- Sonarr
-- Radarr
-- Bazarr
-- Deluge
-- Sabnzbd
-- Jellyseerr
-- Syncthing
+![](https://i.imgur.com/3Of1SO4.png)
+![](https://i.imgur.com/fARNSyC.png)
