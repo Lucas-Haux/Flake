@@ -54,6 +54,7 @@ with lib;
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
     EGL_PLATFORM = "wayland";
+    OZONE_PLATFORM = "wayland";
   };
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
