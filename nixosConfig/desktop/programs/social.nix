@@ -5,10 +5,10 @@
     signal-desktop
     # cinny-desktop # matrix client
     github-desktop
-    protonmail-desktop
+    # protonmail-desktop
     hexchat # IRC client
     # jitsi-meet  # Video Conference
-    thunderbird # Email client
+    # thunderbird # Email client
     (callPackage ../../../pkgs/androidMessages { })
   ];
 }

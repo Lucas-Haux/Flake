@@ -13,8 +13,9 @@
     android-tools
     scrcpy
     fastfetch
-    davinci-resolve
-    proton-pass
+    godot
+    # davinci-resolve
+    # proton-pass
     # jellyfin-media-player
     plex-desktop
     nautilus # file manager
@@ -22,23 +23,23 @@
     obsidian # notes
     keepassxc # password manager
     brave
-    portfolio
-    tor-browser
-    chromium
-    qemu
-    quickemu
+    # portfolio
+    # tor-browser
+    # chromium
+    # qemu
+    # quickemu
     # pavucontrol # control audio
     pwvucontrol
     gparted # manage drive partions
     gimp # image editor
     xterm # for ssh support in ghostty
-    libreoffice
+    # libreoffice
     qbittorrent-enhanced
-    protonvpn-gui
+    # protonvpn-gui
     radeontop # amd gpu utilization
     ente-auth
-    zoom-us
-    obs-studio
+    # zoom-us
+    # obs-studio
   ];
   programs.steam.package = pkgs.steam.override {
     extraLibraries =
@@ -62,7 +63,7 @@
   };
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
-  programs.adb.enable = true;
-  programs.steam.enable = true;
+  # programs.adb.enable = true;
+  # programs.steam.enable = true;
   programs.wshowkeys.enable = true;
 }
