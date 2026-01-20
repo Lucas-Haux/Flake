@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    inputs.spicetify-nix.homeManagerModules.default
+    inputs.spicetify-nix.homeManagerModules.spicetify
   ];
 
   programs.spicetify =
@@ -24,7 +24,7 @@
         shuffle # shuffle+
       ];
       enabledCustomApps = with spicePkgs.apps; [
-        # ncsVisualizer
+        ncsVisualizer
       ];
       enabledSnippets = with spicePkgs.snippets; [
       ];
