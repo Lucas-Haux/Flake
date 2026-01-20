@@ -22,7 +22,6 @@
           eagerLoad = true;
         };
         biggerStreamPreview.enable = true;
-        clearURLs.enable = true;
         colorSighted.enable = true;
         copyFileContents.enable = true;
         ctrlEnterSend.enable = true;
