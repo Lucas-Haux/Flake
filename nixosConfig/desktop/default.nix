@@ -12,9 +12,9 @@
     ./programs
     ./../modules/syncthing
     ./../modules/hyprland
-    ./../modules/flatpak
+    # ./../modules/flatpak
     ./../modules/rust
-    ./../modules/gaming
+    # ./../modules/gaming
     ./../modules/cliTools
   ];
 
