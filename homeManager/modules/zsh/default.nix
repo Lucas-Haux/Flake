@@ -45,8 +45,8 @@
       cd = "z"; # replace cd with zoxide
 
       # Nixos And Home Manager Switch Aliases
-      rebuild = "nh os switch -u -H desktop ~/Flake";
-      rebuild-server = "nh os switch -u -H desktop ~/Flake";
+      rebuild = "nh os switch --commit-lock-file -j 2 --cores 4 -H desktop ~/Flake";
+      rebuild-server = "nh os switch -u --commit-lock-file -j 2 --cores 4 -H server ~/Flake";
       home = "nh home switch -c luke@desktop ~/Flake";
       home-server = "nh home switch -c luke@server ~/Flake";
 
