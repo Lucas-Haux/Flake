@@ -24,6 +24,7 @@ in
         "WLR_NO_HARDWARE_CURSORS,1"
         "MOZ_ENABLE_WAYLAND=1"
         "EGL_PLATFORM=wayland"
+        "OZONE_PLATFORM=wayland"
       ];
 
       general = {
@@ -36,7 +37,7 @@ in
           enabled = true;
           respect_gaps = true;
         };
-        border_size = 3;
+        border_size = 2;
         resize_on_border = true;
       };
 
@@ -73,7 +74,7 @@ in
         vfr = true;
         vrr = 0;
         enable_swallow = true;
-        new_window_takes_over_fullscreen = 2;
+        # new_window_takes_over_fullscreen = 2;
         middle_click_paste = 0;
         disable_hyprland_logo = true;
         animate_manual_resizes = true;

@@ -15,6 +15,7 @@
   "android-messages"
   "obsidian"
   "spotify"
+  "Proton Pass"
   "chromium --app=https://t3.chat --user-data-dir=$HOME/.config/webapps/t3_chat" # used for ai special workspace
   "zen-beta"
   # "swaync-client -df"
