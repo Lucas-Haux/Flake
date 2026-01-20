@@ -61,4 +61,10 @@
       text = "";
     }
   ];
+  prepend_conds = [
+    {
+      "if" = "dir";
+      text = "";
+    }
+  ];
 }
