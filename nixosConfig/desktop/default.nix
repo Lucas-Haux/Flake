@@ -104,7 +104,6 @@
   services.printing.enable = true; # Enable CUPS to print documents.
 
   # Sound
-  hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -135,13 +134,27 @@
     polarity = "dark";
   };
 
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      libvdpau-va-gl
-    ];
+  hardware = {
+    pulseaudio.enable = false;
+    enableRedistributableFirmware = true;
+    enableAllFirmware = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        # mesa
+        # rocmPackages.clr.icd
+        intel-media-driver # LIBVA_DRIVER_NAME=iHD
+        intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        # vaapiVdpau
+        libvdpau-va-gl
+        # libva-vdpau-driver
+      ];
+    };
   };
 
   system.stateVersion = "24.05";

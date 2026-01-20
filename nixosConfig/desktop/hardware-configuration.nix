@@ -23,7 +23,10 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    # "msr"
+  ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ ];
 
@@ -45,6 +48,7 @@
   };
 
   hardware = {
+    pulseaudio.enable = false;
     enableRedistributableFirmware = true;
     enableAllFirmware = true;
     bluetooth = {
@@ -55,7 +59,13 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
+        mesa
         rocmPackages.clr.icd
+        intel-media-driver # LIBVA_DRIVER_NAME=iHD
+        intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        # vaapiVdpau
+        libvdpau-va-gl
+        # libva-vdpau-driver
       ];
     };
   };
