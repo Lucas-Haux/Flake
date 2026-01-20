@@ -53,8 +53,9 @@
       "SUPER SHIFT, M, movetoworkspace, special:blankSpecialWorkspace"
       "SUPER, D, togglespecialworkspace, discord"
       "SUPER, O, togglespecialworkspace, obsidian"
-      "SUPER, T, togglespecialworkspace, android-messages-desktop"
+      "SUPER, T, togglespecialworkspace, androidMessages"
       "SUPER, S, togglespecialworkspace, spotify"
+      "SUPER, K, togglespecialworkspace, protonPass"
       "SUPER, A, togglespecialworkspace, AI"
     ];
 
