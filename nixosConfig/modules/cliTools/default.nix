@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     nh
+    nix-output-monitor
     pciutils
     htop
     # nvtop
