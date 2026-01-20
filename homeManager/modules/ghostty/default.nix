@@ -17,14 +17,19 @@
       window-padding-y = 4;
       window-padding-x = 4;
       window-padding-balance = true;
-      background-opacity = 0.70;
+      background-opacity = 0.75;
       theme = "Nord";
+      background = "#2E3440";
       window-decoration = "client";
       gtk-titlebar = false;
       window-theme = "ghostty";
       gtk-toolbar-style = "raised";
       resize-overlay = "never";
       window-save-state = "always";
+      shell-integration-features = [
+        "ssh-env"
+      ];
+
       keybind = "ctrl+enter=unbind";
       # see https://github.com/ghostty-org/ghostty/discussions/3501
       # font-family = "Monaspace Neon";
