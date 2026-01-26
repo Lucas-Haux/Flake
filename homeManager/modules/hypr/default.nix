@@ -6,17 +6,18 @@
   imports = [
     ./hyprland
     # ./waybar
-    ./hyprpaper
-    ./hyprlock
-    ./hyprpanel
+    # ./hyprpaper
+    # ./hyprlock
+    # ./hyprpanel
     # ./swaync
-    ./clipse
+    ./quickshell
+    # ./clipse
   ];
   home.packages = with pkgs; [
     slurp
     hyprshot
-    kooha # for video
-    wf-recorder # Screen recorder
+    gpu-screen-recorder
+    # kooha # for video
     hyprpicker # Color picker
   ];
 }

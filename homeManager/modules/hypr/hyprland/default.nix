@@ -29,8 +29,8 @@ in
 
       general = {
         layout = "dwindle";
-        gaps_in = 5;
-        gaps_out = 10;
+        gaps_in = 6;
+        gaps_out = 12;
         allow_tearing = false;
         float_gaps = 10;
         snap = {
