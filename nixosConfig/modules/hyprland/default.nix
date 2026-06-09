@@ -40,10 +40,11 @@ with lib;
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.sessionPath = [
-    pkgs.libgtop
-  ];
+  # services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  # services.xserver.desktopManager.gnome.sessionPath = [
+  # pkgs.libgtop
+  # ];
 
   # Wayland
   environment.variables = {
@@ -61,4 +62,7 @@ with lib;
   services.displayManager.autoLogin.user = "luke";
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
+
+  programs.gpu-screen-recorder.enable = true;
+
 }
