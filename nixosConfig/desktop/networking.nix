@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  config.networking = {
+  networking = {
     networkmanager.enable = true;
     firewall =
       let
