@@ -155,9 +155,22 @@
           enabled = true;
           dangerous = false;
         }
+
+        {
+          name = "Settings";
+          icon = "settings";
+          description = "Configure the shell";
+          command = [
+            "caelestia"
+            "shell"
+            "controlCenter"
+            "open"
+          ];
+          enabled = true;
+        }
       ];
       dragThreshold = 50;
-      enableDangerousActions = false;
+      enableDangerousActions = true;
       maxShown = 5;
       specialPrefix = "@";
       useFuzzy = {

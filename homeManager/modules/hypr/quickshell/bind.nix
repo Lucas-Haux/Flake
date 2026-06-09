@@ -22,8 +22,8 @@
 
       # Utilities
       "SUPER+Shift, SPACE, exec, caelestia shell gameMode toggle" # Toggle Focus/Game mode
-      "SUPER+Shift, S, global, caelestia:screenshotFreeze" # Capture region (freeze)
-      "SUPER+Shift+Alt, S, global, caelestia:screenshot" # Capture region
+      "SUPER+Shift, P, global, caelestia:screenshotFreeze" # Capture region (freeze)
+      "SUPER+Shift+Alt, P, global, caelestia:screenshot" # Capture region
       "SUPER+Alt, R, exec, caelestia record -s" # Record screen with sound
       "Ctrl+Alt, R, exec, caelestia record" # Record screen
       "SUPER+Shift+Alt, R, exec, caelestia record -r" # Record region

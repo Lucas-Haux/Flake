@@ -17,26 +17,28 @@
 
   programs.caelestia = {
     enable = true;
-    systemd = {
-      enable = true;
-      target = "graphical-session.target";
-      environment = [ ];
-    };
+    # systemd = {
+    #   enable = true;
+    #   target = "graphical-session.target";
+    #   environment = [ ];
+    # };
     settings = {
       general = {
         idle = {
+          lockBeforeSleep = true;
+          inhibitWhenAudio = true;
           timeouts = [
             {
-              timeout = 360;
+              timeout = 560;
               idleAction = "lock";
             }
             {
-              timeout = 420;
+              timeout = 720;
               idleAction = "dpms off";
               returnAction = "dpms on";
             }
             {
-              timeout = 690;
+              timeout = 1190;
               idleAction = [
                 "systemctl"
                 "suspend-then-hibernate"
@@ -47,11 +49,29 @@
         apps = {
           terminal = [ "ghostty" ];
           audio = [ "pwvucontrol" ];
+          playback = [ "" ];
+          explorer = [ "nautilus" ];
         };
       };
+      background = {
+        desktopClock = {
+          enabled = true;
+          shadow = {
+            enabled = true;
+            opacity = 0.7;
+            blur = 0.5;
+          };
+          position = "top-right";
+        };
+        visualiser = {
+          enabled = true;
+          blur = true;
+        };
+      };
+
       appearance = {
         transparency = {
-          enable = true;
+          enabled = true;
           base = 0.55;
           layers = 0.4;
         };
@@ -68,8 +88,18 @@
         useTwelveHourClock = true;
         smartScheme = true;
       };
+      dashboard = {
+        enabled = true;
+        dragThreshold = 25;
+        # mediaUpdateInterval = 10000;
+        resourceUpdateInterval = 250;
+      };
       bar = {
-        clock.showIcon = false;
+        clock = {
+          showDate = true;
+          background = true;
+          showIcon = false;
+        };
         workspaces = {
           showWindows = true;
           activeLabel = "";
@@ -129,18 +159,39 @@
           }
         ];
       };
+      lock = {
+        hideNotifs = true;
+        recolourLogo = true;
+      };
       paths.wallpaperDir = "~/Media/Pictures";
     };
     cli = {
       enable = true;
       settings = {
+        gtk.enabled = false;
       };
     };
   };
 
+  # xdg.configFile."caelestia/monitors/HDMI-A-1/shell.json".text = # json
+  #   ''
+  #     {
+  #       "background": {
+  #         "desktopClock": {
+  #             "background": {
+  #                 "enabled": false
+  #             },
+  #             "enabled": false,
+  #             "position": "top-right"
+  #         }
+  #       }
+  #     }
+  #   '';
+
   wayland.windowManager.hyprland.settings.exec-once = [
-    "uwsm app -- caelestia resizer -d"
-    "uwsm app -- caelestia shell -d"
+    # "uwsm app -- caelestia resizer -d"
+    # "uwsm app -- caelestia shell -d"
+    "caelestia scheme set -n onedark"
     "caelestia scheme set -n custom"
   ];
 }

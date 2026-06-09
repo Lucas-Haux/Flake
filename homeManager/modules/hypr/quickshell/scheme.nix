@@ -26,17 +26,17 @@ let
     surfaceContainerHighest ${colors.base02}
     onSurface ${colors.base05}
     surfaceVariant ${colors.base02}
-    onSurfaceVariant ${colors.base04}
+    onSurfaceVariant ${colors.base06}
     inverseSurface ${colors.base05}
     inverseOnSurface ${colors.base00}
-    outline ${colors.base03}
+    outline ${colors.base04}
     outlineVariant ${colors.base02}
     shadow ${colors.base00}
     scrim ${colors.base00}
     surfaceTint ${colors.base0D}
     primary ${colors.base0D}
     onPrimary ${colors.base00}
-    primaryContainer ${colors.base0D}
+    primaryContainer ${colors.base01}
     onPrimaryContainer ${colors.base05}
     inversePrimary ${colors.base0D}
     secondary ${colors.base0C}
@@ -44,7 +44,7 @@ let
     secondaryContainer ${colors.base02}
     onSecondaryContainer ${colors.base0C}
     tertiary ${colors.base0E}
-    onTertiary ${colors.base00}
+    onTertiary ${colors.base01}
     tertiaryContainer ${colors.base08}
     onTertiaryContainer ${colors.base00}
     error ${colors.base08}
@@ -103,9 +103,9 @@ let
     kneutralSelection ${colors.base0A}
     kpositive ${colors.base0B}
     kpositiveSelection ${colors.base0B}
-    text ${colors.base05}
-    subtext1 ${colors.base04}
-    subtext0 ${colors.base03}
+    text ${colors.base06}
+    subtext1 ${colors.base05}
+    subtext0 ${colors.base04}
     overlay2 ${colors.base03}
     overlay1 ${colors.base03}
     overlay0 ${colors.base02}
