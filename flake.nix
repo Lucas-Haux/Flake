@@ -3,15 +3,16 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
-    # nixpkgs-unstable = {
-    #   url = "github:nixos/nixpkgs/nixos-unstable";
-    # };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
       url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-ai-tools = {
+      url = "github:numtide/nix-ai-tools";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
@@ -27,16 +28,27 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
-    # nix-colors.url = "github:misterio77/nix-colors";
     nixvim.url = "github:Lucas-Haux/nixvim";
     nixcord.url = "github:kaylorben/nixcord";
-    ags.url = "github:Aylur/ags";
-    astal.url = "github:Aylur/astal";
     hyprpanel.url = "github:jas-singhfsu/hyprpanel";
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    caelestia-cli = {
+      url = "github:caelestia-dots/cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
+      self,
       nixpkgs,
       home-manager,
       nix-flatpak,
