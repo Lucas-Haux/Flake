@@ -63,5 +63,15 @@
       run = "plugin relative-motions 9";
       desc = "Move in relative steps";
     }
+
+    # Directory
+    {
+      on = [
+        "g"
+        "n"
+      ];
+      run = "cd \Flake";
+      desc = "Cd to E:\Flake";
+    }
   ];
 }

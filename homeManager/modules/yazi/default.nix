@@ -67,6 +67,12 @@
           rev = "a63550b2f91f0553cc545fd8081a03810bc41bc0";
           hash = "sha256-PYeR6fiWDbUMpJbTFSkM57FzmCbsB4W4IXXe25wLncg=";
         };
+        # relative-motions = pkgs.fetchFromGitHub {
+        #   owner = "boydaihungst";
+        #   repo = "relative-motions.yazi";
+        #   rev = "3c9057848c1c05e6610f139b3e59cfcd4c90512b";
+        #   hash = "sha256-5KRprYp6Z1zw/sRAAqpRyyiukLtG0gpjxPib0ykPpHw=";
+        # };
       };
 
     # plugins = with pkgs.yaziPlugins; {
@@ -93,7 +99,12 @@
     initLua = # lua
       ''
         require("starship"):setup()
-        require("relative-motions"):setup({ show_numbers="relative", show_motion = true })
+
+        require("relative-motions"):setup({
+        	show_numbers = "none",
+        	show_motion = true,
+        })
+
         -- require("yatline"):setup({
         --   theme = require("nord"):setup(),
         -- })
@@ -102,5 +113,4 @@
         }
       '';
   };
-
 }
