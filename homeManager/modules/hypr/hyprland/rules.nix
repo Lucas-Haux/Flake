@@ -13,7 +13,7 @@ in
           workspace = special:discord silent
           tile = true
           no_screen_share = true
-          opacity = 0.8 0.8 
+          # opacity = 0.8 0.8 
           border_size = 4 
           border_color = rgb(${colors.base0E})
         }
@@ -127,9 +127,9 @@ in
         "4, monitor:DP-2, default:true"
         "5, monitor:DP-2"
         "6, monitor:DP-2"
-        "7, monitor:HDMI-A-1, default:true"
-        "8, monitor:HDMI-A-1"
-        "9, monitor:HDMI-A-1"
+        "7, monitor:DP-3, default:true"
+        "8, monitor:DP-3"
+        "9, monitor:DP-3"
         "special:AI, gapsout:75"
         "special:discord, gapsout:75"
         "special:spotify, gapsout:75"
@@ -137,15 +137,15 @@ in
         "special:protonPass, gapsout:75"
       ];
 
-      windowrulev2 = [
-        "noblur,class:^()$,title:^()$" # Fixes a bug with contex menues
-        "float, title:^(Chose Files)$"
-        "float, title:^(Save As)$"
-        "float, title:^(Confirm to replace files)$"
-        "float, title:^(File Operation Progress)$"
-        "float, class:^(xdg-desktop-portal-gtk)$"
-        "float, title:^(Open)$"
-      ];
+      # windowrulev2 = [
+      #   "noblur,class:^()$,title:^()$" # Fixes a bug with contex menues
+      #   "float, title:^(Chose Files)$"
+      #   "float, title:^(Save As)$"
+      #   "float, title:^(Confirm to replace files)$"
+      #   "float, title:^(File Operation Progress)$"
+      #   "float, class:^(xdg-desktop-portal-gtk)$"
+      #   "float, title:^(Open)$"
+      # ];
     };
   };
 }

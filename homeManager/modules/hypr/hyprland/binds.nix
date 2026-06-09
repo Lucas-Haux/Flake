@@ -8,7 +8,7 @@
     bind = [
       # Navigation
       "SUPER, C, killactive," # close window
-      "SUPER, J, togglesplit," # dwindle
+      # "SUPER, J, togglesplit," # dwindle
       "SUPER, V, togglefloating,"
       "SUPER, P, pseudo," # dwindle
       "SUPER, F, fullscreen, 1"

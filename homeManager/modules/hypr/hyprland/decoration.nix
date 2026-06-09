@@ -19,7 +19,7 @@
 
     shadow = {
       enabled = true;
-      ignore_window = true;
+      # ignore_window = true;
       range = 20;
       offset = "0 2";
       render_power = 3;

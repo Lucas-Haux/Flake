@@ -16,12 +16,13 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     settings = {
 
       exec-once = (import ./execOnce.nix { inherit pointer; });
 
       env = [
-        "WLR_NO_HARDWARE_CURSORS,1"
+        "WLR_NO_HARDWARE_CURSORS,2"
         "MOZ_ENABLE_WAYLAND=1"
         "EGL_PLATFORM=wayland"
         "OZONE_PLATFORM=wayland"
@@ -42,7 +43,6 @@ in
       };
 
       dwindle = {
-        pseudotile = true;
         preserve_split = true;
       };
 
@@ -51,9 +51,9 @@ in
       };
 
       monitor = [
-        "DP-1, 1920x1080@240, 1080x505, 1"
-        "HDMI-A-1, 1920x1080@60, 3000x385, 1"
-        "DP-2, 1920x1080@60, 0x0, 1, transform,3"
+        "DP-2, 1920x1080@144, 1080x505, 1"
+        "DP-1, 1920x1080@60, 3000x385, 1"
+        "DP-3, 1920x1080@60, 0x0, 1, transform,3"
       ];
 
       input = {
@@ -61,8 +61,12 @@ in
         kb_variant = ",qwerty";
         follow_mouse = 1;
         follow_mouse_threshold = 5;
-        sensitivity = -0.85;
+        sensitivity = -4;
         repeat_delay = 300;
+      };
+
+      cursor = {
+        no_hardware_cursors = "true"; # fixes vertical monitor cursor being a black square
       };
 
       ecosystem = {
@@ -71,7 +75,6 @@ in
       };
 
       misc = {
-        vfr = true;
         vrr = 0;
         enable_swallow = true;
         # new_window_takes_over_fullscreen = 2;
