@@ -10,13 +10,18 @@
     ./hardware-configuration.nix
     ./networking.nix
     ./programs
-    ./../modules/syncthing
+    # ./../modules/syncthing # breaks things
     ./../modules/hyprland
     # ./../modules/flatpak
     ./../modules/rust
     # ./../modules/gaming
     ./../modules/cliTools
   ];
+
+  services.hardware.openrgb = {
+    enable = true;
+    startupProfile = "save";
+  };
 
   # Bootloader.
   boot.loader = {
@@ -88,12 +93,6 @@
     };
   };
 
-  # Networking
-  networking = {
-    hostName = "nixosDesktop"; # Define your hostname.
-    networkmanager.enable = true;
-  };
-
   # Internationalisation properties
   time.timeZone = "America/Los_Angeles";
   i18n = {
@@ -112,7 +111,6 @@
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
-  hardware.keyboard.qmk.enable = true;
 
   # XDG portal
   xdg.portal.enable = true;
@@ -153,29 +151,6 @@
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     polarity = "dark";
-  };
-
-  hardware = {
-    pulseaudio.enable = false;
-    enableRedistributableFirmware = true;
-    enableAllFirmware = true;
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [
-        # mesa
-        # rocmPackages.clr.icd
-        intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-        # vaapiVdpau
-        libvdpau-va-gl
-        # libva-vdpau-driver
-      ];
-    };
   };
 
   system.stateVersion = "24.05";

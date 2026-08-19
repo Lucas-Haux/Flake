@@ -46,19 +46,19 @@
   ];
 
   programs.steam.package = pkgs.steam.override {
-    extraLibraries =
-      pkgs:
-      (
-        with config.hardware.opengl;
-        if pkgs.hostPlatform.is64bit then [ package ] ++ extraPackages else [ package32 ] ++ extraPackages32
-      )
-      ++ [ pkgs.libxcrypt ];
+    # extraLibraries =
+    #   pkgs:
+    #   (
+    #     with config.hardware.opengl;
+    #     if pkgs.hostPlatform.is64bit then [ package ] ++ extraPackages else [ package32 ] ++ extraPackages32
+    #   )
+    #   ++ [ pkgs.libxcrypt ];
   };
   programs = {
     # command-not-found.enable = true;
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [
+      plugins = with pkgs; [
         thunar-archive-plugin
         thunar-volman
       ];
