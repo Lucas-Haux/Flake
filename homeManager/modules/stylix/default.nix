@@ -12,7 +12,6 @@
     targets = {
       hyprlock.enable = false;
       nixcord.enable = true;
-      hyprpanel.enable = false;
       rofi.enable = false;
       gtk.enable = true;
       zen-browser.profileNames = [ "default" ];
