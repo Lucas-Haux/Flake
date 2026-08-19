@@ -18,10 +18,11 @@
     ./../modules/ghostty
     ./../modules/spotify
     ./../modules/nixcord
-    ./../modules/rquickshare
+    # ./../modules/rquickshare
     ./../modules/zoxide
     ./../modules/btop
-    # ./../modules/stylix
+    # ./../modules/opencode
+    ./../modules/stylix
     ./../modules/zenBrowser
 
   ];
@@ -57,7 +58,7 @@
       zen-browser.profileNames = [ "default" ];
       zen-browser.enable = false;
       firefox.enable = false;
-      spicetify.enable = false;
+      spicetify.enable = true;
     };
     fonts = {
       serif = {
