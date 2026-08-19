@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  nixpkgs-stable,
   ...
 }:
 {
@@ -12,16 +13,18 @@
   environment.systemPackages = with pkgs; [
     android-tools
     scrcpy
+    git
     fastfetch
+    kitty
     godot
+    libresprite
     # davinci-resolve
     # proton-pass
     # jellyfin-media-player
     plex-desktop
     nautilus # file manager
-    spacedrive # file manager
     obsidian # notes
-    keepassxc # password manager
+    # keepassxc # password manager
     brave
     # portfolio
     # tor-browser
@@ -41,6 +44,7 @@
     # zoom-us
     # obs-studio
   ];
+
   programs.steam.package = pkgs.steam.override {
     extraLibraries =
       pkgs:
@@ -64,6 +68,7 @@
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
   # programs.adb.enable = true;
-  # programs.steam.enable = true;
+  programs.steam.enable = true;
   programs.wshowkeys.enable = true;
+  services.flatpak.enable = true;
 }
