@@ -63,14 +63,14 @@ in
       #   # foxytab
       #   # owasp-penetration-testing-kit
       # ];
-      settings = {
-        "sine.engine.auto-update" = false;
-        "zen.workspaces.continue-where-left-off" = true;
-        "zen.workspaces.natural-scroll" = true;
-        "zen.welcome-screen.seen" = true;
-        "zen.urlbar.behavior" = "float";
-        "zen.view.experimental-no-window-controls" = "true";
-      };
+      # settings = {
+      #   "sine.engine.auto-update" = false;
+      #   "zen.workspaces.continue-where-left-off" = true;
+      #   "zen.workspaces.natural-scroll" = true;
+      #   "zen.welcome-screen.seen" = true;
+      #   "zen.urlbar.behavior" = "float";
+      #   "zen.view.experimental-no-window-controls" = "true";
+      # };
       # Custom userChrome.css for UI customization
       # Reference: https://mefmobile.org/how-to-customize-firefoxs-user-interface-with-userchrome-css/
       userChrome = import ./userChrome.nix { inherit colors; };
