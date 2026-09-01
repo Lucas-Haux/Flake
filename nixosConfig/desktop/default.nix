@@ -18,9 +18,12 @@
     ./../modules/cliTools
   ];
 
-  services.hardware.openrgb = {
-    enable = true;
-    startupProfile = "save";
+  services = {
+    hardware.openrgb = {
+      enable = true;
+      startupProfile = "save";
+    };
+    blueman.enable = true;
   };
 
   # Bootloader.

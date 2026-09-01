@@ -41,6 +41,7 @@
     # protonvpn-gui
     radeontop # amd gpu utilization
     ente-auth
+    galaxy-buds-client
     # zoom-us
     # obs-studio
   ];

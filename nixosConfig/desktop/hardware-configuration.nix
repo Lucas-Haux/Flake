@@ -54,6 +54,15 @@
     bluetooth = {
       enable = true;
       powerOnBoot = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+          Experimental = true; # Enables battery level reporting & LE Audio features
+        };
+        Policy = {
+          AutoEnable = true;
+        };
+      };
     };
     graphics = {
       enable = true;
