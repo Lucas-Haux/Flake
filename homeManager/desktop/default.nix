@@ -83,11 +83,15 @@
     };
   };
 
-  xdg.userDirs = {
-    download = "${config.home.homeDirectory}/Downloads";
-    documents = "${config.home.homeDirectory}/Documents";
-    pictures = "${config.home.homeDirectory}/Media/Pictures";
-    videos = "${config.home.homeDirectory}/Media/Videos";
+  xdg = {
+    configFile."gtk-3.0/gtk.css".force = true;
+    configFile."gtk-4.0/gtk.css".force = true;
+    userDirs = {
+      download = "${config.home.homeDirectory}/Downloads";
+      documents = "${config.home.homeDirectory}/Documents";
+      pictures = "${config.home.homeDirectory}/Media/Pictures";
+      videos = "${config.home.homeDirectory}/Media/Videos";
+    };
   };
 
   programs = {
