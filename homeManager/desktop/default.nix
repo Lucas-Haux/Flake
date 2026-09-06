@@ -84,8 +84,9 @@
   };
 
   xdg = {
-    configFile."gtk-3.0/gtk.css".force = true;
-    configFile."gtk-4.0/gtk.css".force = true;
+    # forcing the gtk css will fix the rebuild error but will cause some sine mods to not work correctly when zen opens.
+    # configFile."gtk-3.0/gtk.css".force = true;
+    # configFile."gtk-4.0/gtk.css".force = true;
     userDirs = {
       download = "${config.home.homeDirectory}/Downloads";
       documents = "${config.home.homeDirectory}/Documents";
